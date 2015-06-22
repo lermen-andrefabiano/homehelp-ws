@@ -4,13 +4,13 @@
         <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
-        <dependent-module archiveName="br.com.home.help.dto-1.0.0-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/br.com.home.help.dto/br.com.home.help.dto">
+        <dependent-module archiveName="br.com.homehelp.dto-1.0.0-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/br.com.homehelp.dto/br.com.homehelp.dto">
             <dependency-type>uses</dependency-type>
         </dependent-module>
-        <dependent-module archiveName="br.com.home.help.hib-1.0.0-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/br.com.home.help.hib/br.com.home.help.hib">
+        <dependent-module archiveName="br.com.homehelp.hib-1.0.0-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/br.com.homehelp.hib/br.com.homehelp.hib">
             <dependency-type>uses</dependency-type>
         </dependent-module>
-        <dependent-module archiveName="br.com.home.help.core-1.0.0-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/br.com.home.help.core/br.com.home.help.core">
+        <dependent-module archiveName="br.com.homehelp.core-1.0.0-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/br.com.homehelp.core/br.com.homehelp.core">
             <dependency-type>uses</dependency-type>
         </dependent-module>
         <property name="context-root" value="homehelp"/>

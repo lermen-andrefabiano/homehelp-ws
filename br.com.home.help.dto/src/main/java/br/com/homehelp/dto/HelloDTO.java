@@ -1,4 +1,4 @@
-package br.com.home.help.dto;
+package br.com.homehelp.dto;
 
 import javax.xml.bind.annotation.XmlRootElement;
 
