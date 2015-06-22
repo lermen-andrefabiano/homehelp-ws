@@ -1,4 +1,4 @@
-package br.com.homehelp.web;
+package br.com.home.help.web;
 
 import javax.inject.Named;
 import javax.ws.rs.Consumes;
@@ -7,7 +7,7 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-import br.com.homehelp.dto.HelloDTO;
+import br.com.home.help.dto.HelloDTO;
 
 @Named
 @Path("hello")

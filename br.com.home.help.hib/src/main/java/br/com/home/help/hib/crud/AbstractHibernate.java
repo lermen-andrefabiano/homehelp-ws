@@ -1,4 +1,4 @@
-package br.com.homehelp.hib.crud;
+package br.com.home.help.hib.crud;
 
 import java.io.BufferedReader;
 import java.io.IOException;
