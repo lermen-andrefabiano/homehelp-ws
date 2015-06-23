@@ -30,6 +30,10 @@ public class Especialidade implements Serializable {
     public Especialidade() {
     }
 
+    public Especialidade(String descricao) {
+        this.descricao = descricao;
+    }
+
     public Long getId() {
         return id;
     }

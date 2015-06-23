@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+		http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context
+		http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:property-placeholder location="classpath:/datasource.properties"/>
+  
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="${jdbc.driver}" />
+        <property name="url" value="${jdbc.url}" />
+        <property name="username" value="${jdbc.username}" />
+        <property name="password" value="${jdbc.password}" />
+    </bean> 
+
+
+<!--   
+	<bean id="dataSource" class="oracle.jdbc.pool.OracleDataSource" destroy-method="close">
+		<property name="URL" value="${database.url}" />
+		<property name="user" value="${database.user}" />
+		<property name="password" value="${database.password}" />
+		
+		<property name="connectionCachingEnabled" value="true" />
+		<property name="connectionCacheProperties">
+			<value>
+				MinLimit = 2
+				MaxLimit = 20
+				InactivityTimeout = 1800
+				PropertyCheckInterval = 60
+				InitialLimit = 2
+				ValidateConnection = true
+			</value>
+		</property>
+	</bean>
+ -->
+
+</beans>
