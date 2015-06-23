@@ -6,6 +6,7 @@ import br.com.home.help.core.entidades.Especialidade;
 import br.com.home.help.crud.AbstractCrudHibernate;
 
 @Named
-class EspecialidadeHibernate extends AbstractCrudHibernate<Especialidade, Long> implements EspecialidadeRepository {
+class EspecialidadeHibernate 
+extends AbstractCrudHibernate<Especialidade, Long> implements EspecialidadeRepository {
 
 }
