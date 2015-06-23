@@ -12,6 +12,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
+import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -46,12 +47,12 @@ public class Agenda implements Serializable {
     @Lob
     private String observacao;
 
-    @ManyToAny(metaColumn = @Column)
+    @ManyToOne(optional= false)
     @JoinColumn(name = "chamado_id", referencedColumnName = "id", nullable = false)
     private Chamado chamado;
 
-    @ManyToAny(metaColumn = @Column)
-    @JoinColumn(name = "re_agenda_id", referencedColumnName = "id", nullable = false)
+    @ManyToOne
+    @JoinColumn(name = "re_agenda_id", referencedColumnName = "id")
     private Agenda reAgenda;
 
     public Agenda() {

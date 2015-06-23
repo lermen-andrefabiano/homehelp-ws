@@ -11,6 +11,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -42,7 +43,7 @@ public class ChamadoHistorico implements Serializable {
     @Column(nullable = false, length = 1)
     private TipoStatus status;
 
-    @ManyToAny(metaColumn = @Column)
+    @ManyToOne(optional= false)
     @JoinColumn(name = "chamado_id", referencedColumnName = "id", nullable = false)
     private Chamado chamado;
 

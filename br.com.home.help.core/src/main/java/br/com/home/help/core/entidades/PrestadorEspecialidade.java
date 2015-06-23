@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -30,11 +31,11 @@ public class PrestadorEspecialidade implements Serializable {
     @Column(nullable = false, precision = 12, scale = 2)
     private Long valorCobrado;
 
-    @ManyToAny(metaColumn = @Column)
+    @ManyToOne(optional= false)
     @JoinColumn(name = "especialidade_id", referencedColumnName = "id", nullable = false)
     private Especialidade especialidade;
 
-    @ManyToAny(metaColumn = @Column)
+    @ManyToOne(optional= false)
     @JoinColumn(name = "prestador_id", referencedColumnName = "id", nullable = false)
     private Prestador prestador;
 

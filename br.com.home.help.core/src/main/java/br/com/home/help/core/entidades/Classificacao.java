@@ -11,6 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
+import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -40,15 +41,15 @@ public class Classificacao implements Serializable {
     @Column(nullable = false)
     private String recomendacao;
 
-    @ManyToAny(metaColumn = @Column)
+    @ManyToOne(optional= false)
     @JoinColumn(name = "cliente_id", referencedColumnName = "id", nullable = false)
     private Cliente cliente;
 
-    @ManyToAny(metaColumn = @Column)
+    @ManyToOne(optional= false)
     @JoinColumn(name = "prestador_id", referencedColumnName = "id", nullable = false)
     private Prestador prestador;
 
-    @ManyToAny(metaColumn = @Column)
+    @ManyToOne(optional= false)
     @JoinColumn(name = "chamado_id", referencedColumnName = "id", nullable = false)
     private Chamado chamado;
 

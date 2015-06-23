@@ -12,6 +12,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
+import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -49,17 +50,13 @@ public class Chamado implements Serializable {
     @Column(nullable = false, length = 1)
     private TipoStatus status;
 
-    @ManyToAny(metaColumn = @Column)
+    @ManyToOne(optional= false)
     @JoinColumn(name = "cliente_id", referencedColumnName = "id", nullable = false)
     private Cliente cliente;
 
-    @ManyToAny(metaColumn = @Column)
+    @ManyToOne(optional= false)
     @JoinColumn(name = "prestador_id", referencedColumnName = "id", nullable = false)
     private Prestador prestador;
-
-    @ManyToAny(metaColumn = @Column)
-    @JoinColumn(name = "agenda_id", referencedColumnName = "id", nullable = false)
-    private Agenda agenda;
 
     public Chamado() {
     }
@@ -118,14 +115,6 @@ public class Chamado implements Serializable {
 
     public void setPrestador(Prestador prestador) {
         this.prestador = prestador;
-    }
-
-    public Agenda getAgenda() {
-        return agenda;
-    }
-
-    public void setAgenda(Agenda agenda) {
-        this.agenda = agenda;
     }
 
 }
