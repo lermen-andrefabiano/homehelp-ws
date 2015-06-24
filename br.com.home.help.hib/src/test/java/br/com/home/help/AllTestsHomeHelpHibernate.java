@@ -9,7 +9,8 @@ import org.junit.runners.Suite;
     TestClienteHibernate.class,
     TestPrestadorHibernate.class,
     TestChamadoHibernate.class,
-    TestClassificacaoHibernate.class
+    TestClassificacaoHibernate.class,
+    TestAgendaHibernate.class
 })
 public class AllTestsHomeHelpHibernate {
 }
