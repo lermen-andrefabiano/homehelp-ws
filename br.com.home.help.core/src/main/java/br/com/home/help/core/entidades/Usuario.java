@@ -16,7 +16,7 @@ import br.com.home.help.core.enuns.TipoUsuario;
 
 @Entity
 @Table(schema = "homehelp")
-public abstract class Usuario implements Serializable {
+public class Usuario implements Serializable {
 
     /**
      * This field is used to .....
