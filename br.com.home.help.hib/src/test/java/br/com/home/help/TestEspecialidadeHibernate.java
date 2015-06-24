@@ -20,7 +20,7 @@ public class TestEspecialidadeHibernate extends AbstractSpringTest {
     @Test
     public void salvar() {
         assertNotNull(this.especialidadeRep.salvar(new Especialidade("CORTE DE GRAMA")));
-        assertNotNull(this.especialidadeRep.salvar(new Especialidade("TRACA DE CHUVEIRO")));
+        assertNotNull(this.especialidadeRep.salvar(new Especialidade("TROCA DE CHUVEIRO")));
     }
 
     @Test

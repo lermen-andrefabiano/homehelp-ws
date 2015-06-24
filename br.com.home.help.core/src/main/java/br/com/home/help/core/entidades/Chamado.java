@@ -2,22 +2,30 @@ package br.com.home.help.core.entidades;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
+
+import br.com.home.help.core.enuns.TipoPrioridade;
 import br.com.home.help.core.enuns.TipoStatus;
 
 @Entity
@@ -48,15 +56,38 @@ public class Chamado implements Serializable {
     @Column(nullable = false, length = 1)
     private TipoStatus status;
 
-    @ManyToOne(optional= false)
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false, length = 1)
+    private TipoPrioridade prioridade;
+
+    @ManyToOne(optional = false)
     @JoinColumn(name = "cliente_id", referencedColumnName = "id", nullable = false)
     private Cliente cliente;
 
-    @ManyToOne(optional= false)
+    @ManyToOne(optional = false)
     @JoinColumn(name = "prestador_id", referencedColumnName = "id", nullable = false)
     private Prestador prestador;
 
+    @OneToMany(mappedBy = "chamado", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @Fetch(value = FetchMode.SUBSELECT)
+    private List<ChamadoHistorico> historicos;
+
     public Chamado() {
+    }
+
+    public Chamado(Long id) {
+        this.id = id;
+    }
+
+    public Chamado(Date data, String observacao, String descricao, TipoStatus status, TipoPrioridade prioridade, Cliente cliente,
+            Prestador prestador) {
+        this.data = data;
+        this.observacao = observacao;
+        this.descricao = descricao;
+        this.status = status;
+        this.prioridade = prioridade;
+        this.cliente = cliente;
+        this.prestador = prestador;
     }
 
     public Long getId() {
@@ -99,6 +130,14 @@ public class Chamado implements Serializable {
         this.status = status;
     }
 
+    public TipoPrioridade getPrioridade() {
+        return prioridade;
+    }
+
+    public void setPrioridade(TipoPrioridade prioridade) {
+        this.prioridade = prioridade;
+    }
+
     public Cliente getCliente() {
         return cliente;
     }
@@ -113,6 +152,14 @@ public class Chamado implements Serializable {
 
     public void setPrestador(Prestador prestador) {
         this.prestador = prestador;
+    }
+
+    public List<ChamadoHistorico> getHistoricos() {
+        return historicos;
+    }
+
+    public void setHistoricos(List<ChamadoHistorico> historicos) {
+        this.historicos = historicos;
     }
 
 }

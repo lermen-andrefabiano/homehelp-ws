@@ -17,8 +17,6 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-import org.hibernate.annotations.ManyToAny;
-
 import br.com.home.help.core.enuns.TipoStatus;
 
 @Entity
@@ -43,11 +41,17 @@ public class ChamadoHistorico implements Serializable {
     @Column(nullable = false, length = 1)
     private TipoStatus status;
 
-    @ManyToOne(optional= false)
+    @ManyToOne(optional = false)
     @JoinColumn(name = "chamado_id", referencedColumnName = "id", nullable = false)
     private Chamado chamado;
 
     public ChamadoHistorico() {
+    }
+
+    public ChamadoHistorico(Date data, TipoStatus status, Chamado chamado) {
+        this.data = data;
+        this.status = status;
+        this.chamado = chamado;
     }
 
     public Long getId() {

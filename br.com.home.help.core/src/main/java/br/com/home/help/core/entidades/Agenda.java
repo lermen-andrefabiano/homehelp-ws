@@ -18,8 +18,6 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-import org.hibernate.annotations.ManyToAny;
-
 import br.com.home.help.core.enuns.TipoStatus;
 
 @Entity
@@ -47,7 +45,7 @@ public class Agenda implements Serializable {
     @Lob
     private String observacao;
 
-    @ManyToOne(optional= false)
+    @ManyToOne(optional = false)
     @JoinColumn(name = "chamado_id", referencedColumnName = "id", nullable = false)
     private Chamado chamado;
 
@@ -56,6 +54,13 @@ public class Agenda implements Serializable {
     private Agenda reAgenda;
 
     public Agenda() {
+    }
+
+    public Agenda(Date data, TipoStatus status, String observacao, Chamado chamado) {
+        this.data = data;
+        this.status = status;
+        this.observacao = observacao;
+        this.chamado = chamado;
     }
 
     public Long getId() {

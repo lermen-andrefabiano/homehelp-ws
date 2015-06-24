@@ -15,8 +15,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
-import org.hibernate.annotations.ManyToAny;
-
 import br.com.home.help.core.enuns.TipoNota;
 
 @Entity
@@ -41,19 +39,27 @@ public class Classificacao implements Serializable {
     @Column(nullable = false)
     private String recomendacao;
 
-    @ManyToOne(optional= false)
+    @ManyToOne(optional = false)
     @JoinColumn(name = "cliente_id", referencedColumnName = "id", nullable = false)
     private Cliente cliente;
 
-    @ManyToOne(optional= false)
+    @ManyToOne(optional = false)
     @JoinColumn(name = "prestador_id", referencedColumnName = "id", nullable = false)
     private Prestador prestador;
 
-    @ManyToOne(optional= false)
+    @ManyToOne(optional = false)
     @JoinColumn(name = "chamado_id", referencedColumnName = "id", nullable = false)
     private Chamado chamado;
 
     public Classificacao() {
+    }
+
+    public Classificacao(TipoNota nota, String recomendacao, Cliente cliente, Prestador prestador, Chamado chamado) {
+        this.nota = nota;
+        this.recomendacao = recomendacao;
+        this.cliente = cliente;
+        this.prestador = prestador;
+        this.chamado = chamado;
     }
 
     public Long getId() {

@@ -5,7 +5,11 @@ import org.junit.runners.Suite;
 
 @RunWith(Suite.class)
 @Suite.SuiteClasses({
-    TestEspecialidadeHibernate.class
+    TestEspecialidadeHibernate.class,
+    TestClienteHibernate.class,
+    TestPrestadorHibernate.class,
+    TestChamadoHibernate.class,
+    TestClassificacaoHibernate.class
 })
 public class AllTestsHomeHelpHibernate {
 }

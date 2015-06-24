@@ -18,10 +18,10 @@ import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 import org.springframework.transaction.annotation.Transactional;
 
 /**
- * classe com utilidades para hibernate usando como base o HibernateDaoSupport
+ * Classe com utilidades para hibernate usando como base o HibernateDaoSupport
  * do spring
  * 
- * @author fabio.arezi
+ * @author andre.lermen
  * 
  */
 @Transactional
@@ -30,7 +30,7 @@ public abstract class AbstractHibernate extends HibernateDaoSupport {
 	/**
 	 * seta a factory do hibernate no HibernateDaoSupport
 	 * 
-	 * @author fabio.arezi
+	 * @author andre.lermen
 	 * 
 	 * @param factory
 	 */
@@ -42,7 +42,7 @@ public abstract class AbstractHibernate extends HibernateDaoSupport {
 	/**
 	 * executa a query retornando a lista tipificada
 	 * 
-	 * @author fabio.arezi
+	 * @author andre.lermen
 	 * 
 	 * @param q
 	 *            query
@@ -59,7 +59,7 @@ public abstract class AbstractHibernate extends HibernateDaoSupport {
 	/**
 	 * executa a query retornando a lista tipificada
 	 * 
-	 * @author fabio.arezi
+	 * @author andre.lermen
 	 * 
 	 * @param q
 	 *            query
@@ -84,7 +84,7 @@ public abstract class AbstractHibernate extends HibernateDaoSupport {
 	 * cria uma Query baseada em um arquivo que deve existir no mesmo pacote da
 	 * classe
 	 * 
-	 * @author fabio.arezi
+	 * @author andre.lermen
 	 * 
 	 * @param file
 	 *            nome do arquivo
@@ -100,7 +100,7 @@ public abstract class AbstractHibernate extends HibernateDaoSupport {
 	 * cria uma SQLQuery baseada em um arquivo que deve existir no mesmo pacote
 	 * da classe
 	 * 
-	 * @author fabio.arezi
+	 * @author andre.lermen
 	 * 
 	 * @param file
 	 *            nome do arquivo
@@ -116,7 +116,7 @@ public abstract class AbstractHibernate extends HibernateDaoSupport {
 	 * carrega o conteudo de um arquivo que deve existir no mesmo pacote da
 	 * classe
 	 * 
-	 * @author fabio.arezi
+	 * @author andre.lermen
 	 * 
 	 * @param file
 	 *            nome do arquivo
@@ -158,7 +158,7 @@ public abstract class AbstractHibernate extends HibernateDaoSupport {
 	 * aplica o fetch em uma lista para forçar o carregamento quando a lista é
 	 * LAZY
 	 * 
-	 * @author fabio.arezi
+	 * @author andre.lermen
 	 * 
 	 * @param lista
 	 *            lazy
@@ -173,7 +173,7 @@ public abstract class AbstractHibernate extends HibernateDaoSupport {
 	 * aplica o fetch em um objeto para forçar o carregamento quando o objeto é
 	 * LAZY
 	 * 
-	 * @author fabio.arezi
+	 * @author andre.lermen
 	 * 
 	 * @param objeto
 	 *            lazy

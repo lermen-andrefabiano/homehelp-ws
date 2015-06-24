@@ -4,10 +4,10 @@ import br.com.home.help.core.entidades.Especialidade;
 
 interface EspecialidadeRepository {
 
-    Especialidade obterPorId(Long especialidadeId);
+    Especialidade obterPorId(Long id);
 
-    Especialidade salvar(Especialidade especialidade);
+    Especialidade salvar(Especialidade obj);
 
-    void excluir(Especialidade especialidade);
+    void excluir(Especialidade obj);
 
 }

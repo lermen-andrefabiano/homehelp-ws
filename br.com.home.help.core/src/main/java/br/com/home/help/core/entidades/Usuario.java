@@ -9,6 +9,8 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -16,7 +18,8 @@ import br.com.home.help.core.enuns.TipoUsuario;
 
 @Entity
 @Table(schema = "homehelp")
-public class Usuario implements Serializable {
+@Inheritance(strategy = InheritanceType.JOINED)
+public abstract class Usuario implements Serializable {
 
     /**
      * This field is used to .....
@@ -31,6 +34,9 @@ public class Usuario implements Serializable {
     @Column(nullable = false, length = 200)
     private String nome;
 
+    @Column(nullable = false, length = 200)
+    private String alias;
+
     @Column(nullable = false, length = 30)
     private String login;
 
@@ -40,6 +46,21 @@ public class Usuario implements Serializable {
     @Enumerated(EnumType.STRING)
     @Column(nullable = false, length = 1)
     private TipoUsuario tipo;
+
+    public Usuario() {
+    }
+
+    public Usuario(Long id) {
+        this.id = id;
+    }
+
+    public Usuario(String nome, String alias, String login, String senha, TipoUsuario tipo) {
+        this.nome = nome;
+        this.alias = alias;
+        this.login = login;
+        this.senha = senha;
+        this.tipo = tipo;
+    }
 
     public Long getId() {
         return id;
@@ -51,6 +72,14 @@ public class Usuario implements Serializable {
 
     public String getNome() {
         return nome;
+    }
+
+    public String getAlias() {
+        return alias;
+    }
+
+    public void setAlias(String alias) {
+        this.alias = alias;
     }
 
     public void setNome(String nome) {

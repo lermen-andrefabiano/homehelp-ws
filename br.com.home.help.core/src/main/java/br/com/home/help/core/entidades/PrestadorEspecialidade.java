@@ -12,8 +12,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
-import org.hibernate.annotations.ManyToAny;
-
 @Entity
 @Table(schema = "homehelp")
 public class PrestadorEspecialidade implements Serializable {
@@ -31,15 +29,21 @@ public class PrestadorEspecialidade implements Serializable {
     @Column(nullable = false, precision = 12, scale = 2)
     private Long valorCobrado;
 
-    @ManyToOne(optional= false)
+    @ManyToOne(optional = false)
     @JoinColumn(name = "especialidade_id", referencedColumnName = "id", nullable = false)
     private Especialidade especialidade;
 
-    @ManyToOne(optional= false)
+    @ManyToOne(optional = false)
     @JoinColumn(name = "prestador_id", referencedColumnName = "id", nullable = false)
     private Prestador prestador;
 
     public PrestadorEspecialidade() {
+    }
+
+    public PrestadorEspecialidade(Long valorCobrado, Especialidade especialidade, Prestador prestador) {
+        this.valorCobrado = valorCobrado;
+        this.especialidade = especialidade;
+        this.prestador = prestador;
     }
 
     public Long getId() {

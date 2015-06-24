@@ -9,9 +9,9 @@ import org.hibernate.Query;
 import org.springframework.transaction.annotation.Transactional;
 
 /**
- * classe utilitaria para operações de CRUD de uma entidade específica
+ * Classe utilitaria para operações de CRUD de uma entidade específica
  * 
- * @author fabio.arezi
+ * @author andre.lermen
  * 
  * @param <E>
  *            entidade
@@ -45,7 +45,7 @@ public abstract class AbstractCrudHibernate<E, ID extends Serializable> extends
 	}
 
 	/**
-	 * salva a entidade (fazendo o merge) se o id não for encontrado na tabela,
+	 * Salva a entidade (fazendo o merge) se o id não for encontrado na tabela,
 	 * será feito o insert, senão update
 	 * 
 	 * @author andre.lermen
@@ -54,10 +54,21 @@ public abstract class AbstractCrudHibernate<E, ID extends Serializable> extends
 	 * 
 	 * @return retorna o objeto entidade salvo, no contexto de persistencia
 	 */
-	public E salvar(E entity) {
-		return (E) getHibernateTemplate().merge(entity);
-	}
+    public E salvar(E entity) {
+        return (E) getHibernateTemplate().merge(entity);
+    }
 
+    /**
+     * Persist a entidade será feito um insert
+     * 
+     * @author andre.lermen
+     * 
+     * @param entity
+     * 
+     */
+    public void persist(E entity) {
+        getHibernateTemplate().persist(entity);
+    }
 	/**
 	 * Exclui a entidade (não é necessario estar no contexto de persistencia)
 	 * bastando ter o valor do ID
@@ -77,7 +88,7 @@ public abstract class AbstractCrudHibernate<E, ID extends Serializable> extends
 	 * <Entidade>.listar se for encontrada a named query, a mesma será
 	 * executada, senão será executado o hql: from <Entidade> e
 	 * 
-	 * @author fabio.arezi
+	 * @author andre.lermen
 	 * 
 	 * @return lista de entidades
 	 */
