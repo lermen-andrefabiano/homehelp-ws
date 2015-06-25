@@ -1,5 +1,7 @@
 package br.com.home.help;
 
+import java.util.List;
+
 import javax.inject.Inject;
 import javax.inject.Named;
 
@@ -16,10 +18,10 @@ public class EspecialidadeServiceImpl implements EspecialidadeService {
     @Inject
     private EspecialidadeRepository especialidadeRep;
 
-//    @Inject
-//    public EspecialidadeServiceImpl(EspecialidadeRepository especialidadeRep) {
-//        this.especialidadeRep = especialidadeRep;
-//    }
+    // @Inject
+    // public EspecialidadeServiceImpl(EspecialidadeRepository especialidadeRep) {
+    // this.especialidadeRep = especialidadeRep;
+    // }
 
     @Override
     public Especialidade obterPorId(Long especialidadeId) {
@@ -27,14 +29,16 @@ public class EspecialidadeServiceImpl implements EspecialidadeService {
     }
 
     @Override
-    public Especialidade salvar(Especialidade especialidade) {
-        return especialidadeRep.salvar(especialidade);
+    public Especialidade salvar(String descricao) {
+        if (this.especialidadeRep.isNotEspecialidade(descricao)) {
+            return this.especialidadeRep.salvar(new Especialidade(descricao));
+        }
+        return null;
     }
 
     @Override
-    public void excluir(Long especialidadeId) {
-        Especialidade especialidade = this.obterPorId(especialidadeId);
-        this.especialidadeRep.excluir(especialidade);
+    public List<Especialidade> listar(String str) {
+        return this.especialidadeRep.listar(str);
     }
 
 }

@@ -1,5 +1,7 @@
 package br.com.home.help;
 
+import java.util.List;
+
 import br.com.home.help.core.entidades.Especialidade;
 
 /**
@@ -20,8 +22,8 @@ public interface EspecialidadeService {
 
     Especialidade obterPorId(Long especialidadeId);
 
-    Especialidade salvar(Especialidade especialidade);
-
-    void excluir(Long especialidadeId);
+    Especialidade salvar(String descricao);
+    
+    List<Especialidade> listar(String str);
 
 }
