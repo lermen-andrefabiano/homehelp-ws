@@ -3,10 +3,10 @@ package br.com.home.help;
 import javax.inject.Inject;
 import javax.inject.Named;
 
+import br.com.home.help.core.entidades.Cliente;
 import br.com.home.help.core.entidades.Especialidade;
 import br.com.home.help.core.entidades.Prestador;
 import br.com.home.help.core.entidades.PrestadorEspecialidade;
-import br.com.home.help.core.enuns.TipoUsuario;
 
 /**
  * 
@@ -20,21 +20,21 @@ public class UsuarioServiceImpl implements UsuarioService, PrestadorService {
     private ClienteRepository clienteRep;
 
     @Inject
-    private PrestadorRepository PrestadorRep;
+    private PrestadorRepository prestadorRep;
 
     @Inject
     private PrestadorEspecialidadeRepository prestadorEspecialidadeRep;
 
     @Override
-    public void login(String login, String senha, TipoUsuario tipo) {
+    public void login(String login, String senha, Boolean prestaServico) {
     }
 
     @Override
-    public void criar(String nome, String alias, String login, String senha, TipoUsuario tipo) {
-        if(tipo.equals(TipoUsuario.U)){
-            
-        }else if(tipo.equals(TipoUsuario.P)){
-            
+    public void criar(String nome, String alias, String login, String senha, Boolean prestaServico) {
+        if(prestaServico){
+            this.prestadorRep.persist(new Prestador(nome, alias, login, senha, prestaServico));
+        }else{ 
+            this.clienteRep.persist(new Cliente(nome, alias, login, senha, prestaServico));
         }
     }
 

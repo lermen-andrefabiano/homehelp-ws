@@ -6,16 +6,16 @@ public enum TipoStatus {
      * Aberto
      */
     A,
+    
+    /**
+     * Em andamento
+     */
+    E,
 
     /**
      * Fechado
      */
-    F,
-
-    /**
-     * Pendente
-     */
-    P,
+    F, 
 
     /**
      * Rejeitado

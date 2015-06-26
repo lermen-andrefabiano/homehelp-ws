@@ -7,8 +7,6 @@ import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
-import br.com.home.help.core.enuns.TipoUsuario;
-
 @Entity
 @Table(schema = "homehelp")
 public class Cliente extends Usuario {
@@ -29,8 +27,8 @@ public class Cliente extends Usuario {
         super(id);
     }
 
-    public Cliente(String nome, String alias, String login, String senha, TipoUsuario tipo) {
-        super(nome, alias, login, senha, tipo);
+    public Cliente(String nome, String alias, String login, String senha, Boolean prestaServico) {
+        super(nome, alias, login, senha, prestaServico);
     }
 
     public Usuario getUsuario() {

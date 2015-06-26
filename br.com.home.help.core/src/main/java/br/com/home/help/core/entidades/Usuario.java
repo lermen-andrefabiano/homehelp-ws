@@ -4,8 +4,6 @@ import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -13,8 +11,6 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
-
-import br.com.home.help.core.enuns.TipoUsuario;
 
 @Entity
 @Table(schema = "homehelp")
@@ -43,9 +39,8 @@ public abstract class Usuario implements Serializable {
     @Column(nullable = false, length = 30)
     private String senha;
 
-    @Enumerated(EnumType.STRING)
-    @Column(nullable = false, length = 1)
-    private TipoUsuario tipo;
+    @Column(nullable = false)
+    private Boolean prestaServico = Boolean.FALSE;
 
     public Usuario() {
     }
@@ -54,12 +49,12 @@ public abstract class Usuario implements Serializable {
         this.id = id;
     }
 
-    public Usuario(String nome, String alias, String login, String senha, TipoUsuario tipo) {
+    public Usuario(String nome, String alias, String login, String senha, Boolean prestaServico) {
         this.nome = nome;
         this.alias = alias;
         this.login = login;
         this.senha = senha;
-        this.tipo = tipo;
+        this.prestaServico = prestaServico;
     }
 
     public Long getId() {
@@ -102,12 +97,12 @@ public abstract class Usuario implements Serializable {
         this.senha = senha;
     }
 
-    public TipoUsuario getTipo() {
-        return tipo;
+    public Boolean getPrestaServico() {
+        return prestaServico;
     }
 
-    public void setTipo(TipoUsuario tipo) {
-        this.tipo = tipo;
+    public void setPrestaServico(Boolean prestaServico) {
+        this.prestaServico = prestaServico;
     }
 
 }

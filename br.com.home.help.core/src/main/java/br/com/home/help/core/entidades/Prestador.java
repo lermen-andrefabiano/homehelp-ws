@@ -14,8 +14,6 @@ import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 
-import br.com.home.help.core.enuns.TipoUsuario;
-
 @Entity
 @Table(schema = "homehelp")
 public class Prestador extends Usuario {
@@ -41,8 +39,8 @@ public class Prestador extends Usuario {
         super(id);
     }
 
-    public Prestador(String nome, String alias, String login, String senha, TipoUsuario tipo) {
-        super(nome, alias, login, senha, tipo);
+    public Prestador(String nome, String alias, String login, String senha, Boolean prestaServico) {
+        super(nome, alias, login, senha, prestaServico);
     }
 
     public Usuario getUsuario() {

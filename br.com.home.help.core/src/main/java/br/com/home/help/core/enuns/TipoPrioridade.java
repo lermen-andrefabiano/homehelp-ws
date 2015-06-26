@@ -1,11 +1,11 @@
 package br.com.home.help.core.enuns;
 
 public enum TipoPrioridade {
-    
+
     /**
-     * Muito Urgente
+     * Normal
      */
-    M,
+    N,
 
     /**
      * Urgente
@@ -13,8 +13,8 @@ public enum TipoPrioridade {
     U,
 
     /**
-     * Normal
+     * Muito Urgente
      */
-    N
+    M,
 
 }

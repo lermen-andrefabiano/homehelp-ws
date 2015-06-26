@@ -10,7 +10,6 @@ import org.junit.Test;
 import br.com.home.help.core.entidades.Especialidade;
 import br.com.home.help.core.entidades.Prestador;
 import br.com.home.help.core.entidades.PrestadorEspecialidade;
-import br.com.home.help.core.enuns.TipoUsuario;
 import br.com.home.help.test.spring.AbstractSpringTest;
 
 public class TestPrestadorHibernate extends AbstractSpringTest {
@@ -30,7 +29,7 @@ public class TestPrestadorHibernate extends AbstractSpringTest {
         p.setAlias("lermen.andre");
         p.setLogin("lermen");
         p.setSenha("123456");
-        p.setTipo(TipoUsuario.P);      
+        p.setPrestaServico(Boolean.TRUE);      
         
         List<PrestadorEspecialidade> especialidades = new ArrayList<PrestadorEspecialidade>();      
         

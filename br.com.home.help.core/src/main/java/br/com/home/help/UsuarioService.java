@@ -1,6 +1,5 @@
 package br.com.home.help;
 
-import br.com.home.help.core.enuns.TipoUsuario;
 
 
 /**
@@ -19,9 +18,9 @@ import br.com.home.help.core.enuns.TipoUsuario;
  */
 public interface UsuarioService {
 
-    void login(String login, String senha, TipoUsuario tipo);
+    void login(String login, String senha, Boolean prestaServico);
 
-    void criar(String nome, String alias, String login, String senha, TipoUsuario tipo);
+    void criar(String nome, String alias, String login, String senha, Boolean prestaServico);
     
 
 }

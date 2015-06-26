@@ -5,7 +5,6 @@ import javax.inject.Inject;
 import org.junit.Test;
 
 import br.com.home.help.core.entidades.Cliente;
-import br.com.home.help.core.enuns.TipoUsuario;
 import br.com.home.help.test.spring.AbstractSpringTest;
 
 public class TestClienteHibernate extends AbstractSpringTest {
@@ -19,16 +18,16 @@ public class TestClienteHibernate extends AbstractSpringTest {
     }
 
     @Test
-    public void salvar() {        
+    public void salvar() {
         Cliente c = new Cliente();
         c.setNome("andre fabiano lermen");
         c.setAlias("lermen.andre");
         c.setLogin("lermen");
         c.setSenha("123456");
-        c.setTipo(TipoUsuario.U);       
-        
-        this.clienteRep.persist(c);        
-             
+        c.setPrestaServico(Boolean.FALSE);
+
+        this.clienteRep.persist(c);
+
     }
 
     @Test
