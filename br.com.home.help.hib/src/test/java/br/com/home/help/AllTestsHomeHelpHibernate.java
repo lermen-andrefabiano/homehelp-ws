@@ -10,7 +10,8 @@ import org.junit.runners.Suite;
     TestPrestadorHibernate.class,
     TestChamadoHibernate.class,
     TestClassificacaoHibernate.class,
-    TestAgendaHibernate.class
+    TestAgendaHibernate.class,
+    TestChamadoService.class
 })
 public class AllTestsHomeHelpHibernate {
 }

@@ -23,8 +23,8 @@ public class TestClassificacaoHibernate extends AbstractSpringTest {
 
     @Test
     public void salvar() {
-        Classificacao c = new Classificacao(TipoNota.NOVE, "recomendo excelente serviço", new Cliente(4L), 
-                new Prestador(10L), new Chamado(1L));
+        Classificacao c = new Classificacao(TipoNota.NOVE, "recomendo excelente serviço", new Cliente(3L), 
+                new Prestador(1L), new Chamado(3L));
         this.classificaocaoRep.persist(c);
 
     }

@@ -6,6 +6,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -40,15 +41,15 @@ public class Classificacao implements Serializable {
 	@Column(nullable = false)
 	private String recomendacao;
 
-	@ManyToOne(optional = false)
+	@ManyToOne(optional = false, fetch = FetchType.LAZY)
 	@JoinColumn(name = "cliente_id", referencedColumnName = "id", nullable = false)
 	private Cliente cliente;
 
-	@ManyToOne(optional = false)
+	@ManyToOne(optional = false, fetch = FetchType.LAZY)
 	@JoinColumn(name = "prestador_id", referencedColumnName = "id", nullable = false)
 	private Prestador prestador;
 
-	@OneToOne(optional=false)
+	@OneToOne(optional=false, fetch = FetchType.LAZY)
 	private Chamado chamado;
 
 	public Classificacao() {

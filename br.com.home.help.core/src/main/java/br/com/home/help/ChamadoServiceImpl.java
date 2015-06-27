@@ -52,8 +52,14 @@ public class ChamadoServiceImpl implements ChamadoService {
 	@Override
 	public void alterar(Long chamadoId, String observacao, String descricao) {
 		Chamado c = this.chamadoRep.obterPorId(chamadoId);
-		c.setDescricao(descricao);
-		c.setObservacao(observacao);
+
+		if (descricao != null) {
+			c.setDescricao(descricao);
+		}
+
+		if (observacao != null) {
+			c.setObservacao(observacao);
+		}
 
 		c.getHistoricos().add(
 				new ChamadoHistorico(new Date(), c.getStatus(), c));

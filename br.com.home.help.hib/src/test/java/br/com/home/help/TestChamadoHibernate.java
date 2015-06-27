@@ -24,12 +24,12 @@ public class TestChamadoHibernate extends AbstractSpringTest {
     @Test
     public void obterPorId() {
         assertNotNull(this.chamadoRep.obterPorId(1L));
-    }
+    }   
 
     @Test
     public void salvar() {
         Chamado c = new Chamado(new Date(), "urgente", "chuveiro estragou", TipoStatus.A, TipoPrioridade.N, 
-                new Cliente(4L), new Prestador(10L));
+                new Cliente(3L), new Prestador(1L));
 
         List<ChamadoHistorico> historicos = new ArrayList<ChamadoHistorico>();
         historicos.add(new ChamadoHistorico(c.getData(), c.getStatus(), c));
@@ -49,4 +49,25 @@ public class TestChamadoHibernate extends AbstractSpringTest {
         }
 
     }
+    
+    @Test
+    public void listarPorPrestador() {
+    	List<Chamado> lst = this.chamadoRep.listarPorPrestador(1L);
+    	
+    	for(Chamado c : lst){
+    		log.debug(c.getDescricao());
+    	}
+    	
+    }
+    
+    @Test
+    public void listarPorCliente() {
+    	List<Chamado> lst = this.chamadoRep.listarPorCliente(3L);
+    	
+    	for(Chamado c : lst){
+    		log.debug(c.getDescricao());
+    	}
+    	
+    }
+    
 }

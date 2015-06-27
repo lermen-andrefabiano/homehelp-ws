@@ -22,7 +22,7 @@ public class TestClienteHibernate extends AbstractSpringTest {
         Cliente c = new Cliente();
         c.setNome("andre fabiano lermen");
         c.setAlias("lermen.andre");
-        c.setLogin("lermen");
+        c.setLogin("pedro");
         c.setSenha("123456");
         c.setPrestaServico(Boolean.FALSE);
 

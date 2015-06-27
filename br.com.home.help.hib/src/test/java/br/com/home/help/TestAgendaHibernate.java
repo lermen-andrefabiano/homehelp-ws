@@ -23,7 +23,7 @@ public class TestAgendaHibernate extends AbstractSpringTest {
 
 	@Test
 	public void salvar() {
-		Agenda a = new Agenda(new Date(), TipoAgenda.A, "ok", new Chamado(1L));
+		Agenda a = new Agenda(new Date(), TipoAgenda.A, "ok", new Chamado(3L));
 
 		this.agendaRep.persist(a);
 	}

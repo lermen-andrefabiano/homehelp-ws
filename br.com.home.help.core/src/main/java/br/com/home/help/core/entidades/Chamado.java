@@ -61,18 +61,18 @@ public class Chamado implements Serializable {
 	@Column(nullable = false, length = 1)
 	private TipoPrioridade prioridade;
 
-	@ManyToOne(optional = false)
+	@ManyToOne(optional = false, fetch = FetchType.LAZY)
 	@JoinColumn(name = "cliente_id", referencedColumnName = "id", nullable = false)
 	private Cliente cliente;
 
-	@ManyToOne(optional = false)
+	@ManyToOne(optional = false, fetch = FetchType.LAZY)
 	@JoinColumn(name = "prestador_id", referencedColumnName = "id", nullable = false)
 	private Prestador prestador;
 
-	@OneToOne	
+	@OneToOne(fetch = FetchType.LAZY)	
 	private Classificacao classificacao;
 
-	@OneToMany(mappedBy = "chamado", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@OneToMany(mappedBy = "chamado", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	@Fetch(value = FetchMode.SUBSELECT)
 	private List<ChamadoHistorico> historicos;
 
