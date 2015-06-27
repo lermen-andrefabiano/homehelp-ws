@@ -10,8 +10,8 @@
 	</configuration>
 
 	<mapping>
-		<class-a>br.com.wise.manager.acesso.Modulo</class-a>
-		<class-b>br.com.wise.manager.web.dto.ModuloDTO</class-b>
+		<class-a>br.com.home.help.core.entidades.Especialidade</class-a>
+		<class-b>br.com.home.help.dto.EspecialidadeDTO</class-b>
 		<field>
 			<a>id</a>
 			<b>id</b>
