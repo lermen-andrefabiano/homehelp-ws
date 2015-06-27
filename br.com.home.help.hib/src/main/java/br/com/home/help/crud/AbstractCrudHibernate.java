@@ -22,7 +22,7 @@ import org.springframework.transaction.annotation.Transactional;
 public abstract class AbstractCrudHibernate<E, ID extends Serializable> extends
 		AbstractHibernate {
     
-    public static final int MAX_RESULTS_LST = 5;
+    public static final int MAX_RESULTS_LST = 15;
 
 	private Class<E> entityClass;
 

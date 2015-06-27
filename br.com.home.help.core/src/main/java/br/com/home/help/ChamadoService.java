@@ -1,12 +1,11 @@
 package br.com.home.help;
 
 import java.util.Date;
+import java.util.List;
 
-import br.com.home.help.core.entidades.Cliente;
-import br.com.home.help.core.entidades.Prestador;
+import br.com.home.help.core.entidades.Chamado;
 import br.com.home.help.core.enuns.TipoNota;
 import br.com.home.help.core.enuns.TipoPrioridade;
-import br.com.home.help.core.enuns.TipoStatus;
 
 /**
  * 
@@ -24,13 +23,20 @@ import br.com.home.help.core.enuns.TipoStatus;
  */
 public interface ChamadoService {
 
-    boolean abrir(String observacao, String descricao, TipoPrioridade prioridade, Cliente cliente, Prestador prestador);
+	void abrir(String observacao, String descricao, TipoPrioridade prioridade,
+			Long clienteId, Long prestadorId);
 
-    boolean alterar(String observacao, String descricao, TipoStatus tipoStatus, TipoPrioridade prioridade, Cliente cliente,
-            Prestador prestador);
+	void classificar(TipoNota nota, String recomendacao, Long clienteId,
+			Long prestadorId, Long chamadoId);
 
-    boolean agendar(Date data, String observacao, Long chamadoId, TipoStatus tipoStatus);
+	void alterar(Long chamadoId, String observacao, String descricao);
 
-    void classificar(TipoNota nota, String recomendacao, Long clienteId, Long prestadorId, Long chamadoId);
+	void agendar(Long chamadoId, Date data, String observacao);
+
+	void rejeitar(Long chamadoId);
+
+	List<Chamado> listarPorCliente(Long clienteId);
+
+	List<Chamado> listarPorPrestador(Long prestadorId);
 
 }

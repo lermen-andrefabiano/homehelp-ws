@@ -30,7 +30,8 @@ class EspecialidadeHibernate extends AbstractCrudHibernate<Especialidade, Long> 
         @SuppressWarnings("unchecked")
         List<Especialidade> lst = getHibernateTemplate().getSessionFactory().getCurrentSession()
         .createCriteria(Especialidade.class)
-        .setMaxResults(MAX_RESULTS_LST).add(Restrictions.ilike("descricao", "%" + str + "%"))
+        .setMaxResults(MAX_RESULTS_LST)
+        .add(Restrictions.ilike("descricao", "%" + str + "%"))
         .list();
         return lst;
     }

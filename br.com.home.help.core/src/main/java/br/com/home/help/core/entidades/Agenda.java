@@ -18,6 +18,7 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import br.com.home.help.core.enuns.TipoAgenda;
 import br.com.home.help.core.enuns.TipoStatus;
 
 @Entity
@@ -40,7 +41,7 @@ public class Agenda implements Serializable {
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false, length = 1)
-    private TipoStatus status;
+    private TipoAgenda status;
 
     @Lob
     private String observacao;
@@ -56,7 +57,7 @@ public class Agenda implements Serializable {
     public Agenda() {
     }
 
-    public Agenda(Date data, TipoStatus status, String observacao, Chamado chamado) {
+    public Agenda(Date data, TipoAgenda status, String observacao, Chamado chamado) {
         this.data = data;
         this.status = status;
         this.observacao = observacao;
@@ -79,11 +80,11 @@ public class Agenda implements Serializable {
         this.data = data;
     }
 
-    public TipoStatus getStatus() {
+    public TipoAgenda getStatus() {
         return status;
     }
 
-    public void setStatus(TipoStatus status) {
+    public void setStatus(TipoAgenda status) {
         this.status = status;
     }
 

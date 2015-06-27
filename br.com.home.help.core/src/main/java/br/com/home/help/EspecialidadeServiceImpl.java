@@ -18,11 +18,6 @@ public class EspecialidadeServiceImpl implements EspecialidadeService {
     @Inject
     private EspecialidadeRepository especialidadeRep;
 
-    // @Inject
-    // public EspecialidadeServiceImpl(EspecialidadeRepository especialidadeRep) {
-    // this.especialidadeRep = especialidadeRep;
-    // }
-
     @Override
     public Especialidade obterPorId(Long especialidadeId) {
         return especialidadeRep.obterPorId(especialidadeId);

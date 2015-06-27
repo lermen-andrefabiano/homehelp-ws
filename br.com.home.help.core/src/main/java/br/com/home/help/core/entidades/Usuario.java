@@ -33,7 +33,7 @@ public abstract class Usuario implements Serializable {
     @Column(nullable = false, length = 200)
     private String alias;
 
-    @Column(nullable = false, length = 30)
+    @Column(nullable = false, length = 30, unique = true)
     private String login;
 
     @Column(nullable = false, length = 30)
