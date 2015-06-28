@@ -14,7 +14,7 @@ interface ChamadoRepository {
 
 	void excluir(Chamado obj);
 
-	List<Chamado> listarPorCliente(Long clienteId);
+	List<Chamado> listarPorUsuario(Long usuarioId);
 
 	List<Chamado> listarPorPrestador(Long prestadorId);
 

@@ -14,7 +14,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(schema = "homehelp")
-public class PrestadorEspecialidade implements Serializable {
+public class UsuarioEspecialidade implements Serializable {
 
     /**
      * This field is used to .....
@@ -34,16 +34,16 @@ public class PrestadorEspecialidade implements Serializable {
     private Especialidade especialidade;
 
     @ManyToOne(optional = false)
-    @JoinColumn(name = "prestador_id", referencedColumnName = "id", nullable = false)
-    private Prestador prestador;
+    @JoinColumn(name = "usuario_id", referencedColumnName = "id", nullable = false)
+    private Usuario usuario;
 
-    public PrestadorEspecialidade() {
+    public UsuarioEspecialidade() {
     }
 
-    public PrestadorEspecialidade(Long valorCobrado, Especialidade especialidade, Prestador prestador) {
+    public UsuarioEspecialidade(Long valorCobrado, Especialidade especialidade, Usuario usuario) {
         this.valorCobrado = valorCobrado;
         this.especialidade = especialidade;
-        this.prestador = prestador;
+        this.usuario = usuario;
     }
 
     public Long getId() {
@@ -70,12 +70,12 @@ public class PrestadorEspecialidade implements Serializable {
         this.especialidade = especialidade;
     }
 
-    public Prestador getPrestador() {
-        return prestador;
+    public Usuario getUsuario() {
+        return usuario;
     }
 
-    public void setPrestador(Prestador prestador) {
-        this.prestador = prestador;
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
 
 }

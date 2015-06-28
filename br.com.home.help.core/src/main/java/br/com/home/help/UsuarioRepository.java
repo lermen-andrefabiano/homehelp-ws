@@ -6,4 +6,12 @@ interface UsuarioRepository {
 
 	Usuario obterPorLogin(String login);
 
+	Usuario obterPorId(Long id);
+
+	void persist(Usuario obj);
+
+	Usuario salvar(Usuario obj);
+
+	void excluir(Usuario obj);
+
 }

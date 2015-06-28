@@ -21,6 +21,19 @@ public class TestEspecialidadeHibernate extends AbstractSpringTest {
     public void salvar() {
         assertNotNull(this.especialidadeRep.salvar(new Especialidade("CORTE DE GRAMA")));
         assertNotNull(this.especialidadeRep.salvar(new Especialidade("TROCA DE CHUVEIRO")));
+        assertNotNull(this.especialidadeRep.salvar(new Especialidade("TROCA DE TORNEIRA")));
+        assertNotNull(this.especialidadeRep.salvar(new Especialidade("INSTALAÇÃO DE REDE WI-FI")));
+        assertNotNull(this.especialidadeRep.salvar(new Especialidade("LIMPEZA DE CANOS")));
+        assertNotNull(this.especialidadeRep.salvar(new Especialidade("TROCA DE TOMADA")));
+        assertNotNull(this.especialidadeRep.salvar(new Especialidade("TROCA DE LAMPADA")));
+        assertNotNull(this.especialidadeRep.salvar(new Especialidade("FORMATAÇÃO DE COMPUTADOR")));
+        assertNotNull(this.especialidadeRep.salvar(new Especialidade("LIMPEZA DE JANELAS")));
+        assertNotNull(this.especialidadeRep.salvar(new Especialidade("LAVAGEM DE CARROS")));
+        assertNotNull(this.especialidadeRep.salvar(new Especialidade("TROCA DE OLEO")));
+        assertNotNull(this.especialidadeRep.salvar(new Especialidade("CORTE DE GRAMA")));
+        assertNotNull(this.especialidadeRep.salvar(new Especialidade("PODA DE ARVORES")));
+        assertNotNull(this.especialidadeRep.salvar(new Especialidade("LAVAGEM DE CALÇADA")));
+        
     }
 
     @Test

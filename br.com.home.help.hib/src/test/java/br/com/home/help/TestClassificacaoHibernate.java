@@ -6,8 +6,7 @@ import org.junit.Test;
 
 import br.com.home.help.core.entidades.Chamado;
 import br.com.home.help.core.entidades.Classificacao;
-import br.com.home.help.core.entidades.Cliente;
-import br.com.home.help.core.entidades.Prestador;
+import br.com.home.help.core.entidades.Usuario;
 import br.com.home.help.core.enuns.TipoNota;
 import br.com.home.help.test.spring.AbstractSpringTest;
 
@@ -23,8 +22,7 @@ public class TestClassificacaoHibernate extends AbstractSpringTest {
 
     @Test
     public void salvar() {
-        Classificacao c = new Classificacao(TipoNota.NOVE, "recomendo excelente serviço", new Cliente(3L), 
-                new Prestador(1L), new Chamado(3L));
+        Classificacao c = new Classificacao(TipoNota.NOVE, "recomendo excelente serviço", new Usuario(3L), new Usuario(1L), new Chamado(3L));
         this.classificaocaoRep.persist(c);
 
     }

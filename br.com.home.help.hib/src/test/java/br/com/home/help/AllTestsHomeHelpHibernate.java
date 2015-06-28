@@ -6,8 +6,7 @@ import org.junit.runners.Suite;
 @RunWith(Suite.class)
 @Suite.SuiteClasses({
     TestEspecialidadeHibernate.class,
-    TestClienteHibernate.class,
-    TestPrestadorHibernate.class,
+    TestUsuarioHibernate.class,   
     TestChamadoHibernate.class,
     TestClassificacaoHibernate.class,
     TestAgendaHibernate.class,

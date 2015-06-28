@@ -16,10 +16,10 @@ class ChamadoHibernate extends AbstractCrudHibernate<Chamado, Long> implements
 		ChamadoRepository {
 
 	@Override
-	public List<Chamado> listarPorCliente(Long clienteId) {
+	public List<Chamado> listarPorUsuario(Long usuarioId) {
 		Criteria c = getHibernateTemplate().getSessionFactory()
 				.getCurrentSession().createCriteria(Chamado.class);
-		c.add(Restrictions.eq("cliente.id", clienteId));
+		c.add(Restrictions.eq("usuario.id", usuarioId));
 		c.addOrder(Order.asc("status"));
 		c.setMaxResults(MAX_RESULTS_LST);
 		@SuppressWarnings("unchecked")

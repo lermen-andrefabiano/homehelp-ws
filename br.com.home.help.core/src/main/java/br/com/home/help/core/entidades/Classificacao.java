@@ -42,24 +42,24 @@ public class Classificacao implements Serializable {
 	private String recomendacao;
 
 	@ManyToOne(optional = false, fetch = FetchType.LAZY)
-	@JoinColumn(name = "cliente_id", referencedColumnName = "id", nullable = false)
-	private Cliente cliente;
+	@JoinColumn(name = "usuario_id", referencedColumnName = "id", nullable = false)
+	private Usuario usuario;
 
 	@ManyToOne(optional = false, fetch = FetchType.LAZY)
 	@JoinColumn(name = "prestador_id", referencedColumnName = "id", nullable = false)
-	private Prestador prestador;
+	private Usuario prestador;
 
-	@OneToOne(optional=false, fetch = FetchType.LAZY)
+	@OneToOne(optional = false, fetch = FetchType.LAZY)
 	private Chamado chamado;
 
 	public Classificacao() {
 	}
 
-	public Classificacao(TipoNota nota, String recomendacao, Cliente cliente,
-			Prestador prestador, Chamado chamado) {
+	public Classificacao(TipoNota nota, String recomendacao, Usuario usuario,
+			Usuario prestador, Chamado chamado) {
 		this.nota = nota;
 		this.recomendacao = recomendacao;
-		this.cliente = cliente;
+		this.usuario = usuario;
 		this.prestador = prestador;
 		this.chamado = chamado;
 	}
@@ -88,19 +88,19 @@ public class Classificacao implements Serializable {
 		this.recomendacao = recomendacao;
 	}
 
-	public Cliente getCliente() {
-		return cliente;
+	public Usuario getUsuario() {
+		return usuario;
 	}
 
-	public void setCliente(Cliente cliente) {
-		this.cliente = cliente;
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
 	}
 
-	public Prestador getPrestador() {
+	public Usuario getPrestador() {
 		return prestador;
 	}
 
-	public void setPrestador(Prestador prestador) {
+	public void setPrestador(Usuario prestador) {
 		this.prestador = prestador;
 	}
 

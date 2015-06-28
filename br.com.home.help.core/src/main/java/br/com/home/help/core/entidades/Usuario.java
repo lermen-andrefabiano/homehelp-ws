@@ -1,108 +1,126 @@
 package br.com.home.help.core.entidades;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
+
 @Entity
 @Table(schema = "homehelp")
-@Inheritance(strategy = InheritanceType.JOINED)
-public abstract class Usuario implements Serializable {
+public class Usuario implements Serializable {
 
-    /**
-     * This field is used to .....
-     */
-    private static final long serialVersionUID = 1L;
+	/**
+	 * This field is used to .....
+	 */
+	private static final long serialVersionUID = 1L;
 
-    @Id
-    @SequenceGenerator(name = "seq", allocationSize = 1, sequenceName = "homehelp.seq_usuario")
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq")
-    private Long id;
+	@Id
+	@SequenceGenerator(name = "seq", allocationSize = 1, sequenceName = "homehelp.seq_usuario")
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq")
+	private Long id;
 
-    @Column(nullable = false, length = 200)
-    private String nome;
+	@Column(nullable = false, length = 200)
+	private String nome;
 
-    @Column(nullable = false, length = 200)
-    private String alias;
+	@Column(nullable = false, length = 200)
+	private String email;
 
-    @Column(nullable = false, length = 30, unique = true)
-    private String login;
+	@Column(nullable = false, length = 30, unique = true)
+	private String login;
 
-    @Column(nullable = false, length = 30)
-    private String senha;
+	@Column(nullable = false, length = 30)
+	private String senha;
 
-    @Column(nullable = false)
-    private Boolean prestaServico = Boolean.FALSE;
+	@Column(nullable = false)
+	private Boolean prestaServico = Boolean.FALSE;
 
-    public Usuario() {
-    }
+	@OneToMany(mappedBy = "usuario", fetch = FetchType.EAGER)
+	@Fetch(FetchMode.JOIN)
+	@Cascade({ org.hibernate.annotations.CascadeType.ALL })
+	private List<UsuarioEspecialidade> especialidades;
 
-    public Usuario(Long id) {
-        this.id = id;
-    }
+	public Usuario() {
+	}
 
-    public Usuario(String nome, String alias, String login, String senha, Boolean prestaServico) {
-        this.nome = nome;
-        this.alias = alias;
-        this.login = login;
-        this.senha = senha;
-        this.prestaServico = prestaServico;
-    }
+	public Usuario(Long id) {
+		this.id = id;
+	}
 
-    public Long getId() {
-        return id;
-    }
+	public Usuario(String nome, String email, String login, String senha,
+			Boolean prestaServico) {
+		this.nome = nome;
+		this.email = email;
+		this.login = login;
+		this.senha = senha;
+		this.prestaServico = prestaServico;
+	}
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+	public Long getId() {
+		return id;
+	}
 
-    public String getNome() {
-        return nome;
-    }
+	public void setId(Long id) {
+		this.id = id;
+	}
 
-    public String getAlias() {
-        return alias;
-    }
+	public String getNome() {
+		return nome;
+	}
 
-    public void setAlias(String alias) {
-        this.alias = alias;
-    }
+	public String getEmail() {
+		return email;
+	}
 
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
+	public void setEmail(String email) {
+		this.email = email;
+	}
 
-    public String getLogin() {
-        return login;
-    }
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
 
-    public void setLogin(String login) {
-        this.login = login;
-    }
+	public String getLogin() {
+		return login;
+	}
 
-    public String getSenha() {
-        return senha;
-    }
+	public void setLogin(String login) {
+		this.login = login;
+	}
 
-    public void setSenha(String senha) {
-        this.senha = senha;
-    }
+	public String getSenha() {
+		return senha;
+	}
 
-    public Boolean getPrestaServico() {
-        return prestaServico;
-    }
+	public void setSenha(String senha) {
+		this.senha = senha;
+	}
 
-    public void setPrestaServico(Boolean prestaServico) {
-        this.prestaServico = prestaServico;
-    }
+	public Boolean getPrestaServico() {
+		return prestaServico;
+	}
+
+	public void setPrestaServico(Boolean prestaServico) {
+		this.prestaServico = prestaServico;
+	}
+
+	public List<UsuarioEspecialidade> getEspecialidades() {
+		return especialidades;
+	}
+
+	public void setEspecialidades(List<UsuarioEspecialidade> especialidades) {
+		this.especialidades = especialidades;
+	}
 
 }

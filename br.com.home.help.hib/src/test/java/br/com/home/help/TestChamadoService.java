@@ -17,12 +17,17 @@ public class TestChamadoService extends AbstractSpringTest {
 	@Inject
 	private ChamadoService chamadoService;
 
-	Long chamadoId = 5L;
+	Long chamadoId = 1L;
+	
+	Long usuarioId = 1L;
+	
+	Long presatdorId = 2L;
+	
+	Long especialidaded = 5L;
 
 	@Test
 	public void abrir() {
-		this.chamadoService.abrir("troca de torneira", "troca de torneira",
-				TipoPrioridade.M, 3L, 1L);
+		this.chamadoService.abrir("troca de torneira", "troca de torneira", TipoPrioridade.M, usuarioId, presatdorId, especialidaded);
 	}
 
 	@Test
@@ -42,12 +47,12 @@ public class TestChamadoService extends AbstractSpringTest {
 
 	@Test
 	public void classificar() {
-		this.chamadoService.classificar(TipoNota.DEZ, "recomendo", 3L, 1L, chamadoId);
+		this.chamadoService.classificar(TipoNota.DEZ, "recomendo", usuarioId, presatdorId, chamadoId);
 	}
 
 	@Test
-	public void listarPorCliente() {
-		List<Chamado> lst = this.chamadoService.listarPorCliente(3L);
+	public void listarPorUsuario() {
+		List<Chamado> lst = this.chamadoService.listarPorUsuario(usuarioId);
 
 		for (Chamado c : lst) {
 			log.debug(c.getDescricao());
@@ -57,7 +62,7 @@ public class TestChamadoService extends AbstractSpringTest {
 
 	@Test
 	public void listarPorPrestador() {
-		List<Chamado> lst = this.chamadoService.listarPorPrestador(1L);
+		List<Chamado> lst = this.chamadoService.listarPorPrestador(presatdorId);
 
 		for (Chamado c : lst) {
 			log.debug(c.getDescricao());

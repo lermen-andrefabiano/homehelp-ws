@@ -11,8 +11,8 @@ import br.com.home.help.core.entidades.Agenda;
 import br.com.home.help.core.entidades.Chamado;
 import br.com.home.help.core.entidades.ChamadoHistorico;
 import br.com.home.help.core.entidades.Classificacao;
-import br.com.home.help.core.entidades.Cliente;
-import br.com.home.help.core.entidades.Prestador;
+import br.com.home.help.core.entidades.Especialidade;
+import br.com.home.help.core.entidades.Usuario;
 import br.com.home.help.core.enuns.TipoAgenda;
 import br.com.home.help.core.enuns.TipoNota;
 import br.com.home.help.core.enuns.TipoPrioridade;
@@ -37,10 +37,11 @@ public class ChamadoServiceImpl implements ChamadoService {
 
 	@Override
 	public void abrir(String observacao, String descricao,
-			TipoPrioridade prioridade, Long clienteId, Long prestadorId) {
+			TipoPrioridade prioridade, Long usuarioId, Long prestadorId, Long especialidadeId) {
+	
 		Chamado c = new Chamado(new Date(), observacao, descricao,
-				TipoStatus.A, prioridade, new Cliente(clienteId),
-				new Prestador(prestadorId));
+				TipoStatus.A, prioridade, new Usuario(usuarioId), new Usuario(prestadorId), new Especialidade(especialidadeId));
+		
 		List<ChamadoHistorico> historicos = new ArrayList<ChamadoHistorico>();
 
 		historicos.add(new ChamadoHistorico(c.getData(), c.getStatus(), c));
@@ -72,8 +73,7 @@ public class ChamadoServiceImpl implements ChamadoService {
 	public void agendar(Long chamadoId, Date data, String observacao) {
 		Chamado c = this.chamadoRep.obterPorId(chamadoId);
 		c.setStatus(TipoStatus.E);
-		c.getHistoricos().add(
-				new ChamadoHistorico(new Date(), c.getStatus(), c));
+		c.getHistoricos().add(new ChamadoHistorico(new Date(), c.getStatus(), c));
 
 		this.chamadoRep.salvar(c);
 
@@ -93,10 +93,10 @@ public class ChamadoServiceImpl implements ChamadoService {
 	}
 
 	@Override
-	public void classificar(TipoNota nota, String recomendacao, Long clienteId,
+	public void classificar(TipoNota nota, String recomendacao, Long usuarioId,
 			Long prestadorId, Long chamadoId) {
-		Classificacao c = new Classificacao(nota, recomendacao, new Cliente(
-				clienteId), new Prestador(prestadorId), new Chamado(chamadoId));
+		
+		Classificacao c = new Classificacao(nota, recomendacao, new Usuario(usuarioId), new Usuario(prestadorId), new Chamado(chamadoId));
 
 		c = this.classificaocaoRep.salvar(c);
 
@@ -111,8 +111,8 @@ public class ChamadoServiceImpl implements ChamadoService {
 	}
 
 	@Override
-	public List<Chamado> listarPorCliente(Long clienteId) {
-		return this.chamadoRep.listarPorCliente(clienteId);
+	public List<Chamado> listarPorUsuario(Long usuarioId) {
+		return this.chamadoRep.listarPorUsuario(usuarioId);
 	}
 
 	@Override

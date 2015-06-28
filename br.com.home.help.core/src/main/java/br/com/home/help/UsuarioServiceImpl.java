@@ -3,11 +3,9 @@ package br.com.home.help;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import br.com.home.help.core.entidades.Cliente;
 import br.com.home.help.core.entidades.Especialidade;
-import br.com.home.help.core.entidades.Prestador;
-import br.com.home.help.core.entidades.PrestadorEspecialidade;
 import br.com.home.help.core.entidades.Usuario;
+import br.com.home.help.core.entidades.UsuarioEspecialidade;
 import br.com.home.help.util.HomeHelpException;
 
 /**
@@ -16,19 +14,13 @@ import br.com.home.help.util.HomeHelpException;
  * 
  */
 @Named
-public class UsuarioServiceImpl implements UsuarioService, PrestadorService {
+public class UsuarioServiceImpl implements UsuarioService {
 
 	@Inject
 	private UsuarioRepository usuarioRep;
 
 	@Inject
-	private ClienteRepository clienteRep;
-
-	@Inject
-	private PrestadorRepository prestadorRep;
-
-	@Inject
-	private PrestadorEspecialidadeRepository prestadorEspecialidadeRep;
+	private UsuarioEspecialidadeRepository usuarioEspecialidadeRep;
 
 	@Override
 	public void login(String login, String senha) throws HomeHelpException {
@@ -41,11 +33,6 @@ public class UsuarioServiceImpl implements UsuarioService, PrestadorService {
 
 		this.validaSenha(u, senha);
 
-		if (u.getPrestaServico()) {
-			Prestador p = prestadorRep.obterPorId(u.getId());
-		} else {
-			Cliente c = clienteRep.obterPorId(u.getId());
-		}
 	}
 
 	private void validaSenha(Usuario u, String senha) throws HomeHelpException {
@@ -57,21 +44,18 @@ public class UsuarioServiceImpl implements UsuarioService, PrestadorService {
 	@Override
 	public void criar(String nome, String alias, String login, String senha,
 			Boolean prestaServico) {
-		if (prestaServico) {
-			this.prestadorRep.persist(new Prestador(nome, alias, login, senha,
-					prestaServico));
-		} else {
-			this.clienteRep.persist(new Cliente(nome, alias, login, senha,
-					prestaServico));
-		}
+
+		this.usuarioRep.persist(new Usuario(nome, alias, login, senha,
+				prestaServico));
+
 	}
 
 	@Override
 	public void addEspecialidade(Long valorCobrado, Long especialidadeId,
-			Long prestadorId) {
-		this.prestadorEspecialidadeRep.persist(new PrestadorEspecialidade(
-				valorCobrado, new Especialidade(especialidadeId),
-				new Prestador(prestadorId)));
+			Long usuarioId) {
+		this.usuarioEspecialidadeRep.persist(new UsuarioEspecialidade(
+				valorCobrado, new Especialidade(especialidadeId), new Usuario(
+						usuarioId)));
 	}
 
 }

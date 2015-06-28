@@ -28,5 +28,7 @@ public interface UsuarioService {
 
     void criar(String nome, String alias, String login, String senha, Boolean prestaServico) throws HomeHelpException;
     
+    void addEspecialidade(Long valorCobrado, Long especialidadeId, Long usuarioId);
+    
 
 }

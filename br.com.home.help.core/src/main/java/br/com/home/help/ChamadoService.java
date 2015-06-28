@@ -24,9 +24,9 @@ import br.com.home.help.core.enuns.TipoPrioridade;
 public interface ChamadoService {
 
 	void abrir(String observacao, String descricao, TipoPrioridade prioridade,
-			Long clienteId, Long prestadorId);
+			Long usuarioId, Long prestadorId, Long especialidadeId);
 
-	void classificar(TipoNota nota, String recomendacao, Long clienteId,
+	void classificar(TipoNota nota, String recomendacao, Long usuarioId,
 			Long prestadorId, Long chamadoId);
 
 	void alterar(Long chamadoId, String observacao, String descricao);
@@ -35,7 +35,7 @@ public interface ChamadoService {
 
 	void rejeitar(Long chamadoId);
 
-	List<Chamado> listarPorCliente(Long clienteId);
+	List<Chamado> listarPorUsuario(Long usuarioId);
 
 	List<Chamado> listarPorPrestador(Long prestadorId);
 

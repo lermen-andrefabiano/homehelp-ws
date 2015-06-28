@@ -62,17 +62,21 @@ public class Chamado implements Serializable {
 	private TipoPrioridade prioridade;
 
 	@ManyToOne(optional = false, fetch = FetchType.LAZY)
-	@JoinColumn(name = "cliente_id", referencedColumnName = "id", nullable = false)
-	private Cliente cliente;
+	@JoinColumn(name = "especialidade_id", referencedColumnName = "id", nullable = false)
+	private Especialidade especialidade;
+
+	@ManyToOne(optional = false, fetch = FetchType.LAZY)
+	@JoinColumn(name = "usuario_id", referencedColumnName = "id", nullable = false)
+	private Usuario usuario;
 
 	@ManyToOne(optional = false, fetch = FetchType.LAZY)
 	@JoinColumn(name = "prestador_id", referencedColumnName = "id", nullable = false)
-	private Prestador prestador;
+	private Usuario prestador;
 
-	@OneToOne(fetch = FetchType.LAZY)	
+	@OneToOne(fetch = FetchType.LAZY)
 	private Classificacao classificacao;
 
-	@OneToMany(mappedBy = "chamado", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = "chamado", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@Fetch(value = FetchMode.SUBSELECT)
 	private List<ChamadoHistorico> historicos;
 
@@ -84,15 +88,16 @@ public class Chamado implements Serializable {
 	}
 
 	public Chamado(Date data, String observacao, String descricao,
-			TipoStatus status, TipoPrioridade prioridade, Cliente cliente,
-			Prestador prestador) {
+			TipoStatus status, TipoPrioridade prioridade, Usuario usuario,
+			Usuario prestador, Especialidade especialidade) {
 		this.data = data;
 		this.observacao = observacao;
 		this.descricao = descricao;
 		this.status = status;
 		this.prioridade = prioridade;
-		this.cliente = cliente;
+		this.usuario = usuario;
 		this.prestador = prestador;
+		this.especialidade = especialidade;
 	}
 
 	public Long getId() {
@@ -135,6 +140,14 @@ public class Chamado implements Serializable {
 		this.status = status;
 	}
 
+	public Especialidade getEspecialidade() {
+		return especialidade;
+	}
+
+	public void setEspecialidade(Especialidade especialidade) {
+		this.especialidade = especialidade;
+	}
+
 	public TipoPrioridade getPrioridade() {
 		return prioridade;
 	}
@@ -143,19 +156,19 @@ public class Chamado implements Serializable {
 		this.prioridade = prioridade;
 	}
 
-	public Cliente getCliente() {
-		return cliente;
+	public Usuario getUsuario() {
+		return usuario;
 	}
 
-	public void setCliente(Cliente cliente) {
-		this.cliente = cliente;
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
 	}
 
-	public Prestador getPrestador() {
+	public Usuario getPrestador() {
 		return prestador;
 	}
 
-	public void setPrestador(Prestador prestador) {
+	public void setPrestador(Usuario prestador) {
 		this.prestador = prestador;
 	}
 
