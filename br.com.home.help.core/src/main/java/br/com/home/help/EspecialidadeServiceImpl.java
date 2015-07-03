@@ -6,6 +6,7 @@ import javax.inject.Inject;
 import javax.inject.Named;
 
 import br.com.home.help.core.entidades.Especialidade;
+import br.com.home.help.core.entidades.UsuarioEspecialidade;
 
 /**
  * 
@@ -32,7 +33,7 @@ public class EspecialidadeServiceImpl implements EspecialidadeService {
     }
 
     @Override
-    public List<Especialidade> listar(String str) {
+    public List<UsuarioEspecialidade> listar(String str) {
         return this.especialidadeRep.listar(str);
     }
 

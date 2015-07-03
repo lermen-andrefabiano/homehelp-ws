@@ -3,6 +3,7 @@ package br.com.home.help;
 import java.util.List;
 
 import br.com.home.help.core.entidades.Especialidade;
+import br.com.home.help.core.entidades.UsuarioEspecialidade;
 
 /**
  * 
@@ -24,6 +25,6 @@ public interface EspecialidadeService {
 
     Especialidade salvar(String descricao);
     
-    List<Especialidade> listar(String str);
+    List<UsuarioEspecialidade> listar(String str);
 
 }

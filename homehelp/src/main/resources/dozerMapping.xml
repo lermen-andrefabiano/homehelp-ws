@@ -10,17 +10,24 @@
 	</configuration>
 
 	<mapping>
-		<class-a>br.com.home.help.core.entidades.Especialidade</class-a>
-		<class-b>br.com.home.help.dto.EspecialidadeDTO</class-b>
+		<class-a>br.com.home.help.core.entidades.UsuarioEspecialidade</class-a>
+		<class-b>br.com.home.help.dto.UsuarioEspecialidadeDTO</class-b>
 		<field>
 			<a>id</a>
 			<b>id</b>
 		</field>
 		<field>
-			<a>descricao</a>
-			<b>descricao</b>
+			<a>valorCobrado</a>
+			<b>valorCobrado</b>
 		</field>
-		<!-- <field><a>ativo</a><b>ativo</b></field> -->
+		<field>
+			<a>especialidade.descricao</a>
+			<b>especialidade</b>
+		</field>
+		<field>
+			<a>usuario.nome</a>
+			<b>usuario</b>
+		</field>
 	</mapping>
 
 </mappings> 

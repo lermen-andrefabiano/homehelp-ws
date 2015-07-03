@@ -4,6 +4,6 @@ public class UsuarioDTO {
     
     public Long id;
 
-    public String descricao;
+    public String nome;
 
 }

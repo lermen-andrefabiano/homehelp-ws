@@ -14,5 +14,6 @@
 	<import resource="applicationContext-dozer.xml" />	
 		
 	<context:component-scan base-package="br.com.home.help.web" />	
+	<context:component-scan base-package="br.com.home.help" />	
 	
 </beans>
