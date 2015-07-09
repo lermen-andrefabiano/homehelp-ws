@@ -69,7 +69,7 @@ public abstract class AbstractCrudHibernate<E, ID extends Serializable> extends
      * 
      */
     public void persist(E entity) {
-        getHibernateTemplate().persist(entity);
+        getHibernateTemplate().persist(entity);       
     }
 	/**
 	 * Exclui a entidade (não é necessario estar no contexto de persistencia)

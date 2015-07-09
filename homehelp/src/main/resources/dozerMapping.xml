@@ -21,11 +21,11 @@
 			<b>valorCobrado</b>
 		</field>
 		<field>
-			<a>especialidade.descricao</a>
+			<a>especialidade</a>
 			<b>especialidade</b>
 		</field>
 		<field>
-			<a>usuario.nome</a>
+			<a>usuario</a>
 			<b>usuario</b>
 		</field>
 	</mapping>

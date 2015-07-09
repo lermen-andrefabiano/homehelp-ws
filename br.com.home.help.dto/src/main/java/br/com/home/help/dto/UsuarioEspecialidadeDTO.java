@@ -9,9 +9,14 @@ public class UsuarioEspecialidadeDTO {
 
 	private Long valorCobrado;
 
-	private String especialidade;
+	private EspecialidadeDTO especialidade;
 
-	private String usuario;
+	private UsuarioDTO usuario;
+
+	@Override
+	public String toString() {
+		return usuario.getNome();
+	}
 
 	public Long getId() {
 		return id;
@@ -29,19 +34,19 @@ public class UsuarioEspecialidadeDTO {
 		this.valorCobrado = valorCobrado;
 	}
 
-	public String getEspecialidade() {
+	public EspecialidadeDTO getEspecialidade() {
 		return especialidade;
 	}
 
-	public void setEspecialidade(String especialidade) {
+	public void setEspecialidade(EspecialidadeDTO especialidade) {
 		this.especialidade = especialidade;
 	}
 
-	public String getUsuario() {
+	public UsuarioDTO getUsuario() {
 		return usuario;
 	}
 
-	public void setUsuario(String usuario) {
+	public void setUsuario(UsuarioDTO usuario) {
 		this.usuario = usuario;
 	}
 

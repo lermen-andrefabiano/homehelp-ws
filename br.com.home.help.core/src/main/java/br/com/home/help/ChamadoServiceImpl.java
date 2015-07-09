@@ -35,13 +35,28 @@ public class ChamadoServiceImpl implements ChamadoService {
 	@Inject
 	private ClassificaocaoRepository classificaocaoRep;
 
+	@Inject
+	private UsuarioRepository usuarioRep;
+
+	@Inject
+	private EspecialidadeRepository especialidadeRep;
+
 	@Override
 	public void abrir(String observacao, String descricao,
-			TipoPrioridade prioridade, Long usuarioId, Long prestadorId, Long especialidadeId) {
-	
+			TipoPrioridade prioridade, Long usuarioId, Long prestadorId,
+			Long especialidadeId) {
+
+		Usuario usuario = usuarioRep.obterPorId(usuarioId);
+
+		Usuario usuarioPestador = usuarioRep.obterPorId(prestadorId);
+
+		Especialidade especialidade = especialidadeRep
+				.obterPorId(especialidadeId);
+
 		Chamado c = new Chamado(new Date(), observacao, descricao,
-				TipoStatus.A, prioridade, new Usuario(usuarioId), new Usuario(prestadorId), new Especialidade(especialidadeId));
-		
+				TipoStatus.A, prioridade, usuario, usuarioPestador,
+				especialidade);
+
 		List<ChamadoHistorico> historicos = new ArrayList<ChamadoHistorico>();
 
 		historicos.add(new ChamadoHistorico(c.getData(), c.getStatus(), c));
@@ -73,7 +88,8 @@ public class ChamadoServiceImpl implements ChamadoService {
 	public void agendar(Long chamadoId, Date data, String observacao) {
 		Chamado c = this.chamadoRep.obterPorId(chamadoId);
 		c.setStatus(TipoStatus.E);
-		c.getHistoricos().add(new ChamadoHistorico(new Date(), c.getStatus(), c));
+		c.getHistoricos().add(
+				new ChamadoHistorico(new Date(), c.getStatus(), c));
 
 		this.chamadoRep.salvar(c);
 
@@ -95,8 +111,9 @@ public class ChamadoServiceImpl implements ChamadoService {
 	@Override
 	public void classificar(TipoNota nota, String recomendacao, Long usuarioId,
 			Long prestadorId, Long chamadoId) {
-		
-		Classificacao c = new Classificacao(nota, recomendacao, new Usuario(usuarioId), new Usuario(prestadorId), new Chamado(chamadoId));
+
+		Classificacao c = new Classificacao(nota, recomendacao, new Usuario(
+				usuarioId), new Usuario(prestadorId), new Chamado(chamadoId));
 
 		c = this.classificaocaoRep.salvar(c);
 
