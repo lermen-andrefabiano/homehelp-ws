@@ -109,7 +109,7 @@ public class ChamadoServiceImpl implements ChamadoService {
 	
 	@Override
 	public void notificar(Long chamadoId, String agendamento, String observacao) {		
-		if(agendamento!=null){			
+		if(agendamento!=null && !agendamento.isEmpty()){			
 			String[] agenda = agendamento.split("_");
 			
 			Calendar calendar = Calendar.getInstance();
