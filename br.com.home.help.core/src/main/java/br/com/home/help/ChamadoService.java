@@ -26,17 +26,14 @@ public interface ChamadoService {
 	void abrir(String observacao, String descricao, TipoPrioridade prioridade,
 			Long usuarioId, Long prestadorId, Long especialidadeId);
 
-	void classificar(TipoNota nota, String recomendacao, Long usuarioId,
-			Long prestadorId, Long chamadoId);
+	void classificar(TipoNota nota, String recomendacao, Long chamadoId);
 
 	void alterar(Long chamadoId, String observacao, String descricao);
 
-	void agendar(Long chamadoId, Date data, String observacao);
-
-	void rejeitar(Long chamadoId);
+	void notificar(Long chamadoId, String agendamento, String observacao);
 
 	List<Chamado> listarPorUsuario(Long usuarioId);
 
-	List<Chamado> listarPorPrestador(Long prestadorId);
+	List<Chamado> listarChamadosAbertos(Long usuarioId);
 
 }

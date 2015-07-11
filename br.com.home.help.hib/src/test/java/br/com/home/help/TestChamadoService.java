@@ -33,21 +33,11 @@ public class TestChamadoService extends AbstractSpringTest {
 	@Test
 	public void alterar() {
 		this.chamadoService.alterar(chamadoId, null, null);
-	}
-
-	@Test
-	public void agendar() {
-		this.chamadoService.agendar(chamadoId, new Date(), "agendado");
-	}
-
-	@Test
-	public void rejeitar() {
-		this.chamadoService.rejeitar(chamadoId);
-	}
+	}	
 
 	@Test
 	public void classificar() {
-		this.chamadoService.classificar(TipoNota.DEZ, "recomendo", usuarioId, presatdorId, chamadoId);
+		this.chamadoService.classificar(TipoNota.DEZ, "recomendo", chamadoId);
 	}
 
 	@Test
@@ -55,17 +45,17 @@ public class TestChamadoService extends AbstractSpringTest {
 		List<Chamado> lst = this.chamadoService.listarPorUsuario(usuarioId);
 
 		for (Chamado c : lst) {
-			log.debug(c.getDescricao());
+			log.debug(c.getId() +" "+c.getDescricao());
 		}
 
 	}
 
 	@Test
 	public void listarPorPrestador() {
-		List<Chamado> lst = this.chamadoService.listarPorPrestador(presatdorId);
+		List<Chamado> lst = this.chamadoService.listarChamadosAbertos(presatdorId);
 
 		for (Chamado c : lst) {
-			log.debug(c.getDescricao());
+			log.debug(c.getId() +" "+c.getDescricao());
 		}
 
 	}

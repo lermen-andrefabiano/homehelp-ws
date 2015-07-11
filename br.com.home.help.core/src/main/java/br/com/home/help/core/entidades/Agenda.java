@@ -43,7 +43,7 @@ public class Agenda implements Serializable {
     @Column(nullable = false, length = 1)
     private TipoAgenda status;
 
-    @Lob
+    @Column(length = 2000)
     private String observacao;
 
     @ManyToOne(optional = false)

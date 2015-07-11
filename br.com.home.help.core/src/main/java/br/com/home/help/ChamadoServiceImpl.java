@@ -1,6 +1,7 @@
 package br.com.home.help;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -84,8 +85,7 @@ public class ChamadoServiceImpl implements ChamadoService {
 
 	}
 
-	@Override
-	public void agendar(Long chamadoId, Date data, String observacao) {
+	private void agendar(Long chamadoId, Date agendamento, String observacao) {
 		Chamado c = this.chamadoRep.obterPorId(chamadoId);
 		c.setStatus(TipoStatus.E);
 		c.getHistoricos().add(
@@ -93,13 +93,12 @@ public class ChamadoServiceImpl implements ChamadoService {
 
 		this.chamadoRep.salvar(c);
 
-		Agenda a = new Agenda(data, TipoAgenda.A, observacao, c);
+		Agenda a = new Agenda(agendamento, TipoAgenda.A, observacao, c);
 
 		this.agendaRep.persist(a);
 	}
 
-	@Override
-	public void rejeitar(Long chamadoId) {
+	private void rejeitar(Long chamadoId) {
 		Chamado c = this.chamadoRep.obterPorId(chamadoId);
 		c.setStatus(TipoStatus.R);
 		c.getHistoricos().add(
@@ -107,24 +106,49 @@ public class ChamadoServiceImpl implements ChamadoService {
 
 		this.chamadoRep.salvar(c);
 	}
+	
+	@Override
+	public void notificar(Long chamadoId, String agendamento, String observacao) {		
+		if(agendamento!=null){			
+			String[] agenda = agendamento.split("_");
+			
+			Calendar calendar = Calendar.getInstance();
+			calendar.set(Calendar.DAY_OF_MONTH, Integer.valueOf(agenda[0]));
+			calendar.set(Calendar.MONTH, Integer.valueOf(agenda[1]+1));
+			calendar.set(Calendar.YEAR, Integer.valueOf(agenda[2]));
+			calendar.set(Calendar.HOUR_OF_DAY, Integer.valueOf(agenda[3]));
+			calendar.set(Calendar.MINUTE, Integer.valueOf(agenda[4]));
+			
+			this.agendar(chamadoId, calendar.getTime(), observacao);
+		}else{
+			this.rejeitar(chamadoId);
+		}
+	}
 
 	@Override
-	public void classificar(TipoNota nota, String recomendacao, Long usuarioId,
-			Long prestadorId, Long chamadoId) {
+	public void classificar(TipoNota nota, String recomendacao, Long chamadoId) {		
+		Chamado chamado = chamadoRep.obterPorId(chamadoId);
 
-		Classificacao c = new Classificacao(nota, recomendacao, new Usuario(
-				usuarioId), new Usuario(prestadorId), new Chamado(chamadoId));
+		Classificacao c = new Classificacao(nota, recomendacao, chamado.getUsuario(), chamado.getPrestador(), chamado);
 
 		c = this.classificaocaoRep.salvar(c);
 
 		Chamado ch = this.chamadoRep.obterPorId(chamadoId);
 		ch.setStatus(TipoStatus.F);
 		ch.setClassificacao(c);
-		ch.getHistoricos().add(
-				new ChamadoHistorico(new Date(), ch.getStatus(), ch));
+		ch.getHistoricos().add(new ChamadoHistorico(new Date(), ch.getStatus(), ch));
 
 		this.chamadoRep.salvar(ch);
+		
+		this.atualizarAgenda(chamadoId);
+	}
 
+	private void atualizarAgenda(Long chamadoId) {
+		Agenda a = this.agendaRep.obterPorChamdo(chamadoId);
+		if(a!=null){
+			a.setStatus(TipoAgenda.F);
+			this.agendaRep.salvar(a);
+		}		
 	}
 
 	@Override
@@ -133,8 +157,8 @@ public class ChamadoServiceImpl implements ChamadoService {
 	}
 
 	@Override
-	public List<Chamado> listarPorPrestador(Long prestadorId) {
-		return this.chamadoRep.listarPorPrestador(prestadorId);
+	public List<Chamado> listarChamadosAbertos(Long usuarioId) {
+		return this.chamadoRep.listarChamadosAbertos(usuarioId);
 	}
 
 }

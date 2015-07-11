@@ -29,5 +29,59 @@
 			<b>usuario</b>
 		</field>
 	</mapping>
+	
+	<mapping>
+		<class-a>br.com.home.help.core.entidades.Chamado</class-a>
+		<class-b>br.com.home.help.dto.ChamadoDTO</class-b>
+		<field>
+			<a>id</a>
+			<b>id</b>
+		</field>
+		<field>
+			<a>data</a>
+			<b>data</b>
+		</field>		
+		<field>
+			<a>observacao</a>
+			<b>observacao</b>
+		</field>
+		<field>
+			<a>descricao</a>
+			<b>descricao</b>
+		</field>
+		<field>
+			<a>status</a>
+			<b>status</b>
+		</field>
+		<field>
+			<a>prioridade</a>
+			<b>prioridade</b>
+		</field>		
+		<field>
+			<a>especialidade.descricao</a>
+			<b>especialidade</b>
+		</field>		
+	</mapping>
+	
+	<mapping>
+		<class-a>br.com.home.help.core.entidades.Chamado</class-a>
+		<class-b>br.com.home.help.dto.ClassificacaoDTO</class-b>
+		<field>
+			<a>id</a>
+			<b>chamadoId</b>
+		</field>		
+		<field>
+			<a>descricao</a>
+			<b>descricao</b>
+		</field>			
+		<field>
+			<a>especialidade.descricao</a>
+			<b>especialidade</b>
+		</field>	
+		<field>
+			<a>prestador.nome</a>
+			<b>prestador</b>
+		</field>		
+	</mapping>
 
 </mappings> 

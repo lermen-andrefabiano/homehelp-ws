@@ -47,7 +47,7 @@ public class Chamado implements Serializable {
 	@Column(nullable = false)
 	private Date data;
 
-	@Lob
+	@Column(length = 2000)
 	private String observacao;
 
 	@Column(nullable = false, length = 300)

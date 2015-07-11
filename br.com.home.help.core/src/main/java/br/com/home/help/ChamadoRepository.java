@@ -16,6 +16,6 @@ interface ChamadoRepository {
 
 	List<Chamado> listarPorUsuario(Long usuarioId);
 
-	List<Chamado> listarPorPrestador(Long prestadorId);
+	List<Chamado> listarChamadosAbertos(Long usuarioid);
 
 }

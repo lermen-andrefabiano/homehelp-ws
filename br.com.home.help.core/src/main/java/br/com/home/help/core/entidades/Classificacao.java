@@ -34,11 +34,10 @@ public class Classificacao implements Serializable {
 	private Long id;
 
 	@Enumerated(EnumType.STRING)
-	@Column(nullable = false, length = 5)
+	@Column(nullable = false, length = 10)
 	private TipoNota nota;
-
-	@Lob
-	@Column(nullable = false)
+	
+	@Column(nullable = false, length = 2000)
 	private String recomendacao;
 
 	@ManyToOne(optional = false, fetch = FetchType.LAZY)

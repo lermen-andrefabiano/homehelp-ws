@@ -11,5 +11,7 @@ interface AgendaRepository {
     Agenda salvar(Agenda obj);
 
     void excluir(Agenda obj);
+    
+    Agenda obterPorChamdo(Long chamadoId);    
 
 }

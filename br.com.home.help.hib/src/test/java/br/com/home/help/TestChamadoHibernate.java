@@ -51,7 +51,7 @@ public class TestChamadoHibernate extends AbstractSpringTest {
 
 	@Test
 	public void listarPorPrestador() {
-		List<Chamado> lst = this.chamadoRep.listarPorPrestador(1L);
+		List<Chamado> lst = this.chamadoRep.listarChamadosAbertos(1L);
 
 		for (Chamado c : lst) {
 			log.debug(c.getDescricao());
