@@ -36,6 +36,7 @@ class EspecialidadeHibernate extends AbstractCrudHibernate<Especialidade, Long>
 					.createAlias("especialidade", "e")
 					.createAlias("usuario", "u")
 					.setMaxResults(MAX_RESULTS_LST)
+					.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY)
 					.add(Restrictions.ilike("e.descricao", "%" + str + "%")).list();
 			return lst;
 		} catch (Exception e) {
