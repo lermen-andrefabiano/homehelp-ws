@@ -34,6 +34,7 @@ class EspecialidadeHibernate extends AbstractCrudHibernate<Especialidade, Long>
 			List<UsuarioEspecialidade> lst = getHibernateTemplate().getSessionFactory().getCurrentSession()
 					.createCriteria(UsuarioEspecialidade.class)
 					.createAlias("especialidade", "e")
+					.createAlias("usuario", "u")
 					.setMaxResults(MAX_RESULTS_LST)
 					.add(Restrictions.ilike("e.descricao", "%" + str + "%")).list();
 			return lst;

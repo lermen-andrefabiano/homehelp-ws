@@ -1,6 +1,5 @@
 package br.com.home.help;
 
-import java.util.Date;
 import java.util.List;
 
 import br.com.home.help.core.entidades.Chamado;

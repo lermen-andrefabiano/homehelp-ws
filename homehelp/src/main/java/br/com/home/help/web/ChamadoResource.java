@@ -1,5 +1,6 @@
 package br.com.home.help.web;
 
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -14,7 +15,9 @@ import javax.ws.rs.core.MediaType;
 
 import org.dozer.Mapper;
 
+import br.com.home.help.AgendaService;
 import br.com.home.help.ChamadoService;
+import br.com.home.help.core.entidades.Agenda;
 import br.com.home.help.core.entidades.Chamado;
 import br.com.home.help.core.enuns.TipoNota;
 import br.com.home.help.core.enuns.TipoPrioridade;
@@ -32,6 +35,9 @@ public class ChamadoResource extends AbstractResource {
 
 	@Inject
 	private ChamadoService chamadoService;
+	
+	@Inject
+	private AgendaService agendaService;
 
 	@Inject
 	public ChamadoResource(Mapper mapper) {
@@ -68,13 +74,20 @@ public class ChamadoResource extends AbstractResource {
 
 	@GET
 	@Path("classificacao")
-	public List<ClassificacaoDTO> classificacao(
-			@QueryParam("usuarioId") Long usuarioId) {
+	public List<ClassificacaoDTO> classificacao(@QueryParam("usuarioId") Long usuarioId) {
 		List<Chamado> lst = this.chamadoService.listarPorUsuario(usuarioId);
 		lst.add(new Chamado());
 
-		List<ClassificacaoDTO> retorno = super.mapList(lst,
-				ClassificacaoDTO.class);
+		List<ClassificacaoDTO> retorno = super.mapList(lst, ClassificacaoDTO.class);
+		
+		SimpleDateFormat dataFormatada = new SimpleDateFormat("dd/MM/yyyy HH:mm");  
+		
+		for(ClassificacaoDTO c : retorno){
+			if(c.getChamadoId()!=null){
+				Agenda a = agendaService.obterPorChamado(c.getChamadoId());				
+				c.setAgendamento(dataFormatada.format(a.getData()));
+			}		
+		}
 
 		return retorno;
 	}
