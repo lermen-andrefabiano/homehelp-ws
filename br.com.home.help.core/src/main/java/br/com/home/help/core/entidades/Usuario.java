@@ -58,8 +58,7 @@ public class Usuario implements Serializable {
 		this.id = id;
 	}
 
-	public Usuario(String nome, String email, String login, String senha,
-			Boolean prestaServico) {
+	public Usuario(String nome, String email, String login, String senha, Boolean prestaServico) {		
 		this.nome = nome;
 		this.email = email;
 		this.login = login;

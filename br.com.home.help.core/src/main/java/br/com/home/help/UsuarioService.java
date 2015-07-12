@@ -1,5 +1,6 @@
 package br.com.home.help;
 
+import br.com.home.help.core.entidades.Usuario;
 import br.com.home.help.util.HomeHelpException;
 
 
@@ -24,9 +25,9 @@ public interface UsuarioService {
 	
 	String HOME_HELP_SENHA_INVALIDA = "br.com.home.help.senha.invalida";
 
-    void login(String login, String senha) throws HomeHelpException;
+	Usuario login(String login, String senha) throws HomeHelpException;
 
-    void criar(String nome, String alias, String login, String senha, Boolean prestaServico) throws HomeHelpException;
+	Usuario criar(Long usuarioId, String nome, String email, String login, String senha, Boolean prestaServico) throws HomeHelpException;
     
     void addEspecialidade(Long valorCobrado, Long especialidadeId, Long usuarioId);
     

@@ -23,7 +23,7 @@ public class UsuarioServiceImpl implements UsuarioService {
 	private UsuarioEspecialidadeRepository usuarioEspecialidadeRep;
 
 	@Override
-	public void login(String login, String senha) throws HomeHelpException {
+	public Usuario login(String login, String senha) throws HomeHelpException {
 
 		Usuario u = usuarioRep.obterPorLogin(login);
 
@@ -32,22 +32,33 @@ public class UsuarioServiceImpl implements UsuarioService {
 		}
 
 		this.validaSenha(u, senha);
+		
+		return u;
 
 	}
 
 	private void validaSenha(Usuario u, String senha) throws HomeHelpException {
 		if (!u.getSenha().equals(senha)) {
-			throw new HomeHelpException(HOME_HELP_LOGIN_INVALIDO);
+			throw new HomeHelpException(HOME_HELP_SENHA_INVALIDA);
 		}
 	}
 
 	@Override
-	public void criar(String nome, String alias, String login, String senha,
-			Boolean prestaServico) {
-
-		this.usuarioRep.persist(new Usuario(nome, alias, login, senha,
-				prestaServico));
-
+	public Usuario criar(Long usuaroId, String nome, String email, String login, String senha, Boolean prestaServico) {
+		Usuario u = null;
+		
+		if(usuaroId!=null){
+			u = this.usuarioRep.obterPorId(usuaroId);
+			u.setEmail(email);
+			u.setNome(nome);			
+			u.setSenha(senha);
+			u.setPrestaServico(prestaServico);
+		}else{
+			u = new Usuario(nome, email, login, senha, prestaServico);
+		}		
+		
+		u = this.usuarioRep.salvar(u);		
+		return u;
 	}
 
 	@Override
