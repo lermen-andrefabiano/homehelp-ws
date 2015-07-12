@@ -40,7 +40,7 @@ public class EspecialidadeResource extends AbstractResource {
 		
 		List<UsuarioEspecialidade> lst = especialidadeService.listar(especialidade);
 		//TODO remover - isso aqui é para garantir que o json vá como array
-		lst.add(new UsuarioEspecialidade(0L, new Especialidade(), new Usuario()));
+		lst.add(new UsuarioEspecialidade(0L, new Especialidade(""), new Usuario("")));
 
 		List<UsuarioEspecialidadeDTO> retorno = super.mapList(lst, UsuarioEspecialidadeDTO.class);
 
