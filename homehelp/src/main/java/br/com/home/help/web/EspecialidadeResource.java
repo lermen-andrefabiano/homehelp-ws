@@ -39,11 +39,8 @@ public class EspecialidadeResource extends AbstractResource {
 	//http://www.portalandroid.org/comunidade/viewtopic.php?f=7&t=17465
 	@GET	
 	@Path("get")
-	public List<UsuarioEspecialidadeDTO> especialidades(@QueryParam("especialidade") String especialidade) {
-		
-		List<UsuarioEspecialidade> lst = usuarioEspecialidadeService.listar(especialidade);
-		//TODO remover - isso aqui é para garantir que o json vá como array
-		lst.add(new UsuarioEspecialidade(0L, new Especialidade(""), new Usuario("")));
+	public List<UsuarioEspecialidadeDTO> especialidades(@QueryParam("especialidade") String especialidade) {		
+		List<UsuarioEspecialidade> lst = usuarioEspecialidadeService.listar(especialidade);		
 
 		List<UsuarioEspecialidadeDTO> retorno = super.mapList(lst, UsuarioEspecialidadeDTO.class);
 
@@ -52,11 +49,8 @@ public class EspecialidadeResource extends AbstractResource {
 	
 	@GET
 	@Path("listarPorPrestador")
-	public List<UsuarioEspecialidadeDTO> listarPorPrestador(@QueryParam("prestadorId") Long prestadorId) {
-		
-		List<UsuarioEspecialidade> lst = usuarioEspecialidadeService.listarPorPrestador(prestadorId);
-		//TODO remover - isso aqui é para garantir que o json vá como array
-		lst.add(new UsuarioEspecialidade(0L, new Especialidade(""), new Usuario("")));
+	public List<UsuarioEspecialidadeDTO> listarPorPrestador(@QueryParam("prestadorId") Long prestadorId) {		
+		List<UsuarioEspecialidade> lst = usuarioEspecialidadeService.listarPorPrestador(prestadorId);	
 
 		List<UsuarioEspecialidadeDTO> retorno = super.mapList(lst, UsuarioEspecialidadeDTO.class);
 

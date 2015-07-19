@@ -50,10 +50,6 @@ public class ChamadoResource extends AbstractResource {
 			@QueryParam("prestadorId") Long prestadorId,
 			@QueryParam("especialidadeId") Long especialidadeId,
 			@QueryParam("prioridade") String prioridade, InformacaoAbrirDTO info) {
-
-		log.info(info.getDescricao());
-		log.info(info.getObservacao());
-
 		this.chamadoService.abrir(info.getObservacao(), info.getDescricao(),
 				TipoPrioridade.valueOf(prioridade), usuarioId, prestadorId,
 				especialidadeId);
@@ -64,8 +60,6 @@ public class ChamadoResource extends AbstractResource {
 	@Path("aberto")
 	public List<ChamadoDTO> aberto(@QueryParam("usuarioId") Long usuarioId) {
 		List<Chamado> lst = this.chamadoService.listarChamadosAbertos(usuarioId);
-		lst.add(new Chamado());
-
 		List<ChamadoDTO> retorno = super.mapList(lst, ChamadoDTO.class);
 
 		return retorno;
@@ -75,8 +69,6 @@ public class ChamadoResource extends AbstractResource {
 	@Path("classificacao")
 	public List<ClassificacaoDTO> classificacao(@QueryParam("usuarioId") Long usuarioId) {
 		List<Chamado> lst = this.chamadoService.listarPorUsuario(usuarioId);
-		lst.add(new Chamado());
-
 		List<ClassificacaoDTO> retorno = super.mapList(lst, ClassificacaoDTO.class);
 		
 		SimpleDateFormat dataFormatada = new SimpleDateFormat("dd/MM/yyyy HH:mm");  
