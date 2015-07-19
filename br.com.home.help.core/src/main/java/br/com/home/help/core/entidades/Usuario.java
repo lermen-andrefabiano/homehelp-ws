@@ -40,6 +40,9 @@ public class Usuario implements Serializable {
 	@Column(nullable = false, length = 30, unique = true)
 	private String login;
 
+	@Column(nullable = false, length = 300)
+	private String endereco;
+
 	@Column(nullable = false, length = 30)
 	private String senha;
 
@@ -57,16 +60,18 @@ public class Usuario implements Serializable {
 	public Usuario(Long id) {
 		this.id = id;
 	}
-	
+
 	public Usuario(String nome) {
 		this.nome = nome;
 	}
 
-	public Usuario(String nome, String email, String login, String senha, Boolean prestaServico) {		
+	public Usuario(String nome, String email, String login, String senha,
+			String endereco, Boolean prestaServico) {
 		this.nome = nome;
 		this.email = email;
 		this.login = login;
 		this.senha = senha;
+		this.endereco = endereco;
 		this.prestaServico = prestaServico;
 	}
 
@@ -100,6 +105,14 @@ public class Usuario implements Serializable {
 
 	public void setLogin(String login) {
 		this.login = login;
+	}
+
+	public String getEndereco() {
+		return endereco;
+	}
+
+	public void setEndereco(String endereco) {
+		this.endereco = endereco;
 	}
 
 	public String getSenha() {

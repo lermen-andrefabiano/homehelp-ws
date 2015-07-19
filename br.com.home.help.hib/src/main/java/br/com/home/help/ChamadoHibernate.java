@@ -37,6 +37,7 @@ class ChamadoHibernate extends AbstractCrudHibernate<Chamado, Long> implements
 		Criteria c = getHibernateTemplate().getSessionFactory()
 				.getCurrentSession().createCriteria(Chamado.class);		
 		c.createAlias("especialidade", "especialidade");
+		c.createAlias("usuario", "usuario");
 		c.add(Restrictions.eq("prestador.id", usuarioid));
 		c.add(Restrictions.eq("status", TipoStatus.A));
 		c.addOrder(Order.asc("status"));

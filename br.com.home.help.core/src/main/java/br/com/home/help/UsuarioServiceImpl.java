@@ -44,7 +44,7 @@ public class UsuarioServiceImpl implements UsuarioService {
 	}
 
 	@Override
-	public Usuario criar(Long usuaroId, String nome, String email, String login, String senha, Boolean prestaServico) {
+	public Usuario criar(Long usuaroId, String nome, String email, String login, String senha, String endereco, Boolean prestaServico) {
 		Usuario u = null;
 		
 		if(usuaroId!=null){
@@ -54,7 +54,7 @@ public class UsuarioServiceImpl implements UsuarioService {
 			u.setSenha(senha);
 			u.setPrestaServico(prestaServico);
 		}else{
-			u = new Usuario(nome, email, login, senha, prestaServico);
+			u = new Usuario(nome, email, login, senha, endereco, prestaServico);
 		}		
 		
 		u = this.usuarioRep.salvar(u);		

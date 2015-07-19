@@ -9,15 +9,15 @@ public class ChamadoDTO {
 
 	private String data;
 
-	private String observacao;
-
 	private String descricao;
 
 	private String status;
 
-	private String prioridade;
-
 	private String especialidade;
+
+	private String usuario;
+
+	private String endereco;
 
 	public Long getId() {
 		return id;
@@ -33,14 +33,6 @@ public class ChamadoDTO {
 
 	public void setData(String data) {
 		this.data = data;
-	}
-
-	public String getObservacao() {
-		return observacao;
-	}
-
-	public void setObservacao(String observacao) {
-		this.observacao = observacao;
 	}
 
 	public String getDescricao() {
@@ -59,20 +51,28 @@ public class ChamadoDTO {
 		this.status = status;
 	}
 
-	public String getPrioridade() {
-		return prioridade;
-	}
-
-	public void setPrioridade(String prioridade) {
-		this.prioridade = prioridade;
-	}
-
 	public String getEspecialidade() {
 		return especialidade;
 	}
 
 	public void setEspecialidade(String especialidade) {
 		this.especialidade = especialidade;
+	}
+
+	public String getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(String usuario) {
+		this.usuario = usuario;
+	}
+
+	public String getEndereco() {
+		return endereco;
+	}
+
+	public void setEndereco(String endereco) {
+		this.endereco = endereco;
 	}
 
 }

@@ -40,11 +40,7 @@
 		<field>
 			<a>data</a>
 			<b>data</b>
-		</field>		
-		<field>
-			<a>observacao</a>
-			<b>observacao</b>
-		</field>
+		</field>			
 		<field>
 			<a>descricao</a>
 			<b>descricao</b>
@@ -52,15 +48,19 @@
 		<field>
 			<a>status</a>
 			<b>status</b>
-		</field>
-		<field>
-			<a>prioridade</a>
-			<b>prioridade</b>
-		</field>		
+		</field>			
 		<field>
 			<a>especialidade.descricao</a>
 			<b>especialidade</b>
-		</field>		
+		</field>
+		<field>
+			<a>usuario.nome</a>
+			<b>usuario</b>
+		</field>
+		<field>
+			<a>usuario.endereco</a>
+			<b>endereco</b>
+		</field>			
 	</mapping>
 	
 	<mapping>

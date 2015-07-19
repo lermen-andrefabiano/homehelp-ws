@@ -4,7 +4,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement
 public class LoginDTO {
-	
+
 	private Long id;
 
 	private String nome;
@@ -15,14 +15,16 @@ public class LoginDTO {
 
 	private String senha;
 
+	private String endereco;
+
 	private String confirmaSenha;
 
 	private Boolean prestaServico;
-	
+
 	public Long getId() {
 		return id;
 	}
-	
+
 	public void setId(Long id) {
 		this.id = id;
 	}
@@ -57,6 +59,14 @@ public class LoginDTO {
 
 	public void setSenha(String senha) {
 		this.senha = senha;
+	}
+
+	public String getEndereco() {
+		return endereco;
+	}
+
+	public void setEndereco(String endereco) {
+		this.endereco = endereco;
 	}
 
 	public String getConfirmaSenha() {

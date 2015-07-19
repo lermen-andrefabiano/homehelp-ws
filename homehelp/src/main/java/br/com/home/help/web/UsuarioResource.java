@@ -42,6 +42,7 @@ public class UsuarioResource extends AbstractResource {
 			login.setNome(u.getNome());
 			login.setEmail(u.getEmail());
 			login.setLogin(u.getLogin());
+			login.setEndereco(u.getEndereco());
 			login.setPrestaServico(u.getPrestaServico());
 		} catch (HomeHelpException e) {
 		}		
@@ -53,12 +54,19 @@ public class UsuarioResource extends AbstractResource {
 	@Path("criar")
 	public LoginDTO criar(LoginDTO login) {
 		try {
-			Usuario u = usuarioService.criar(login.getId(), login.getNome(), login.getEmail(), login.getLogin(), login.getSenha(), login.getPrestaServico());
+			Usuario u = usuarioService.criar(login.getId(), 
+					login.getNome(), 
+					login.getEmail(), 
+					login.getLogin(), 
+					login.getSenha(), 
+					login.getEndereco(), 
+					login.getPrestaServico());
 			
 			login.setSenha(null);
 			login.setConfirmaSenha(null);
 			login.setId(u.getId());
 			login.setNome(u.getNome());
+			login.setEndereco(u.getEndereco());
 			login.setEmail(u.getEmail());
 			login.setLogin(u.getLogin());
 			login.setPrestaServico(u.getPrestaServico());			

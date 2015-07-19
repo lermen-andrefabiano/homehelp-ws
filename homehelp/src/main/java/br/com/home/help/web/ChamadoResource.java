@@ -63,8 +63,7 @@ public class ChamadoResource extends AbstractResource {
 	@GET
 	@Path("aberto")
 	public List<ChamadoDTO> aberto(@QueryParam("usuarioId") Long usuarioId) {
-		List<Chamado> lst = this.chamadoService
-				.listarChamadosAbertos(usuarioId);
+		List<Chamado> lst = this.chamadoService.listarChamadosAbertos(usuarioId);
 		lst.add(new Chamado());
 
 		List<ChamadoDTO> retorno = super.mapList(lst, ChamadoDTO.class);
