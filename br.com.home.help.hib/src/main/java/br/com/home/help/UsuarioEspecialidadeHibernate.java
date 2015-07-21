@@ -5,7 +5,6 @@ import java.util.List;
 import javax.inject.Named;
 
 import org.hibernate.Criteria;
-import org.hibernate.criterion.Criterion;
 import org.hibernate.criterion.Restrictions;
 
 import br.com.home.help.core.entidades.UsuarioEspecialidade;

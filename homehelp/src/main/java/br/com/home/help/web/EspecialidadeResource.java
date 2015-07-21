@@ -16,8 +16,6 @@ import javax.ws.rs.core.Response.ResponseBuilder;
 import org.dozer.Mapper;
 
 import br.com.home.help.UsuarioEspecialidadeService;
-import br.com.home.help.core.entidades.Especialidade;
-import br.com.home.help.core.entidades.Usuario;
 import br.com.home.help.core.entidades.UsuarioEspecialidade;
 import br.com.home.help.dto.UsuarioEspecialidadeDTO;
 
