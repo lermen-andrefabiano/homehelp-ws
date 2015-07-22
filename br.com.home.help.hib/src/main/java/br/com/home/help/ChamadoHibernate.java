@@ -42,6 +42,7 @@ class ChamadoHibernate extends AbstractCrudHibernate<Chamado, Long> implements
 		c.add(Restrictions.eq("status", TipoStatus.A));
 		c.addOrder(Order.asc("status"));
 		c.setMaxResults(MAX_RESULTS_LST);
+		c.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);
 		@SuppressWarnings("unchecked")
 		List<Chamado> lst = c.list();
 		return lst;
