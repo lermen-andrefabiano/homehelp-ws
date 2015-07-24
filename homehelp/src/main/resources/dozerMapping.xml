@@ -5,7 +5,7 @@
 
 	<configuration>
 		<stop-on-errors>true</stop-on-errors>
-		<date-format>MM/dd/yyyy HH:mm</date-format>
+		<date-format>dd/MM/yyyy HH:mm</date-format>
 		<wildcard>true</wildcard>
 	</configuration>
 

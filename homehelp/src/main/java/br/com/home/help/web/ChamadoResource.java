@@ -1,6 +1,7 @@
 package br.com.home.help.web;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -59,9 +60,8 @@ public class ChamadoResource extends AbstractResource {
 	@GET
 	@Path("aberto")
 	public List<ChamadoDTO> aberto(@QueryParam("usuarioId") Long usuarioId) {
-		List<Chamado> lst = this.chamadoService.listarChamadosAbertos(usuarioId);
+		List<Chamado> lst = this.chamadoService.listarChamadosAbertos(usuarioId);		
 		List<ChamadoDTO> retorno = super.mapList(lst, ChamadoDTO.class);
-
 		return retorno;
 	}
 
