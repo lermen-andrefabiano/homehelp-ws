@@ -1,7 +1,6 @@
 package br.com.home.help.web;
 
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -46,28 +45,25 @@ public class ChamadoResource extends AbstractResource {
 	}
 
 	@POST
-	@Path("abrir")
-	public void abrir(@QueryParam("usuarioId") Long usuarioId,
-			@QueryParam("prestadorId") Long prestadorId,
-			@QueryParam("especialidadeId") Long especialidadeId,
-			@QueryParam("prioridade") String prioridade, InformacaoAbrirDTO info) {
-		this.chamadoService.abrir(info.getObservacao(), info.getDescricao(),
-				TipoPrioridade.valueOf(prioridade), usuarioId, prestadorId,
-				especialidadeId);
-
+	@Path("abrir") // abrir um chamdo
+	public void abrir(@QueryParam("usuarioId") Long usuarioId, @QueryParam("prestadorId") Long prestadorId,
+			@QueryParam("especialidadeId") Long especialidadeId, @QueryParam("prioridade") String prioridade, 
+			InformacaoAbrirDTO info) {
+		this.chamadoService.abrir(info.getObservacao(), info.getDescricao(), TipoPrioridade.valueOf(prioridade), 
+				usuarioId, prestadorId,	especialidadeId);
 	}
 
 	@GET
-	@Path("aberto")
-	public List<ChamadoDTO> aberto(@QueryParam("usuarioId") Long usuarioId) {
+	@Path("notificacoes") // tela de notificação
+	public List<ChamadoDTO> notificacoes(@QueryParam("usuarioId") Long usuarioId) {
 		List<Chamado> lst = this.chamadoService.listarChamadosAbertos(usuarioId);		
 		List<ChamadoDTO> retorno = super.mapList(lst, ChamadoDTO.class);
 		return retorno;
 	}
 
 	@GET
-	@Path("classificacao")
-	public List<ClassificacaoDTO> classificacao(@QueryParam("usuarioId") Long usuarioId) {
+	@Path("classificacoes") // tela de classificação
+	public List<ClassificacaoDTO> classificacoes(@QueryParam("usuarioId") Long usuarioId) {
 		List<Chamado> lst = this.chamadoService.listarPorUsuario(usuarioId);
 		List<ClassificacaoDTO> retorno = super.mapList(lst, ClassificacaoDTO.class);
 		
@@ -84,20 +80,17 @@ public class ChamadoResource extends AbstractResource {
 	}
 
 	@POST
-	@Path("notificar")
-	public void notificar(@QueryParam("chamadoId") Long chamadoId,
+	@Path("agendar") // agendar
+	public void agendar(@QueryParam("chamadoId") Long chamadoId,
 			InformacaoNotificarDTO info) {
-		this.chamadoService.notificar(chamadoId, info.getAgendamento(),
-				info.getObservacao());
+		this.chamadoService.notificar(chamadoId, info.getAgendamento(),info.getObservacao());
 	}
 
 	@POST
-	@Path("classificar")
-	public void classificar(@QueryParam("nota") String nota,
-			@QueryParam("chamadoId") Long chamadoId,
+	@Path("classificar") // classificação
+	public void classificar(@QueryParam("nota") String nota, @QueryParam("chamadoId") Long chamadoId, 
 			InformacaoClassificarDTO info) {
-		this.chamadoService.classificar(TipoNota.valueOf(nota),
-				info.getRecomendacao(), chamadoId);
+		this.chamadoService.classificar(TipoNota.valueOf(nota),	info.getRecomendacao(), chamadoId);
 	}
 
 }
