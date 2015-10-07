@@ -21,6 +21,11 @@ public class UsuarioServiceImpl implements UsuarioService {
 
 	@Inject
 	private UsuarioEspecialidadeRepository usuarioEspecialidadeRep;
+	
+	@Override
+	public Usuario obterPorId(Long id) {
+		return usuarioRep.obterPorId(id);
+	}	
 
 	@Override
 	public Usuario login(String login, String senha) throws HomeHelpException {

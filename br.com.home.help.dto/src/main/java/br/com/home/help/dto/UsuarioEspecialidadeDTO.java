@@ -11,11 +11,11 @@ public class UsuarioEspecialidadeDTO {
 
 	private EspecialidadeDTO especialidade;
 
-	private UsuarioDTO usuario;
-
+	private String usuario;
+	
 	@Override
 	public String toString() {
-		return usuario.getNome();
+		return usuario;
 	}
 
 	public Long getId() {
@@ -42,11 +42,11 @@ public class UsuarioEspecialidadeDTO {
 		this.especialidade = especialidade;
 	}
 
-	public UsuarioDTO getUsuario() {
+	public String getUsuario() {
 		return usuario;
 	}
 
-	public void setUsuario(UsuarioDTO usuario) {
+	public void setUsuario(String usuario) {
 		this.usuario = usuario;
 	}
 

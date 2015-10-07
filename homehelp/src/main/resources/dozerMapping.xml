@@ -25,7 +25,7 @@
 			<b>especialidade</b>
 		</field>
 		<field>
-			<a>usuario</a>
+			<a>usuario.nome</a>
 			<b>usuario</b>
 		</field>
 	</mapping>

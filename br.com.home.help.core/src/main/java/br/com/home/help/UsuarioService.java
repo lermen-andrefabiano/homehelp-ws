@@ -30,6 +30,8 @@ public interface UsuarioService {
 	Usuario criar(Long usuarioId, String nome, String email, String login, String senha, String endereco, Boolean prestaServico) throws HomeHelpException;
     
     void addEspecialidade(Long valorCobrado, Long especialidadeId, Long usuarioId);
+
+	Usuario obterPorId(Long id);
     
 
 }

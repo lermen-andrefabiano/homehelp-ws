@@ -3,8 +3,10 @@ package br.com.home.help.web;
 import javax.inject.Inject;
 import javax.inject.Named;
 import javax.ws.rs.Consumes;
+import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
@@ -13,6 +15,7 @@ import org.dozer.Mapper;
 import br.com.home.help.UsuarioService;
 import br.com.home.help.core.entidades.Usuario;
 import br.com.home.help.dto.LoginDTO;
+import br.com.home.help.dto.UsuarioDTO;
 import br.com.home.help.util.HomeHelpException;
 
 @Named
@@ -27,6 +30,16 @@ public class UsuarioResource extends AbstractResource {
 	@Inject
 	public UsuarioResource(Mapper mapper) {
 		super.mapper = mapper;
+	}
+	
+	@GET//http://localhost:8080/homehelp/rest/usuario/1
+	@Path("{id}")
+	public UsuarioDTO obterPorId(@PathParam("id") Long id){
+		Usuario u = usuarioService.obterPorId(id);
+		
+		UsuarioDTO dto = map(u, UsuarioDTO.class);
+		
+		return dto;
 	}
 
 	@POST
