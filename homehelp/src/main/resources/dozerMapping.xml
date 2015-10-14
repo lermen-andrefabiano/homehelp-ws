@@ -13,7 +13,7 @@
 		<class-a>br.com.home.help.core.entidades.UsuarioEspecialidade</class-a>
 		<class-b>br.com.home.help.dto.UsuarioEspecialidadeDTO</class-b>
 		<field>
-			<a>id</a>
+			<a>usuario.id</a>
 			<b>id</b>
 		</field>
 		<field>
