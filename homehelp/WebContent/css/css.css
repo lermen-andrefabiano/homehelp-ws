@@ -1,0 +1,701 @@
+body {
+	margin: 0px;
+	color: #888;
+	font-family: robotoregular;
+	font-size: 13px;
+	background: #f9f9f9
+}
+
+body h1, h2, h3, h4, h5 {
+	margin: 0px;
+	padding: 0px;
+	display: block;
+	font-family: ITCOfficinaSerifBold;
+	color: #337AB7
+}
+
+body label {
+	margin: 0px;
+	padding: 0px;
+	display: block;
+	color: #337AB7
+}
+
+body p {
+	margin: 0px;
+	padding: 0px;
+	display: block
+}
+
+body  a {
+	border: none;
+	text-decoration: none;
+}
+
+body  label {
+	display: block
+}
+
+body select:focus {
+	outline: none;
+}
+
+body span:focus {
+	outline: none;
+}
+
+body textarea:focus {
+	outline: none;
+}
+
+body button:focus {
+	outline: none;
+}
+
+body input:focus {
+	outline: none;
+}
+
+body input {
+	display: block;
+	border: none
+}
+
+body input:disabled {
+	background: #f8f8f8
+}
+
+body :before {
+	line-height: 1px
+}
+
+body :after {
+	line-height: 1px
+}
+
+.clearboth {
+	clear: both;
+}
+
+/*estrutura geral*/
+.wrap {
+	float: left;
+	display: block;
+	width: 100%
+}
+
+.content {
+	position: absolute;
+	width: 100%;
+	min-height: 100%
+}
+/*conteudo*/
+.colcenter {
+	display: block;
+	padding: 15px;
+	margin-top: 40px;
+}
+
+.colcenter_home {
+	display: block;
+	padding: 5px;
+	margin-bottom: 10px;
+}
+
+.gradiente_azul {
+	background-color: #337AB7;
+	border-color: #2E6DA4;
+}
+
+/*header*/
+.header {
+	float: left;
+	width: 100%;
+	padding: 20px 0px;
+	position: fixed;
+	z-index: 9
+}
+
+.header h1 {
+	float: left;
+	width: 100%;
+	text-align: center;
+	font-size: 25px;
+	color: #fff;
+	line-height: 1px
+}
+
+.footer {
+	display: block;
+	padding: 15px 0px;
+	clear: both
+}
+
+.bloc_home {
+	display: block;
+	float: left;
+	width: 100%;
+	margin-bottom: 5px;
+	background: #E0DCDC;
+/* 	background: #EEE; */
+}
+
+.bloc_home .content_block {
+	display: block;
+	padding: 20px 10px;
+	text-align: center;
+}
+
+.bloc_home .content_block .ic {
+	margin: 20px;
+	display: inline-block;
+	color: #337AB7;
+	font-size: 30px;
+	line-height: 1px;
+	margin-bottom: 25px
+}
+
+.bloc_home .content_block .info {
+	display: block;
+	color: #337AB7;
+	font-weight: 500
+}
+
+.bloc_home .content_block .info span {
+	display: block;
+	font-size: 13px
+}
+
+.bloc_home .content_block .info h2 {
+	display: block;
+	font-size: 18px;
+	color: #337AB7;
+	font-family: robotobold;
+}
+
+.hidden {
+	overflow-x: hidden;
+}
+
+.sombraopacity {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background: #000;
+	opacity: 0.3;
+}
+
+/*lista menu direito*/
+.listamais {
+	float: left;
+	width: 100%;
+	padding: 15px 0px;
+	border-bottom: solid 1px #dadada
+}
+
+.listamais ul {
+	display: none;
+	width: 96%;
+	list-style: none;
+	padding: 0px 10px;
+	margin: 10px 0px 0px 0px
+}
+
+.listamais ul li {
+	display: block;
+	padding: 10px 0px;
+	border-top: solid 1px #ddd
+}
+
+.title_listamais {
+	display: block;
+	padding: 0px 10px;
+	color: #337AB7;
+}
+
+.title_listamais .icon-24 {
+	float: right;
+	font-size: 11px;
+	color: #337AB7;
+	margin-top: 8px
+}
+
+.acitve_llistamais .icon-24::before {
+	content: "\e617";
+}
+
+.acitve_llistamais .icon-03::before {
+	content: "\e603";
+}
+
+/*sair*/
+.logout {
+	float: right;
+	margin: 20px 0px;
+	color: #337AB7
+}
+
+.logout .icon-40 {
+	font-size: 25px;
+	margin: 8px 0px 0px 10px;
+	float: right;
+}
+
+.listaperfil ul{
+	width: auto;
+	list-style: none;
+	padding: 0px 10px;
+	margin: 10px 0px 0px 0px;
+}
+
+.listaperfil ul li{
+	float: left;
+    width: 100%;
+    display: block;
+    padding: 10px 0px;
+    border-bottom: solid 1px #ddd;
+}
+
+.listaperfil ul p{
+	color: #337AB7;
+    display: block;
+}
+
+/*listas internas*/
+.listamaisdeagrade {
+	background: #fff;
+	float: left;
+	width: 100%;
+	padding: 10px 0px 10px 0px;
+	border-bottom: solid 1px #dadada;
+	margin-bottom: 10px;
+	display: block
+}
+
+.listamaisdeagrade .title_listamais {
+	font-family: robotobold;
+}
+
+.listamaisdeagrade ul {
+	display: none;
+	width: auto;
+	list-style: none;
+	padding: 0px 10px;
+	margin: 10px 0px 0px 0px
+}
+
+.listamaisdeagrade ul li {
+	float: left;
+	width: 100%;
+	display: block;
+	padding: 10px 0px;
+}
+
+.listamaisdeagrade ul li h3 {
+	float: left;
+	width: auto;
+	display: block;
+	font-family: robotoregular;
+	font-size: 16px
+}
+
+.listamaisdeagrade ul li h4 {
+	float: right;
+	width: auto;
+	display: block;
+	font-family: robotoregular;
+	font-size: 16px
+}
+
+.listamaisdeagrade ul li p {
+	color: #337AB7;
+	display: block
+}
+
+.listamaisdeagrade ul li p span {
+	float: left;
+	color: #888;
+	font-size: 12px;
+	margin-top: 2px
+}
+
+.listamaisdeagrade ul li p label {
+	float: right;
+	font-size: 13px
+}
+
+.title_listamais span {
+	float: right;
+	margin-right: 10px;
+}
+
+.title_listamais i {
+	float: right;
+	margin-top: 8px
+}
+
+/*titulo interno*/
+.title_int {
+	color: #337AB7;
+	float: left;
+	width: 100%;
+	border-bottom: solid 1px;
+	padding-bottom: 10px;
+	margin-bottom: 15px
+}
+
+.title_int h2 {
+	float: left
+}
+
+.title_int a {
+	color: #337AB7;
+	font-size: 12px;
+	float: right;
+	margin-top: 15px
+}
+
+.title_int i {
+	float: left;
+	color: #337AB7;
+	font-size: 25px;
+	margin: 10px 10px 0px 0px;
+}
+
+/*outras*/
+.paddingb0 {
+	padding: 10px 0px 0px 0px !important
+}
+
+.abertura {
+	padding: 0px 0px 10px 0px;
+	clear: both
+}
+
+.bt_cancelar {
+	float: right;
+	padding: 10px 25px;
+	text-align: center;
+	width: auto;
+	background-color: #337AB7;
+	border-color: #2E6DA4;
+	color: #fff;
+	font-size: 16px;
+	font-family: robotobold;
+	border-radius: 3px
+}
+
+.bt_confirmar {
+	float: right;
+	padding: 10px 20px;
+	text-align: center;
+	width: auto;
+	margin-left: 10px;
+	background-color: #337AB7;
+	border-color: #2E6DA4;
+	color: #fff;
+	font-size: 16px;
+	font-family: robotobold;
+	border-radius: 3px
+}
+
+.bt_confirmar i {
+	float: right;
+	margin: 12px 0px 0px 10px
+}
+
+.txtrecomenda {
+	color: #888 !important;
+	padding: 10px 0px;
+}
+
+.h3recomenda {
+	margin-top: 10px;
+	font-family: ITCOfficinaSerifBold !important;
+}
+
+.campo_full {
+	float: left;
+	padding: 10px;
+	border: solid 1px #c1c1c1;
+	width: 99%;
+	color: #888;
+	border-radius: 3px
+}
+
+.line_bt_center {
+	float: left;
+	width: 100%;
+	text-align: center;
+	margin: 10px 0px 5px 0px;
+}
+
+.bt_center {
+	float: none;
+	padding: 10px 20px;
+	display: inline-bblock;
+	text-align: center;
+	width: auto;
+	margin-left: 0px;
+	background: #78c125;
+	color: #fff;
+	font-size: 16px;
+	font-family: robotobold;
+	border-radius: 3px
+}
+
+.bt_center b {
+	display: inline-block;
+	margin: 12px 0px 0px 10px;
+	font-size: 16px;
+	color: #fff
+}
+
+/*modal padr�o*/
+.modal {
+	display: none;
+	position: fixed;
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	height: 100%;
+	z-index: 999
+}
+
+.modal .content_modal {
+	position: absolute;
+	width: 90%;
+	top: 20%;
+	left: 5%
+}
+
+.modal .content_modal .float_content {
+	display: block;
+	padding: 20px 10px;
+	background: #fff;
+	border-radius: 5px;
+	text-align: center
+}
+
+.modal .content_modal .float_content p {
+	padding: 10px 20px 20px 20px;
+	font-size: 16px
+}
+
+.modal .content_modal .bt_modal {
+	display: inline-block;
+	padding: 10px 25px;
+	font-size: 16px;
+	background: #337AB7;
+	color: #fff;
+	border-radius: 3px;
+	font-family: robotobold;
+}
+
+/*login*/
+.content_login {
+	display: block;
+	padding: 10px;
+}
+
+.content_login label {
+	color: #888
+}
+
+.content_login .icones_login {
+	float: left;
+	margin: 50px 0px;
+	text-align: center;
+	width: 100%
+}
+
+.content_login .icones_login i {
+	display: inline-block;
+	color: #337AB7;
+	font-size: 25px;
+	margin: 0 0.8%
+}
+
+.content_login h2 {
+	font-family: robotobold;
+	margin-bottom: 20px;
+	font-size: 18px
+}
+
+.margin_line_login {
+	margin: 20px 0px
+}
+
+.bt_default {
+	padding: 10px 40px;
+	text-align: center;
+	width: 100%;
+	background: #337AB7;
+	color: #fff;
+	font-size: 16px;
+	font-family: robotobold;
+	border-radius: 3px;
+}
+
+.bt_default_cinza {
+	padding: 10px 40px;
+	text-align: center;
+	width: 100%;
+	color: #333;   
+	font-size: 16px;
+	font-family: robotobold;
+	border-radius: 3px;
+}
+
+.bt_login i {
+	display: inline-block;
+	margin: 10px 0px 0px 10px;
+}
+
+.bt_cadastro {
+	padding: 10px 50px;
+	text-align: center;
+	width: 100%;
+	background: #78c125;
+	color: #fff;
+	font-size: 16px;
+	font-family: robotobold;
+	border-radius: 3px
+}
+
+.bt_cadastro i {
+	display: inline-block;
+	margin: 10px 0px 0px 10px;
+}
+
+.content_cadastro {
+	float: left;
+	width: 100%;
+	margin-top: 30px;
+	text-align: center;
+	display: block;
+	border: solid 1px #ddd;
+	border-radius: 5px;
+	padding-bottom: 20px
+}
+
+.content_cadastro .bloco_title {
+	display: inline-block;
+	background: #f8f8f8;
+	margin-top: -13px
+}
+
+.content_cadastro .bloco_title h2 {
+	margin: 0px;
+	padding: 0px 10px
+}
+
+.content_cadastro p {
+	margin: 0px;
+	padding: 20px 30px 20px 30px;
+	font-size: 14px
+}
+
+.esqueceu {
+	display: block;
+	float: left;
+	font-size: 11px;
+	margin-top: 5px;
+	color: #888;
+	text-decoration: underline
+}
+
+.line_form {
+	display: block;
+	float: left;
+	width: 100%;
+	margin-bottom: 15px
+}
+
+.radio {
+	position: relative;
+	float: left;
+	width: 20px;
+	height: 20px;
+	border: solid 1px #C1C1C1;
+	border-radius: 5px;
+	background: #fff
+}
+
+.radio .marca_radio {
+	position: absolute;
+	width: 10px;
+	height: 10px;
+	border-radius: 5px;
+	background: #888;
+	margin: 5px;
+	display: none
+}
+
+.radio input[type="radio"] {
+	opacity: 0
+}
+
+.active_radio .marca_radio {
+	display: block
+}
+
+.line_radio {
+	float: left;
+	width: auto;
+	margin-right: 15px
+}
+
+.line_radio span {
+	font-size: 13px;
+	margin-left: 5px
+}
+/*erros*/
+.erro {
+	display: block;
+	text-align: center;
+	padding: 140px 30px
+}
+
+.erro i {
+	color: #337AB7;
+	font-size: 60px
+}
+
+.erro h2 {
+	display: block;
+	text-align: center;
+	padding-top: 20px
+}
+
+.erro_campo {
+	border: solid 1px #FF0000;
+}
+
+@media screen and ( min-width: 600px ) {
+	.bloc_home {
+		width: 100%;
+	}
+	.full_width {
+		width: 100%;
+	}
+	.colcenter {
+		zoom: 1.2
+	}
+	.content_menu {
+		zoom: 1.2
+	}
+	.box_via {
+		zoom: 0.9
+	}
+	.header {
+		zoom: 1.2
+	}
+	.modal .content_modal .float_content {
+		zoom: 1.2
+	}
+	.modal .content_modal {
+		width: 46%;
+		left: 27%;
+	}
+}
