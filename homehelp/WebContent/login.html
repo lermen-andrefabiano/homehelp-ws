@@ -3,45 +3,42 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>Login Web Mobile</title>
+	
 	<!-- js / Scritps -->
 	<script type="text/javascript" src="js/lib/handlebars.js"></script>
 	<script type="text/javascript" src="js/lib/jquery-1.11.3.min.js"></script>	
 	<script type="text/javascript" src="fwk.js"></script>	
 	<script type="text/javascript" src="login.js"></script>	
-	<!-- CSS  -->
-	<link rel="stylesheet" type="text/css" href="css/css.css" />
-	<!-- fonts  -->
-	<link rel="stylesheet" type="text/css" href="css/fonts.css" />
-	<link rel="stylesheet" type="text/css" href="css/style.css" />
+	
+	<!-- Boot Strap -->
+	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css"/>	
+	<script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
 </head>
 <body>
 
-	<div class="wrap">
-		<div class="content">
-			<div class="header gradiente_azul">
-				<h1>Home Help</h1>
-			</div>
-			<div class="colcenter">
-				<div class="content_login">
-					<h2>Acesse a Home Help</h2>
-					<form>
-						<div>
-							<label>Login:</labeL> <input type="text" class="campo_full erro_campo" value="">
-						</div>
-						<div>
-							<label>Senha:</labeL><input type="password" class="campo_full"
-								value=""><a href="esqueceu.html" class="esqueceu">Esqueci minha senha</a>
-						</div>		
-						
-						<div class="line_bt_center">						
-							<input type=button id="txtLogin" class="bt_default" value="ACESSAR A HOME HELP"></input>
-						</div>
-						<div class="line_bt_center">
-							<input type=button id="txtPrimeiroAcesso" class="bt_default_cinza" value="CRIAR MINHA CONTA"></input>
-						</div>
-					</form>
+	<div class="container">
+		<div class="page-header">
+		  <h1>Home Help <small>Acesse a Home Help</small></h1>
+		</div>	
+		<div>
+			<form>
+				<div class="form-group">
+					<label>Login:</labeL> 
+					<input type="text" class="form-control" placeholder="Login">
+				</div>
+				<div class="form-group">
+					<label>Senha:</labeL>
+					<input type="password" class="form-control" placeholder="Senha">
 				</div>		
-			</div>
+				
+				<div class="form-group">
+					<a class="btn btn-link" href="esqueceu.html">Esqueci minha senha</a>
+				</div>	
+				
+				<button type="button" id="txtLogin" class="btn btn-default btn-lg btn-block">ACESSAR A HOME HELP</button>
+				<button type="button" id="txtPrimeiroAcesso" class="btn btn-primary btn-lg btn-block">CRIAR MINHA CONTA</button>					
+				
+			</form>
 		</div>
 	</div>
 
