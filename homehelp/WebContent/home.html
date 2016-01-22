@@ -2,70 +2,60 @@
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<title>Login Web Mobile</title>
+	<title>Workspace</title>
 	<!-- js / Scritps -->
 	<script type="text/javascript" src="js/lib/handlebars.js"></script>
 	<script type="text/javascript" src="js/lib/jquery-1.11.3.min.js"></script>	
 	<script type="text/javascript" src="fwk.js"></script>
 	<script type="text/javascript" src="home.js"></script>
-	<!-- CSS  -->
-	<link rel="stylesheet" type="text/css" href="css/css.css" />
-	<!-- fonts  -->
-	<link rel="stylesheet" type="text/css" href="css/fonts.css" />
-	<link rel="stylesheet" type="text/css" href="css/style.css" />
+		
+	<!-- Bootstrap -->
+	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css"/>	
+	<script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
 </head>
 <body>
 
-	<div class="wrap">
-		<div class="content">
-			<div class="header gradiente_azul">
-				<a href="home.html"><h1>Home Help</h1></a>
+	<div class="container">
+		<div class="page-header">
+			<a class="btn btn-link" href="home.html"><h1>Home Help <small>Busca de Serviços</small></h1></a>
+		</div>
+		<div>		
+			<div class="row">
+			  <div class="col-xs-12 col-md-12">
+			    <a href="servicos.html" class="thumbnail">
+			     <div class="caption">
+			        <h2><span class="glyphicon glyphicon-search" aria-hidden="true"></span> Busca de Serviços</h2>			       
+			      </div>
+			    </a>
+			  </div>			  
 			</div>
-
-			<div class="colcenter colcenter_home">
-				<a href="servicos.html">
-					<div class="bloc_home">
-						<div class="content_block ">
-							<div class="ic icon-48"></div>
-							<div class="info">
-								<h2>Busca de Serviços</h2>
-							</div>
-						</div>
-					</div>
-				</a>
-				<a href="notificacoes.html">
-					<div class="bloc_home bloc_50_right">
-						<div class="content_block ">
-							<div class="ic icon-13"></div>
-							<div class="info">
-								<h2>Notificações</h2>
-							</div>
-						</div>
-					</div>
-				</a>
-				<a href="classificacoes.html">
-					<div class="bloc_home">
-						<div class="content_block">
-							<div class="ic icon-52"></div>
-							<div class="info">
-								<h2>Classificações</h2>
-							</div>
-						</div>
-					</div>
-				</a>
-				<a href="perfil.html">
-					<div class="bloc_home bloc_50_right">
-						<div class="content_block ">
-							<div class="ic icon-53"></div>
-							<div class="info">
-								<h2>Perfil</h2>
-							</div>
-						</div>
-					</div>
-				</a>
-
+			<div class="row">
+			  <div class="col-xs-12 col-md-12">
+			    <a href="notificacoes.html" class="thumbnail">
+			     <div class="caption">
+			        <h2><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span> Notificações</h2>			       
+			      </div>
+			    </a>
+			  </div>			  
 			</div>
-			<div class="footer"></div>
+			<div class="row">
+			  <div class="col-xs-12 col-md-12">
+			    <a href="classificacoes.html" class="thumbnail">
+			     <div class="caption">
+			        <h2><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> Classificações</h2>			       
+			      </div>
+			    </a>
+			  </div>			  
+			</div>
+			<div class="row">
+			  <div class="col-xs-12 col-md-12">
+			    <a href="perfil.html" class="thumbnail">
+			     <div class="caption">
+			        <h2><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Perfil</h2>			       
+			      </div>
+			    </a>
+			  </div>			  
+			</div>					
 		</div>
 	</div>
 

@@ -8,42 +8,27 @@
 	<script type="text/javascript" src="js/lib/jquery-1.11.3.min.js"></script>
 	<script type="text/javascript" src="fwk.js"></script>
 	<script type="text/javascript" src="senha.js"></script>
-	<!-- CSS  -->
-	<link rel="stylesheet" type="text/css" href="css/css.css" />
-	<!-- fonts  -->
-	<link rel="stylesheet" type="text/css" href="css/fonts.css" />
-	<link rel="stylesheet" type="text/css" href="css/style.css" />
+	
+	<!-- Bootstrap -->
+	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css"/>	
+	<script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
 </head>
 <body>
 
-	<div class="wrap">		
-		<div class="content">
-			<div class="header gradiente_azul">
-				<a href="home.html"><h1>Home Help</h1></a>
-			</div>
-			<div class="colcenter">
-				<!-- titulo pagina-->
-				<div class="title_int">
-					<i class="icon-30"></i>
-					<h2>Nova Senha</h2>
-					<a href="javascript:history.back()" class="icon-05"></a>
-				</div>
-				<p class="chamada">Digite abaixo o E-mail no qual você se cadastrou na Home Help.</p>
-				<div class="clearboth" />
-				<form>
-					<div class="line_form">
-						<label>Nova Senha:</label> 
-						<input type="email" class="campo_full" maxlength="4">
-					</div>					
-					<div class="line_form">
-						<a href="#html" class="bt_confirmar"><i class="icon-02"></i>Mudar Senha</a>
-					</div>
-				</form>
-			</div>
-			<div class="footer">
-				
-			</div>
-		</div>
+	<div class="container">		
+		<div class="page-header">
+		  <h1>Home Help <small>Nova Senha</small></h1>
+		</div>	
+		<div>		
+			<h4>Digite abaixo uma nova senha.</h4>
+			<form>
+				<div class="form-group">
+					<label>Nova Senha:</label> 
+					<input type="password" class="form-control" maxlength="4" placeholder="Senha">
+				</div>					
+				<button type="button" id="txtPrimeiroAcesso" class="btn btn-primary btn-lg btn-block">MUDAR SENHA</button>
+			</form>
+		</div>	
 	</div>
 
 </body>

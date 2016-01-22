@@ -2,62 +2,47 @@
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<title>Login Web Mobile</title>
+	<title>Cadastro na Home Help</title>
 	<!-- js / Scritps -->
 	<script type="text/javascript" src="js/lib/handlebars.js"></script>
 	<script type="text/javascript" src="js/lib/jquery-1.11.3.min.js"></script>
 	<script type="text/javascript" src="fwk.js"></script>
 	<script type="text/javascript" src="primeiroAcesso.js"></script>
-	<!-- CSS  -->
-	<link rel="stylesheet" type="text/css" href="css/css.css" />
-	<!-- fonts  -->
-	<link rel="stylesheet" type="text/css" href="css/fonts.css" />
-	<link rel="stylesheet" type="text/css" href="css/style.css" />
+	
+	<!-- Bootstrap -->
+	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css"/>	
+	<script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
 </head>
 <body>
 
-	<div class="wrap">
-		<div class="content">
-			<div class="header gradiente_azul">
-				<h1>Home Help</h1>
-			</div>
-			<div class="colcenter">
-				<div class="title_int">
-					<i class="icon-28"></i>
-					<h2>Cadastro na Home Help</h2>
-					<a href="javascript:history.back()" class="icon-05"></a>
+	<div class="container">
+		<div class="page-header">
+			<a class="btn btn-link" href="javascript:history.back()"><h1>Home Help <small>Cadastro</small></h1></a>
+		</div>
+		<div>
+			<div class="page-header">
+				<h2><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Cadastro na Home Help</h2>
+			</div>		
+			<form>
+				<div class="form-group">
+					<label>CPF:</labeL> 
+					<input type="text" class="form-control" placeholder="CPF">
 				</div>
-				<div class="content_login">					
-					<form>
-						<!-- cpf -->
-						<div class="line_form">
-							<label>CPF:</labeL> <input type="text"
-								class="campo_full erro_campo" value="">
-						</div>
-						<!-- como -->
-						<div class="line_form">
-							<label>Como deseja ser chamado:</labeL> <input type="text"
-								class="campo_full" value="" disabled="disabled">
-						</div>
-						<!-- email -->
-						<div class="line_form">
-							<label>E-mail:</labeL> <input type="text" class="campo_full"
-								value="" disabled="disabled">
-						</div>
-						<!-- senha -->
-						<div class="line_form">
-							<label>Senha:</labeL> <input type="password" class="campo_full"
-								value="" disabled="disabled">
-						</div>						
-						<!-- ddd -->
-						<div class="line_form">
-							<label>DDD + Número do telefone:</labeL> <input type="password"
-								class="campo_full" value="" disabled="disabled">
-						</div>
-						<input type=button onClick="location.href='home.html'" class="bt_default" value="CADASTRAR"></input>
-					</form>
+				<div class="form-group">
+					<label>Como deseja ser chamado:</labeL> 
+					<input type="text"	class="form-control" placeholder="E-mail">
 				</div>
-			</div>
+				<div class="form-group">
+					<label>E-mail:</labeL> 
+					<input type="text" class="form-control" placeholder="E-mail">
+				</div>
+				<div class="form-group">
+					<label>Senha:</labeL> 
+					<input type="password" class="form-control" placeholder="Senha">
+				</div>			
+				
+				<input type=button onClick="location.href='home.html'" class="btn btn-primary btn-lg btn-block" value="CADASTRAR"></input>
+			</form>
 		</div>
 	</div>
 

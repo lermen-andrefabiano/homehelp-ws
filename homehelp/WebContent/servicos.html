@@ -2,104 +2,66 @@
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<title>Login Web Mobile</title>
+	<title>Busca de Serviços</title>
 	<!-- js / Scritps -->
 	<script type="text/javascript" src="js/lib/handlebars.js"></script>
 	<script type="text/javascript" src="js/lib/jquery-1.11.3.min.js"></script>
 	<script type="text/javascript" src="fwk.js"></script>
 	<script type="text/javascript" src="servicos.js"></script>
-	<!-- CSS  -->
-	<link rel="stylesheet" type="text/css" href="css/css.css" />
-	<!-- fonts  -->
-	<link rel="stylesheet" type="text/css" href="css/fonts.css" />
-	<link rel="stylesheet" type="text/css" href="css/style.css" />
+	
+	<!-- Bootstrap -->
+	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css"/>	
+	<script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
 </head>
 <body>
 
-	<div class="wrap">		
-		<div class="content">
-			<div class="header gradiente_azul">
-				<a href="home.html"><h1>Home Help</h1></a>
-			</div>		
-			<div class="colcenter">
-				<!-- titulo pagina-->
-				<div class="title_int">
-					<i class="icon-48"></i>
-					<h2>Busque um serviço</h2>
-					<a href="javascript:history.back()" class="icon-05"></a>
-				</div>
-				
-				<i class="icon-40"></i>
-				<i class="icon-41"></i>
-				<i class="icon-42"></i>
-				<i class="icon-43"></i>
-				<i class="icon-44"></i>
-				<i class="icon-45"></i>
-				<i class="icon-46"></i>
-				<i class="icon-47"></i>
-				<i class="icon-48"></i>
-				<i class="icon-49"></i>
-				<i class="icon-50"></i>				
-				<i class="icon-51"></i>
-				<i class="icon-52"></i>
-				<i class="icon-53"></i>				
-				<i class="icon-01"></i>
-				<i class="icon-02"></i>
-				<i class="icon-03"></i>
-				<i class="icon-04"></i>
-				<i class="icon-05"></i>
-				<i class="icon-06"></i>
-				<i class="icon-07"></i>
-				<i class="icon-08"></i>				
-				<i class="icon-09"></i>
-				<i class="icon-10"></i>
-				<i class="icon-11"></i>
-				<i class="icon-12"></i>
-				<i class="icon-13"></i>
-				<i class="icon-14"></i>
-				<i class="icon-15"></i>
-				<i class="icon-16"></i>
-				<i class="icon-17"></i>
-				<i class="icon-18"></i>
-				<i class="icon-19"></i>				
-				<i class="icon-20"></i>
-				<i class="icon-21"></i>
-				<i class="icon-22"></i>
-				<i class="icon-23"></i>
-				<i class="icon-24"></i>
-				<i class="icon-25"></i>
-				<i class="icon-26"></i>
-				<i class="icon-27"></i>
-				<i class="icon-28"></i>
-				<i class="icon-29"></i>
-				<i class="icon-30"></i>
-				
-				<i class="icon-31"></i>
-				<i class="icon-32"></i>
-				<i class="icon-33"></i>
-				<i class="icon-34"></i>
-				
-			</div>
-			
-			<!-- item-->
-				<div class="listamaisdeagrade">
-					<div class="title_listamais acitve_llistamais ">Ana Maria Lermen<i class="icon-03"></i>
-					</div>
-					<ul style="display: block">
-						<li class="paddingb0">
-							<p class="txtrecomenda">20/10/2015 - 14:00</p>
-							<p class="txtrecomenda">Corte de grama</p>
-							<h3 class="h3recomenda">Valor: R$ 10,00</h3> 
-							<a href="#html"	class="bt_confirmar"><i class="icon-02"></i>Classificar</a>
-						</li>
-					</ul>
-				</div>		
-
-			<div class="footer">
-			
-			</div>
+	<div class="container">
+		<div class="page-header">
+			<a class="btn btn-link" href="home.html"><h1>Home Help <small>Busca de Serviços</small></h1></a>
 		</div>
-	</div>
+		<div>
+			<div class="page-header">
+				<h2><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span> Busca de Serviços</h2>
+			</div>
+			
+		   <div class="input-group">
+		      <input type="text" class="form-control" placeholder="Busca de serviços...">
+		      <span class="input-group-btn">
+		        <button class="btn btn-default" type="button">Busca!</button>
+		      </span>	      
+		    </div>		
+			
+			<div class="page-header">
+				<h4>Confira abaixo os serviços encontrados.</h4>
+			</div>
+			
+			<div class="list-group">
+			
+			  <a href="#" class="list-group-item active">
+			    <h4 class="list-group-item-heading">Corte de Grama</h4>
+			    <p class="list-group-item-text">Av, Brasil 100 - centro</p>
+			    <p class="list-group-item-text">Pedro da Silva</p>
+			    <p class="list-group-item-text">Valor: R$ 10,00</p>			   
+			  </a>
+			  
+			  <a href="#" class="list-group-item">
+			    <h4 class="list-group-item-heading">Corte de Grama</h4>
+			    <p class="list-group-item-text">Av, Brasil 100 - centro</p>
+			    <p class="list-group-item-text">Pedro da Silva</p>
+			    <p class="list-group-item-text">Valor: R$ 10,00</p>			   
+			  </a>
+			  
+			  <a href="#" class="list-group-item">
+			    <h4 class="list-group-item-heading">Corte de Grama</h4>
+			    <p class="list-group-item-text">Av, Brasil 100 - centro</p>
+			    <p class="list-group-item-text">Pedro da Silva</p>
+			    <p class="list-group-item-text">Valor: R$ 10,00</p>			   
+			  </a>
+			  
+			</div>
+			
+		</div>	
+	</div>	
 
 </body>
 </html>

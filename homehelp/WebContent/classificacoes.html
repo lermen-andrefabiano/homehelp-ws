@@ -2,83 +2,53 @@
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<title>Login Web Mobile</title>
+	<title>Classificações</title>
 	<!-- js / Scritps -->
 	<script type="text/javascript" src="js/lib/handlebars.js"></script>
 	<script type="text/javascript" src="js/lib/jquery-1.11.3.min.js"></script>
 	<script type="text/javascript" src="fwk.js"></script>
 	<script type="text/javascript" src="classificacoes.js"></script>
-	<!-- CSS  -->
-	<link rel="stylesheet" type="text/css" href="css/css.css" />
-	<!-- fonts  -->
-	<link rel="stylesheet" type="text/css" href="css/fonts.css" />
-	<link rel="stylesheet" type="text/css" href="css/style.css" />
+	
+	<!-- Bootstrap -->
+	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css"/>	
+	<script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
 </head>
 <body>
 
-	<div class="wrap">		
-		<div class="content">
-			<div class="header gradiente_azul">
-				<a href="home.html"><h1>Home Help</h1></a>
-			</div>
-			<div class="colcenter">
-				<!-- titulo pagina-->
-				<div class="title_int">
-					<i class="icon-52"></i>
-					<h2>Classificações</h2>
-					<a href="javascript:history.back()" class="icon-05"></a>
-				</div>
-				<p class="abertura">Confira abaixo as classificações que devem ser realizadas.</p>
-				
-				<!-- item-->
-				<div class="listamaisdeagrade">
-					<div class="title_listamais acitve_llistamais">Ana Maria Lermen<i class="icon-03"></i>
-					</div>
-					<ul style="display: block">
-						<li class="paddingb0">
-							<p class="txtrecomenda">20/10/2015 - 14:00</p>
-							<p class="txtrecomenda">Corte de grama</p>
-							<h3 class="h3recomenda">Valor: R$ 10,00</h3> 
-							<a href="#html"	class="bt_confirmar">Classificar</a>
-						</li>
-					</ul>
-				</div>	
-				
-				<!-- item-->
-				<div class="listamaisdeagrade">
-					<div class="title_listamais">Ana Maria Lermen<i class="icon-03"></i>
-					</div>
-					<ul>
-						<li class="paddingb0">
-							<p class="txtrecomenda">20/10/2015 - 14:00</p>
-							<p class="txtrecomenda">Corte de grama</p>
-							<h3 class="h3recomenda">Valor: R$ 10,00</h3> 
-							<a href="#html"	class="bt_confirmar">Classificar</a>
-						</li>
-					</ul>
-				</div>	
-				
-				<!-- item-->
-				<div class="listamaisdeagrade">
-					<div class="title_listamais">Ana Maria Lermen<i class="icon-03"></i>
-					</div>
-					<ul>
-						<li class="paddingb0">
-							<p class="txtrecomenda">20/10/2015 - 14:00</p>
-							<p class="txtrecomenda">Corte de grama</p>
-							<h3 class="h3recomenda">Valor: R$ 10,00</h3> 
-							<a href="#html"	class="bt_confirmar"></i>Classificar</a>
-						</li>
-					</ul>
-				</div>		
-				
-			</div>
-
-			<div class="footer">
-			
-			</div>
+	<div class="container">
+		<div class="page-header">
+			<a class="btn btn-link" href="home.html"><h1>Home Help <small>Classificações</small></h1></a>
 		</div>
-	</div>
+		<div>
+			<div class="page-header">
+				<h2><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> Classificações</h2>
+			</div>
+			<h4>Confira abaixo as Classificações recebidas.</h4>
+			
+			<div class="list-group">
+			
+			  <a href="#" class="list-group-item">
+			    <h4 class="list-group-item-heading">Ana Maria Lermen</h4>
+			    <p class="list-group-item-text">20/10/2015 - 14:00</p>
+			    <p class="list-group-item-text">Corte de grama</p>
+			  </a>
+			  
+			   <a href="#" class="list-group-item">
+			    <h4 class="list-group-item-heading">Ana Maria Lermen</h4>
+			    <p class="list-group-item-text">20/10/2015 - 14:00</p>
+			    <p class="list-group-item-text">Corte de grama</p>
+			  </a>
+			  
+			   <a href="#" class="list-group-item">
+			    <h4 class="list-group-item-heading">Ana Maria Lermen</h4>
+			    <p class="list-group-item-text">20/10/2015 - 14:00</p>
+			    <p class="list-group-item-text">Corte de grama</p>
+			  </a>  
+			 			  
+			</div>
+			
+		</div>	
+	</div>	
 
 </body>
 </html>
