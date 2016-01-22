@@ -3,6 +3,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>Busca de Serviços</title>
+	
 	<!-- js / Scritps -->
 	<script type="text/javascript" src="js/lib/handlebars.js"></script>
 	<script type="text/javascript" src="js/lib/jquery-1.11.3.min.js"></script>
@@ -25,9 +26,9 @@
 			</div>
 			
 		   <div class="input-group">
-		      <input type="text" class="form-control" placeholder="Busca de serviços...">
+		      <input id="txtBuscar" type="text" class="form-control" placeholder="Busca de serviços...">
 		      <span class="input-group-btn">
-		        <button class="btn btn-default" type="button">Busca!</button>
+		        <button id="btnBuscar" class="btn btn-default" type="button">Buscar!</button>
 		      </span>	      
 		    </div>		
 			
@@ -62,6 +63,15 @@
 			
 		</div>	
 	</div>	
+	
+	<script id="entry-template" type="text/x-handlebars-template">
+  <div class="entry">
+    <h1>{{title}}</h1>
+    <div class="body">
+      {{body}}
+    </div>
+  </div>
+	</script>
 
 </body>
 </html>
