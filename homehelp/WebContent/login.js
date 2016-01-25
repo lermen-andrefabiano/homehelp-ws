@@ -4,10 +4,12 @@ $(document).ready(function(){
 
 App.Modulos.Login = {
 	init : function() {
-		$('#txtLogin').on('click', function(){
-			App.Modulos.Login.login();
+		$('#btnLogin').on('click', function(){
+			console.log('click login');
+			location.href='home.html';
+			//App.Modulos.Login.login();
 		});
-		$('#txtPrimeiroAcesso').on('click', function(){
+		$('#btnPrimeiroAcesso').on('click', function(){
 			App.Modulos.Login.primeiroAcesso();
 		});
 	},

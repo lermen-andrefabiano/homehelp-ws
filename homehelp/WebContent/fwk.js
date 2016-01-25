@@ -1,12 +1,12 @@
-var App = {} || App
+var App = {} || App;
 
-App.Modulos = {
-	Configuracao : {
-		URL_REST : 'http://10.0.0.100:8080'
-	}
-} || App.Modulos
+App.Modulos = {} || App.Modulos;
 
 $.ajaxSetup({
-	urlBase: "http://10.0.0.100:8080/homehelp/rest/",
-	cache : false
+	urlBase: "http://192.168.10.73:8080/homehelp/rest/",
+	cache : false,
+	 headers: {
+	        'Content-Type':'application/json'
+	  },
+	  
 });

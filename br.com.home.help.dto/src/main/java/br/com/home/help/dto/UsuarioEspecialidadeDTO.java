@@ -11,12 +11,7 @@ public class UsuarioEspecialidadeDTO {
 
 	private EspecialidadeDTO especialidade;
 
-	private String usuario;
-	
-	@Override
-	public String toString() {
-		return usuario;
-	}
+	private UsuarioDTO usuario;
 
 	public Long getId() {
 		return id;
@@ -42,11 +37,11 @@ public class UsuarioEspecialidadeDTO {
 		this.especialidade = especialidade;
 	}
 
-	public String getUsuario() {
+	public UsuarioDTO getUsuario() {
 		return usuario;
 	}
 
-	public void setUsuario(String usuario) {
+	public void setUsuario(UsuarioDTO usuario) {
 		this.usuario = usuario;
 	}
 
