@@ -31,14 +31,17 @@ App.Modulos.Servicos = {
 		
 	},
 	render : function(result) {		
+		console.log('result', result);
+		
 		var data = {
-			title : 'andre fabiano  lermen',
-			body : 'This is my first post!'
+			titulo : result.especialidade.descricao,
+			prestador : result.usuario,
+			valor : result.valorCobrado
 		}
 		
-		var template = Handlebars.compile($("#entry-template").html());
+		var template = Handlebars.compile($("#servicos-template").html());
 		
-		$("#conteudo").html(template(data));
+		$(".list-group").html(template(data));
 		
 	}	
 } || App.Modulos.Servicos;
