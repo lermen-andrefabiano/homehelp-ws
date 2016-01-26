@@ -5,9 +5,10 @@ $(document).ready(function(){
 App.Modulos.Servicos = {
 	init : function() {
 		$('#btnBuscar').on('click', function(){
+			$(this).button('loading');	
 			var pesquisa = $('#txtBuscar').val();
 			App.Modulos.Servicos.buscar(pesquisa);
-		});				
+		});
 	},
 	buscar : function(pesquisa) {
 		console.log('buscar', pesquisa);
@@ -20,11 +21,11 @@ App.Modulos.Servicos = {
 			self.render(result);
 		}).fail(function(xhr, type){	
 			console.log(xhr, type);
-			alert('Erro ao acessar servido!');			
+			bootbox.alert('Sistema indisponível.\nPor favor, tente novamente mais tarde.')	
+			$('#btnBuscar').button('reset');
 		}).always(function() {
 			console.log('always');
-		});
-		
+		});		
 	},
 	render : function(result) {		
 		console.log('especialidades', result);
@@ -40,11 +41,12 @@ App.Modulos.Servicos = {
 				$(this).on('click', function(){
 					console.log('.list-group a', this);
 					App.Modulos.Servicos.populaModal(this);
-				});		
-			});	
+				});					
+			});				
 		}else{
-			alert('Não foram encontradas especialidades!');
+			bootbox.alert('Não foram encontradas especialidades.\nPor favor, refaça sua pesquisa.');
 		}
+		$('#btnBuscar').button('reset');
 	},
 	populaModal : function($a) {			
 		var id = $($a).data('id');	
@@ -59,20 +61,21 @@ App.Modulos.Servicos = {
 		if(App.Modulos.Servicos.ServicoSel!=undefined){
 			console.log(App.Modulos.Servicos.ServicoSel);
 			var data = {
-					title : App.Modulos.Servicos.ServicoSel.especialidade.descricao,
-					usuario : App.Modulos.Servicos.ServicoSel.usuario.nome,
-					valorCobrado : App.Modulos.Servicos.ServicoSel.valorCobrado
+				title : App.Modulos.Servicos.ServicoSel.especialidade.descricao,
+				usuario : App.Modulos.Servicos.ServicoSel.usuario.nome,
+				valorCobrado : App.Modulos.Servicos.ServicoSel.valorCobrado
 			};
 			
 			var template = Handlebars.compile($("#modal-servicos-template").html());		
 			$(".modal-content").html(template(data));	
 			
 			$('#btnAbrir').on('click', function(){
+				$(this).button('loading');	
 				App.Modulos.Servicos.abrir();
 			});		
 		}
 	},
-	abrir : function() {
+	abrir : function() {		
 		console.log('abrir chamado');
 		var self = this;	
 		
@@ -82,8 +85,8 @@ App.Modulos.Servicos = {
 		var prioridade = 'ALTA';
 		
 		var info = {
-				'observacao' : $('#txtObservacao').val(),
-				'descricao' : $('#txtDescricao').val()
+			'observacao' : $('#txtObservacao').val(),
+			'descricao' : $('#txtDescricao').val()
 		};
 		
 		 $.ajax({
@@ -91,11 +94,11 @@ App.Modulos.Servicos = {
 			url : $.ajaxSetup().urlBase + 'chamado/abrir?usuarioId='+usuarioId+'&'+prestadorId+'&'+especialidadeId+'&'+prioridade,
 			data : info	
 		}).done(function(result){
-			self.render(result);
+			bootbox.alert('Sucesso ao abrir chamado.\nAguarde contato.')
+			$('#btnAbrir').button('reset');
 		}).fail(function(xhr, type){
-			if (type === 'abort') {
-				console.log('request aborted');
-			}
+			bootbox.alert('Sistema indisponível.\nPor favor, tente novamente mais tarde.')
+			$('#btnAbrir').button('reset');
 		}).always(function() {
 			console.log('always');
 		});

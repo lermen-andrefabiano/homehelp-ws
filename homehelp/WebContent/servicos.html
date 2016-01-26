@@ -13,9 +13,11 @@
 	<!-- Bootstrap -->
 	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css"/>	
 	<script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+	
+	<!-- Bootbox.min -->
+	<script type="text/javascript" src="js/lib/bootbox.min.js"></script>
 </head>
-<body>
-
+<body> 
 	<div class="container">	
 		<div>
 			<div class="pull-right">
@@ -25,44 +27,17 @@
 			</div>
 			<div class="page-header">
 				<h2><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span> Busca de Serviços</h2>
-			</div>
-			
+			</div>			
 		   <div class="input-group">
 		      <input id="txtBuscar" type="text" class="form-control" placeholder="Busca de serviços...">
 		      <span class="input-group-btn">
-		        <button id="btnBuscar" class="btn btn-default" type="button">Buscar!</button>
+		        <button id="btnBuscar" class="btn btn-default" type="button" data-loading-text="Carregando...">Buscar!</button>
 		      </span>	      
-		    </div>		
-			
+		    </div>			
 			<div class="page-header">
-				<h4>Confira abaixo os serviços encontrados.</h4>
-			</div>
-			
-			<div class="list-group">
-			
-			  <a href="#" class="list-group-item active" data-toggle="modal" data-target="#modalServico">
-			    <h4 class="list-group-item-heading">Corte de Grama</h4>
-			    <p class="list-group-item-text">Av, Brasil 100 - centro</p>
-			    <p class="list-group-item-text">Pedro da Silva</p>
-			    <p class="list-group-item-text">Valor: R$ 10,00</p>			   
-			  </a>
-			  
-			  <a href="#" class="list-group-item" data-toggle="modal" data-target="#modalServico">
-			    <h4 class="list-group-item-heading">Corte de Grama</h4>
-			    <p class="list-group-item-text">Av, Brasil 100 - centro</p>
-			    <p class="list-group-item-text">Pedro da Silva</p>
-			    <p class="list-group-item-text">Valor: R$ 10,00</p>			   
-			  </a>
-			  
-			  <a href="#" class="list-group-item" data-toggle="modal" data-target="#modalServico">
-			    <h4 class="list-group-item-heading">Corte de Grama</h4>
-			    <p class="list-group-item-text">Av, Brasil 100 - centro</p>
-			    <p class="list-group-item-text">Pedro da Silva</p>
-			    <p class="list-group-item-text">Valor: R$ 10,00</p>			   
-			  </a>
-			  
-			</div>
-			
+				<p class="text-primary">Confira abaixo os serviços encontrados...</p>
+			</div>			
+			<div class="list-group"></div>			
 		</div>	
 	</div>	
 	
@@ -75,7 +50,7 @@
 	
 	<script id="servicos-template" type="text/x-handlebars-template">
 		{{#each especialidades}}
-		  <a href="#" class="list-group-item" data-toggle="modal" data-target="#modalServico" data-id="{{id}}">
+		  <a href="#" class="list-group-item active" data-toggle="modal" data-target="#modalServico" data-id="{{id}}">
 	      	<h4 class="list-group-item-heading">{{especialidade.descricao}}</h4>
 		    <p class="list-group-item-text">{{usuario.nome}}</p>
 		    <p class="list-group-item-text">{{valorCobrado}}</p>			   
@@ -104,7 +79,7 @@
 	     </div>
 	     <div class="modal-footer">
 	       <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
-	       <button id="btnAbrir" type="button" class="btn btn-primary">Entrar em Contato...</button>
+	       <button id="btnAbrir" type="button" class="btn btn-primary" data-loading-text="Carregando...">Entrar em Contato...</button>
 	     </div>
 	</script>	
 
