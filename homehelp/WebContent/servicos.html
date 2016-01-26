@@ -74,8 +74,8 @@
 	</div>
 	
 	<script id="servicos-template" type="text/x-handlebars-template">
-		{{#each result}}
-		  <a href="#" class="list-group-item active" data-toggle="modal" data-target="#modalServico" data-id="{{id}}>
+		{{#each especialidades}}
+		  <a href="#" class="list-group-item" data-toggle="modal" data-target="#modalServico" data-id="{{id}}">
 	      	<h4 class="list-group-item-heading">{{especialidade.descricao}}</h4>
 		    <p class="list-group-item-text">{{usuario.nome}}</p>
 		    <p class="list-group-item-text">{{valorCobrado}}</p>			   

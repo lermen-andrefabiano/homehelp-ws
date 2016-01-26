@@ -1,5 +1,8 @@
 package br.com.home.help.dto;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement(name = "especialidade")
 public class EspecialidadeDTO {
 
 	private Long id;

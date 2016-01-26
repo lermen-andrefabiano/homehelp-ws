@@ -7,27 +7,19 @@ App.Modulos.Servicos = {
 		$('#btnBuscar').on('click', function(){
 			var pesquisa = $('#txtBuscar').val();
 			App.Modulos.Servicos.buscar(pesquisa);
-		});	
-		$('#btnAbrir').on('click', function(){
-			App.Modulos.Servicos.abrir();
-		});	
-		$('.list-group a').each(function(index){
-			$(this).on('click', function(){
-				console.log('.list-group a', this);
-				App.Modulos.Servicos.populaModal(this);
-			});		
-		});	
+		});				
 	},
 	buscar : function(pesquisa) {
 		console.log('buscar', pesquisa);
 		var self = this;	
 		
 		 $.ajax({
-			type : 'GET',
-			url : $.ajaxSetup().urlBase + 'especialidade/get?especialidade='+pesquisa			
+			type : 'GET',			
+			url : $.ajaxSetup().urlBase + 'especialidade/get?especialidade='+pesquisa	
 		}).done(function(result){
 			self.render(result);
-		}).fail(function(xhr, type){			
+		}).fail(function(xhr, type){	
+			console.log(xhr, type);
 			alert('Erro ao acessar servido!');			
 		}).always(function() {
 			console.log('always');
@@ -35,29 +27,37 @@ App.Modulos.Servicos = {
 		
 	},
 	render : function(result) {		
-		console.log('result', result);
+		console.log('especialidades', result);
 		
 		if(result!=undefined){
-			App.Modulos.Servicos.result = result;
+			App.Modulos.Servicos.especialidades = result;
 
 			var template = Handlebars.compile($("#servicos-template").html());
 			
 			$(".list-group").html(template(result));
+			
+			$('.list-group a').each(function(index){
+				$(this).on('click', function(){
+					console.log('.list-group a', this);
+					App.Modulos.Servicos.populaModal(this);
+				});		
+			});	
 		}else{
 			alert('Não foram encontradas especialidades!');
 		}
 	},
 	populaModal : function($a) {			
-		var id = $($a).data('id');		 
+		var id = $($a).data('id');	
 	
-		for (r in App.Modulos.Servicos.result) {
-			if(r.id == id){
-				App.Modulos.Servicos.ServicoSel = r;
+		for (r in App.Modulos.Servicos.especialidades.especialidades) {
+			if(App.Modulos.Servicos.especialidades.especialidades[r].id == id){
+				App.Modulos.Servicos.ServicoSel = App.Modulos.Servicos.especialidades.especialidades[r];
 				break;
 			}
 		}
 		
 		if(App.Modulos.Servicos.ServicoSel!=undefined){
+			console.log(App.Modulos.Servicos.ServicoSel);
 			var data = {
 					title : App.Modulos.Servicos.ServicoSel.especialidade.descricao,
 					usuario : App.Modulos.Servicos.ServicoSel.usuario.nome,
@@ -66,6 +66,10 @@ App.Modulos.Servicos = {
 			
 			var template = Handlebars.compile($("#modal-servicos-template").html());		
 			$(".modal-content").html(template(data));	
+			
+			$('#btnAbrir').on('click', function(){
+				App.Modulos.Servicos.abrir();
+			});		
 		}
 	},
 	abrir : function() {
