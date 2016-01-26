@@ -20,7 +20,6 @@ import br.com.home.help.ChamadoService;
 import br.com.home.help.core.entidades.Agenda;
 import br.com.home.help.core.entidades.Chamado;
 import br.com.home.help.core.enuns.TipoNota;
-import br.com.home.help.core.enuns.TipoPrioridade;
 import br.com.home.help.dto.ChamadoDTO;
 import br.com.home.help.dto.ClassificacaoDTO;
 import br.com.home.help.dto.InformacaoAbrirDTO;
@@ -47,10 +46,8 @@ public class ChamadoResource extends AbstractResource {
 	@POST
 	@Path("abrir") // abrir um chamdo
 	public void abrir(@QueryParam("usuarioId") Long usuarioId, @QueryParam("prestadorId") Long prestadorId,
-			@QueryParam("especialidadeId") Long especialidadeId, @QueryParam("prioridade") String prioridade, 
-			InformacaoAbrirDTO info) {
-		this.chamadoService.abrir(info.getObservacao(), info.getDescricao(), TipoPrioridade.valueOf(prioridade), 
-				usuarioId, prestadorId,	especialidadeId);
+			@QueryParam("especialidadeId") Long especialidadeId, InformacaoAbrirDTO info) {
+		this.chamadoService.abrir(info.getDescricao(), usuarioId, prestadorId, especialidadeId);
 	}
 
 	@GET
@@ -81,15 +78,13 @@ public class ChamadoResource extends AbstractResource {
 
 	@POST
 	@Path("agendar") // agendar
-	public void agendar(@QueryParam("chamadoId") Long chamadoId,
-			InformacaoNotificarDTO info) {
+	public void agendar(@QueryParam("chamadoId") Long chamadoId, InformacaoNotificarDTO info) {
 		this.chamadoService.notificar(chamadoId, info.getAgendamento(),info.getObservacao());
 	}
 
 	@POST
 	@Path("classificar") // classificação
-	public void classificar(@QueryParam("nota") String nota, @QueryParam("chamadoId") Long chamadoId, 
-			InformacaoClassificarDTO info) {
+	public void classificar(@QueryParam("nota") String nota, @QueryParam("chamadoId") Long chamadoId, InformacaoClassificarDTO info) {
 		this.chamadoService.classificar(TipoNota.valueOf(nota),	info.getRecomendacao(), chamadoId);
 	}
 

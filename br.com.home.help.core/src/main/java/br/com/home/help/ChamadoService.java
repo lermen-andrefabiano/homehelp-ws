@@ -4,7 +4,6 @@ import java.util.List;
 
 import br.com.home.help.core.entidades.Chamado;
 import br.com.home.help.core.enuns.TipoNota;
-import br.com.home.help.core.enuns.TipoPrioridade;
 
 /**
  * 
@@ -22,12 +21,11 @@ import br.com.home.help.core.enuns.TipoPrioridade;
  */
 public interface ChamadoService {
 
-	void abrir(String observacao, String descricao, TipoPrioridade prioridade,
-			Long usuarioId, Long prestadorId, Long especialidadeId);
+	void abrir(String descricao, Long usuarioId, Long prestadorId, Long especialidadeId);
 
 	void classificar(TipoNota nota, String recomendacao, Long chamadoId);
 
-	void alterar(Long chamadoId, String observacao, String descricao);
+	void alterar(Long chamadoId, String descricao);
 
 	void notificar(Long chamadoId, String agendamento, String observacao);
 

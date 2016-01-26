@@ -25,7 +25,6 @@ import javax.persistence.TemporalType;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 
-import br.com.home.help.core.enuns.TipoPrioridade;
 import br.com.home.help.core.enuns.TipoStatus;
 
 @Entity
@@ -44,21 +43,14 @@ public class Chamado implements Serializable {
 
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(nullable = false)
-	private Date data;
+	private Date data;	
 
-	@Column(length = 2000)
-	private String observacao;
-
-	@Column(nullable = false, length = 300)
+	@Column(nullable = false, length = 2000)
 	private String descricao;
 
 	@Enumerated(EnumType.STRING)
 	@Column(nullable = false, length = 1)
 	private TipoStatus status;
-
-	@Enumerated(EnumType.STRING)
-	@Column(nullable = false, length = 1)
-	private TipoPrioridade prioridade;
 
 	@ManyToOne(optional = false, fetch = FetchType.LAZY)
 	@JoinColumn(name = "especialidade_id", referencedColumnName = "id", nullable = false)
@@ -86,14 +78,10 @@ public class Chamado implements Serializable {
 		this.id = id;
 	}
 
-	public Chamado(Date data, String observacao, String descricao,
-			TipoStatus status, TipoPrioridade prioridade, Usuario usuario,
-			Usuario prestador, Especialidade especialidade) {
+	public Chamado(Date data, String descricao,	TipoStatus status, Usuario usuario,	Usuario prestador, Especialidade especialidade) {
 		this.data = data;
-		this.observacao = observacao;
 		this.descricao = descricao;
 		this.status = status;
-		this.prioridade = prioridade;
 		this.usuario = usuario;
 		this.prestador = prestador;
 		this.especialidade = especialidade;
@@ -113,14 +101,6 @@ public class Chamado implements Serializable {
 
 	public void setData(Date data) {
 		this.data = data;
-	}
-
-	public String getObservacao() {
-		return observacao;
-	}
-
-	public void setObservacao(String observacao) {
-		this.observacao = observacao;
 	}
 
 	public String getDescricao() {
@@ -145,14 +125,6 @@ public class Chamado implements Serializable {
 
 	public void setEspecialidade(Especialidade especialidade) {
 		this.especialidade = especialidade;
-	}
-
-	public TipoPrioridade getPrioridade() {
-		return prioridade;
-	}
-
-	public void setPrioridade(TipoPrioridade prioridade) {
-		this.prioridade = prioridade;
 	}
 
 	public Usuario getUsuario() {

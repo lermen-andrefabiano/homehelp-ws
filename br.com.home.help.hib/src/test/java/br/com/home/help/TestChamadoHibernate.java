@@ -12,7 +12,6 @@ import br.com.home.help.core.entidades.Chamado;
 import br.com.home.help.core.entidades.ChamadoHistorico;
 import br.com.home.help.core.entidades.Especialidade;
 import br.com.home.help.core.entidades.Usuario;
-import br.com.home.help.core.enuns.TipoPrioridade;
 import br.com.home.help.core.enuns.TipoStatus;
 import br.com.home.help.test.spring.AbstractSpringTest;
 
@@ -28,7 +27,7 @@ public class TestChamadoHibernate extends AbstractSpringTest {
 
 	@Test
 	public void salvar() {
-		Chamado c = new Chamado(new Date(), "urgente", "chuveiro estragou", TipoStatus.A, TipoPrioridade.N, new Usuario(3L), new Usuario(1L), new Especialidade(1L));
+		Chamado c = new Chamado(new Date(), "chuveiro estragou", TipoStatus.A, new Usuario(3L), new Usuario(1L), new Especialidade(1L));
 
 		List<ChamadoHistorico> historicos = new ArrayList<ChamadoHistorico>();
 		historicos.add(new ChamadoHistorico(c.getData(), c.getStatus(), c));

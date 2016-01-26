@@ -8,7 +8,6 @@ import org.junit.Test;
 
 import br.com.home.help.core.entidades.Chamado;
 import br.com.home.help.core.enuns.TipoNota;
-import br.com.home.help.core.enuns.TipoPrioridade;
 import br.com.home.help.test.spring.AbstractSpringTest;
 
 public class TestChamadoService extends AbstractSpringTest {
@@ -26,12 +25,12 @@ public class TestChamadoService extends AbstractSpringTest {
 
 	@Test
 	public void abrir() {
-		this.chamadoService.abrir("troca de torneira", "troca de torneira", TipoPrioridade.M, usuarioId, presatdorId, especialidaded);
+		this.chamadoService.abrir("troca de torneira", usuarioId, presatdorId, especialidaded);
 	}
 
 	@Test
 	public void alterar() {
-		this.chamadoService.alterar(chamadoId, null, null);
+		this.chamadoService.alterar(chamadoId, null);
 	}	
 
 	@Test

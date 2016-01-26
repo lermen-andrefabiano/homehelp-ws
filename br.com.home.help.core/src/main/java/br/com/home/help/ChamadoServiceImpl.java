@@ -16,7 +16,6 @@ import br.com.home.help.core.entidades.Especialidade;
 import br.com.home.help.core.entidades.Usuario;
 import br.com.home.help.core.enuns.TipoAgenda;
 import br.com.home.help.core.enuns.TipoNota;
-import br.com.home.help.core.enuns.TipoPrioridade;
 import br.com.home.help.core.enuns.TipoStatus;
 
 /**
@@ -43,20 +42,12 @@ public class ChamadoServiceImpl implements ChamadoService {
 	private EspecialidadeRepository especialidadeRep;
 
 	@Override
-	public void abrir(String observacao, String descricao,
-			TipoPrioridade prioridade, Long usuarioId, Long prestadorId,
-			Long especialidadeId) {
-
+	public void abrir(String descricao, Long usuarioId, Long prestadorId, Long especialidadeId) {
 		Usuario usuario = usuarioRep.obterPorId(usuarioId);
-
 		Usuario usuarioPestador = usuarioRep.obterPorId(prestadorId);
+		Especialidade especialidade = especialidadeRep.obterPorId(especialidadeId);
 
-		Especialidade especialidade = especialidadeRep
-				.obterPorId(especialidadeId);
-
-		Chamado c = new Chamado(new Date(), observacao, descricao,
-				TipoStatus.A, prioridade, usuario, usuarioPestador,
-				especialidade);
+		Chamado c = new Chamado(new Date(), descricao, TipoStatus.A, usuario, usuarioPestador, especialidade);
 
 		List<ChamadoHistorico> historicos = new ArrayList<ChamadoHistorico>();
 
@@ -67,16 +58,12 @@ public class ChamadoServiceImpl implements ChamadoService {
 	}
 
 	@Override
-	public void alterar(Long chamadoId, String observacao, String descricao) {
+	public void alterar(Long chamadoId, String descricao) {
 		Chamado c = this.chamadoRep.obterPorId(chamadoId);
 
 		if (descricao != null) {
 			c.setDescricao(descricao);
-		}
-
-		if (observacao != null) {
-			c.setObservacao(observacao);
-		}
+		}		
 
 		c.getHistoricos().add(
 				new ChamadoHistorico(new Date(), c.getStatus(), c));
@@ -88,8 +75,7 @@ public class ChamadoServiceImpl implements ChamadoService {
 	private void agendar(Long chamadoId, Date agendamento, String observacao) {
 		Chamado c = this.chamadoRep.obterPorId(chamadoId);
 		c.setStatus(TipoStatus.E);
-		c.getHistoricos().add(
-				new ChamadoHistorico(new Date(), c.getStatus(), c));
+		c.getHistoricos().add(new ChamadoHistorico(new Date(), c.getStatus(), c));
 
 		this.chamadoRep.salvar(c);
 
