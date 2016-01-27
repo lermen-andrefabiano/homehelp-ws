@@ -21,8 +21,9 @@ App.Modulos.Servicos = {
 			self.render(result);
 		}).fail(function(xhr, type){	
 			console.log(xhr, type);
-			bootbox.alert('Sistema indisponível.\nPor favor, tente novamente mais tarde.')	
-			$('#btnBuscar').button('reset');
+			bootbox.alert('Sistema indisponível.\nPor favor, tente novamente mais tarde.', function(){
+				$('#btnBuscar').button('reset');
+			});			
 		}).always(function() {
 			console.log('always');
 		});		

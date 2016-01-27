@@ -5,9 +5,8 @@ $(document).ready(function(){
 App.Modulos.Login = {
 	init : function() {
 		$('#btnLogin').on('click', function(){
-			console.log('click login');
-			location.href='home.html';
-			//App.Modulos.Login.login();
+			$(this).button('loading');				
+			App.Modulos.Login.login();
 		});
 		$('#btnPrimeiroAcesso').on('click', function(){
 			App.Modulos.Login.primeiroAcesso();
@@ -17,8 +16,8 @@ App.Modulos.Login = {
 		console.log('login');
 		
 		var login = {
-				login : $('#txtLogin').val(),
-				senha : $('#txtSenha').val()
+			login : $('#txtLogin').val(),
+			senha : $('#txtSenha').val()
 		};		
 
 		$.ajax({
@@ -28,9 +27,9 @@ App.Modulos.Login = {
 		}).done(function(result) {
 			self.render(result);
 		}).fail(function(xhr, type) {
-			if (type === 'abort') {
-				console.log('request aborted');
-			}
+			bootbox.alert('Sistema indisponível.\nPor favor, tente novamente mais tarde.', function(){
+				$('#btnLogin').button('reset');
+			});				
 		}).always(function() {
 		});
 		
@@ -43,8 +42,9 @@ App.Modulos.Login = {
 		if(App.Modulos.Login.Logou.LoginDTO.id!=null){
 			location.href='home.html';
 		}else{
-			alert('Login inválido!');
-		}			
+			bootbox.alert('Login inválido!\nPor favor, tente novamente.');			
+		}		
+		$('#btnLogin').button('reset');
 	},
 	primeiroAcesso : function(){
 		console.log('primeiroAcesso');

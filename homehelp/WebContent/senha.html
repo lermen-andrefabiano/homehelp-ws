@@ -13,6 +13,9 @@
 	<!-- Bootstrap -->
 	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css"/>	
 	<script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+	
+	<!-- Bootbox.min -->
+	<script type="text/javascript" src="js/lib/bootbox.min.js"></script>
 </head>
 <body>
 
@@ -30,9 +33,9 @@
 			<form>
 				<div class="form-group">
 					<label>Nova Senha:</label> 
-					<input type="password" class="form-control" maxlength="4" placeholder="Senha">
+					<input id="txtNovaSenha" type="password" class="form-control" maxlength="4" placeholder="Senha">
 				</div>					
-				<button type="button" id="txtPrimeiroAcesso" class="btn btn-primary btn-lg btn-block">Troca de Senha</button>
+				<button type="button" id="btnPrimeiroAcesso" class="btn btn-primary btn-lg btn-block" data-loading-text="Alterando Senha...">Alterar Senha</button>
 			</form>
 		</div>	
 	</div>
