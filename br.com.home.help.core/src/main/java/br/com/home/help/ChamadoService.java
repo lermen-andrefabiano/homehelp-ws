@@ -27,10 +27,12 @@ public interface ChamadoService {
 
 	void alterar(Long chamadoId, String descricao);
 
-	void notificar(Long chamadoId, String agendamento, String observacao);
+	void agendar(Long chamadoId, String agendamento, String observacao);
 
 	List<Chamado> listarPorUsuario(Long usuarioId);
 
 	List<Chamado> listarChamadosAbertos(Long usuarioId);
+
+	void rejeitar(Long chamadoId);
 
 }

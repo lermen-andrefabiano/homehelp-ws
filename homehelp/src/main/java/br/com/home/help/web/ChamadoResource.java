@@ -79,7 +79,13 @@ public class ChamadoResource extends AbstractResource {
 	@POST
 	@Path("agendar") // agendar
 	public void agendar(@QueryParam("chamadoId") Long chamadoId, InformacaoNotificarDTO info) {
-		this.chamadoService.notificar(chamadoId, info.getAgendamento(),info.getObservacao());
+		this.chamadoService.agendar(chamadoId, info.getAgendamento(),info.getObservacao());
+	}
+	
+	@POST
+	@Path("rejeitar") // rejeitar
+	public void rejeitar(@QueryParam("chamadoId") Long chamadoId) {
+		this.chamadoService.rejeitar(chamadoId);
 	}
 
 	@POST

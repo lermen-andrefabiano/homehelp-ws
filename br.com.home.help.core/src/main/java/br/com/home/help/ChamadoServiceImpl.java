@@ -84,17 +84,16 @@ public class ChamadoServiceImpl implements ChamadoService {
 		this.agendaRep.persist(a);
 	}
 
-	private void rejeitar(Long chamadoId) {
+	@Override
+	public void rejeitar(Long chamadoId) {
 		Chamado c = this.chamadoRep.obterPorId(chamadoId);
 		c.setStatus(TipoStatus.R);
-		c.getHistoricos().add(
-				new ChamadoHistorico(new Date(), c.getStatus(), c));
-
+		c.getHistoricos().add(new ChamadoHistorico(new Date(), c.getStatus(), c));
 		this.chamadoRep.salvar(c);
 	}
 	
 	@Override
-	public void notificar(Long chamadoId, String agendamento, String observacao) {		
+	public void agendar(Long chamadoId, String agendamento, String observacao) {		
 		if(agendamento!=null && !agendamento.isEmpty()){			
 			String[] agenda = agendamento.split("_");
 			
@@ -106,8 +105,6 @@ public class ChamadoServiceImpl implements ChamadoService {
 			calendar.set(Calendar.MINUTE, Integer.valueOf(agenda[4]));
 			
 			this.agendar(chamadoId, calendar.getTime(), observacao);
-		}else{
-			this.rejeitar(chamadoId);
 		}
 	}
 
