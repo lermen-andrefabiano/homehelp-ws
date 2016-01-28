@@ -3,7 +3,7 @@ $(document).ready(function(){
 });
 
 App.Modulos.Login = {
-	init : function() {
+	init : function() {		
 		$('#btnLogin').on('click', function(){
 			$(this).button('loading');				
 			App.Modulos.Login.login();
@@ -13,9 +13,9 @@ App.Modulos.Login = {
 		});
 	},
 	login : function(){
-		console.log('login');
+		var self = this;
 		
-		var login = {
+		var data = {
 			login : $('#txtLogin').val(),
 			senha : $('#txtSenha').val()
 		};		
@@ -23,10 +23,13 @@ App.Modulos.Login = {
 		$.ajax({
 			type : 'POST',
 			url : $.ajaxSetup().urlBase + 'usuario/login',
-			data : login,
-		}).done(function(result) {
-			self.render(result);
+//			contentType: "application/json; charset=utf-8",
+//			dataType: 'json',
+			data : JSON.stringify(data),
+		}).done(function(login) {
+			self.render(login);
 		}).fail(function(xhr, type) {
+			console.log(xhr, type);
 			bootbox.alert('Sistema indisponível.\nPor favor, tente novamente mais tarde.', function(){
 				$('#btnLogin').button('reset');
 			});				
@@ -34,12 +37,11 @@ App.Modulos.Login = {
 		});
 		
 	},
-	render : function(result) {
-		App.Modulos.Login.Logou = {};
+	render : function(login) {
+		console.log('login', login);
 		
-		$.extend(App.Modulos.Login.Logou, result);		
-		
-		if(App.Modulos.Login.Logou.LoginDTO.id!=null){
+		if(login.email!=null && login.email!=''){
+			localStorage.setItem('login', JSON.stringify(login));
 			location.href='home.html';
 		}else{
 			bootbox.alert('Login inválido!\nPor favor, tente novamente.');			
@@ -50,4 +52,4 @@ App.Modulos.Login = {
 		console.log('primeiroAcesso');
 		location.href='primeiroAcesso.html';
 	}
-} || App.Modulos.Login;
+};

@@ -11,8 +11,9 @@ App.Modulos.PrimeiroAcesso = {
 	},
 	cadastrar : function(){
 		console.log('cadastrar');
+		var self = this;
 		
-		var login = {
+		var data = {
 			nome : $('#txtNome').val(),
 			login : $('#txtLogin').val(),
 			email : $('#txtEmail').val(),
@@ -24,9 +25,9 @@ App.Modulos.PrimeiroAcesso = {
 		$.ajax({
 			type : 'POST',
 			url : $.ajaxSetup().urlBase + 'usuario/criar',
-			data : login,
-		}).done(function(result) {
-			self.home(result);
+			data : JSON.stringify(data),
+		}).done(function(login) {
+			self.home(login);
 		}).fail(function(xhr, type) {
 			bootbox.alert('Não foi possível realizar o cadastro.\nPor favor, tente novamente mais tarde.', function(){
 				$('#btnCadastrar').button('reset');
@@ -34,9 +35,15 @@ App.Modulos.PrimeiroAcesso = {
 		}).always(function() {
 		});		
 	},	
-	home : function(result){
+	home : function(login){
+		console.log('home', login);
+		
+		if(login.email!=null && login.email!=''){
+			localStorage.setItem('login', JSON.stringify(login));
+			location.href='home.html';
+		}else{
+			bootbox.alert('Não foi possível realizar o cadastro.\nPor favor, tente novamente.');			
+		}				
 		$('#btnCadastrar').button('reset');
-		console.log('home', result);
-		location.href='home.html';
 	}
-} || App.Modulos.PrimeiroAcesso;
+};

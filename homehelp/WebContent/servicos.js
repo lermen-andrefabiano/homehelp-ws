@@ -52,9 +52,9 @@ App.Modulos.Servicos = {
 	populaModal : function($a) {			
 		var id = $($a).data('id');	
 	
-		for (r in App.Modulos.Servicos.especialidades.especialidades) {
-			if(App.Modulos.Servicos.especialidades.especialidades[r].id == id){
-				App.Modulos.Servicos.ServicoSel = App.Modulos.Servicos.especialidades.especialidades[r];
+		for (r in App.Modulos.Servicos.especialidades) {
+			if(App.Modulos.Servicos.especialidades[r].id == id){
+				App.Modulos.Servicos.ServicoSel = App.Modulos.Servicos.especialidades[r];
 				break;
 			}
 		}
@@ -80,29 +80,31 @@ App.Modulos.Servicos = {
 		console.log('abrir chamado');
 		var self = this;	
 		
-		var usuarioId = App.Modulos.Login.Logou.LoginDTO.id;
-		var prestadorId = App.Modulos.Servicos.ServicoSel.usuario.id;
-		var especialidadeId = App.Modulos.Servicos.ServicoSel.especialidade.id;
-		var prioridade = 'ALTA';
+		var login = JSON.parse(localStorage.getItem('login'));
 		
-		var info = {
-			'observacao' : $('#txtObservacao').val(),
+		var usuarioId = login.id;
+		var prestadorId = App.Modulos.Servicos.ServicoSel.usuario.id;
+		var especialidadeId = App.Modulos.Servicos.ServicoSel.especialidade.id;		
+		
+		var info = {	
 			'descricao' : $('#txtDescricao').val()
 		};
 		
 		 $.ajax({
 			type : 'POST',
-			url : $.ajaxSetup().urlBase + 'chamado/abrir?usuarioId='+usuarioId+'&'+prestadorId+'&'+especialidadeId+'&'+prioridade,
-			data : info	
+			url : $.ajaxSetup().urlBase + 'chamado/abrir?usuarioId='+usuarioId+'&prestadorId='+prestadorId+'&especialidadeId='+especialidadeId,
+			data : JSON.stringify(info)	
 		}).done(function(result){
-			bootbox.alert('Sucesso ao abrir chamado.\nAguarde contato.')
-			$('#btnAbrir').button('reset');
+			bootbox.alert('Sucesso ao abrir chamado.\nAguarde contato.', function(){
+				$('#btnAbrir').button('reset');
+			})		
 		}).fail(function(xhr, type){
-			bootbox.alert('Sistema indisponível.\nPor favor, tente novamente mais tarde.')
-			$('#btnAbrir').button('reset');
+			bootbox.alert('Sistema indisponível.\nPor favor, tente novamente mais tarde.', function(){
+				$('#btnAbrir').button('reset');
+			})			
 		}).always(function() {
 			console.log('always');
 		});
 		
 	},
-} || App.Modulos.Servicos;
+};

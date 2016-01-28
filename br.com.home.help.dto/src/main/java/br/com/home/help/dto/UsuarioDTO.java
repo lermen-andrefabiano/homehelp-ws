@@ -19,7 +19,7 @@ public class UsuarioDTO {
 
 	private Boolean prestaServico;
 
-	private List<UsuarioEspecialidadeDTO> especialidades;
+	//private List<UsuarioEspecialidadeDTO> especialidades;
 
 	public Long getId() {
 		return id;
@@ -69,11 +69,11 @@ public class UsuarioDTO {
 		this.prestaServico = prestaServico;
 	}
 
-	public List<UsuarioEspecialidadeDTO> getEspecialidades() {
-		return especialidades;
-	}
-
-	public void setEspecialidades(List<UsuarioEspecialidadeDTO> especialidades) {
-		this.especialidades = especialidades;
-	}
+//	public List<UsuarioEspecialidadeDTO> getEspecialidades() {
+//		return especialidades;
+//	}
+//
+//	public void setEspecialidades(List<UsuarioEspecialidadeDTO> especialidades) {
+//		this.especialidades = especialidades;
+//	}
 }

@@ -27,6 +27,7 @@ public class TestUsuarioHibernate extends AbstractSpringTest {
 		Usuario p = new Usuario();
 		p.setNome("pedro da silva");
 		p.setEmail("lermen.andre@bol.com.br");
+		p.setEndereco("av brasil");
 		p.setLogin("lermen");
 		p.setSenha("123456");
 		p.setPrestaServico(Boolean.TRUE);
@@ -50,6 +51,7 @@ public class TestUsuarioHibernate extends AbstractSpringTest {
 		Usuario c = new Usuario();
 		c.setNome("andre fabiano lermen");
 		c.setEmail("lermen.andre@bol.com.br");
+		c.setEndereco("av brasil");
 		c.setLogin("pedro");
 		c.setSenha("123456");
 		c.setPrestaServico(Boolean.FALSE);

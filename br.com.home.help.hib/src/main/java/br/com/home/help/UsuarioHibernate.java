@@ -13,9 +13,14 @@ class UsuarioHibernate extends AbstractCrudHibernate<Usuario, Long> implements U
 
 	@Override
 	public Usuario obterPorLogin(String login) {
-		Criteria c = getHibernateTemplate().getSessionFactory().getCurrentSession().createCriteria(Usuario.class);
-		c.add(Restrictions.eq("login", login));
-		return (Usuario) c.uniqueResult();
+		try {
+			Criteria c = getHibernateTemplate().getSessionFactory().getCurrentSession().createCriteria(Usuario.class);
+			c.add(Restrictions.eq("login", login));
+			return (Usuario) c.uniqueResult();
+		} catch (Exception e) {
+			throw e;
+		}
+		
 	}
 
 }
