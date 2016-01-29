@@ -13,6 +13,11 @@
 	<!-- Bootstrap -->
 	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css"/>	
 	<script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+	
+	<link rel="stylesheet" type="text/css" href="css/star.css"/>	
+	
+	<!-- Bootbox.min -->
+	<script type="text/javascript" src="js/lib/bootbox.min.js"></script>	
 </head>
 <body>
 
@@ -26,32 +31,68 @@
 			<div class="page-header">				
 				<h2><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> Classificações</h2>						
 			</div>
-			<h4>Confira abaixo as Classificações recebidas.</h4>
+			<p class="text-primary">Confira abaixo as Classificações recebidas.</p>
 			
-			<div class="list-group">
-			
-			  <a href="#" class="list-group-item">
-			    <h4 class="list-group-item-heading">Ana Maria Lermen</h4>
-			    <p class="list-group-item-text">20/10/2015 - 14:00</p>
-			    <p class="list-group-item-text">Corte de grama</p>
-			  </a>
-			  
-			   <a href="#" class="list-group-item">
-			    <h4 class="list-group-item-heading">Ana Maria Lermen</h4>
-			    <p class="list-group-item-text">20/10/2015 - 14:00</p>
-			    <p class="list-group-item-text">Corte de grama</p>
-			  </a>
-			  
-			   <a href="#" class="list-group-item">
-			    <h4 class="list-group-item-heading">Ana Maria Lermen</h4>
-			    <p class="list-group-item-text">20/10/2015 - 14:00</p>
-			    <p class="list-group-item-text">Corte de grama</p>
-			  </a>  
-			 			  
-			</div>
+			<div class="list-group"></div>
 			
 		</div>	
 	</div>	
+	
+	<div id="modalClassificacao" class="modal fade" tabindex="-1" role="dialog">
+	  <div class="modal-dialog">
+	    <div class="modal-content">	      
+	    </div>
+	  </div>
+	</div>
+	
+	<script id="classificacoes-template" type="text/x-handlebars-template">
+		{{#each this}}
+		  <a href="#" class="list-group-item" data-toggle="modal" data-target="#modalClassificacao" data-id="{{chamadoId}}">
+	      	<h4 class="list-group-item-heading">{{prestador}}</h4>
+		    <p class="list-group-item-text">{{especialidade}}</p>
+		    <p class="list-group-item-text">{{descricao}}</p>			   
+		  </a>
+		{{/each}}
+	</script>
+	
+	<script id="modal-classificacao-template" type="text/x-handlebars-template">
+	 	<div class="modal-header">
+	       <button type="button" class="close" data-dismiss="modal" aria-label="Fechar"><span aria-hidden="true">&times;</span></button>
+	       <h4 class="modal-title">{{prestador}}</h4>
+	     </div>
+	     <div class="modal-body">
+	     	<p>{{especialidade}}</p>
+	        <p>{{descricao}}</p>
+	        <form>	
+				<div class="form-group">
+					<label>Qual nota você avalia?</labeL> 
+					 <div>
+					    <span class="star-cb-group">
+						  <input type="radio" id="rating-10" name="rating" value="10" /><label for="rating-10">10</label>
+					      <input type="radio" id="rating-9" name="rating" value="9" /><label for="rating-9">9</label>
+					      <input type="radio" id="rating-8" name="rating" value="8" checked="checked"/><label for="rating-8">8</label>
+					      <input type="radio" id="rating-7" name="rating" value="7" /><label for="rating-7">7</label>
+					      <input type="radio" id="rating-6" name="rating" value="6" /><label for="rating-6">6</label>
+					      <input type="radio" id="rating-5" name="rating" value="5" /><label for="rating-5">5</label>
+					    </span>	
+					  </div> 					
+				</div>
+				<div class="form-group">
+					<label>Nota:</labeL> 
+					<label id="lbNota" class="nota"></label>
+				</div>				
+				<div class="form-group">
+					<label>Recomendação:</labeL> 
+					<textarea id="txtRecomendacao" type="text" class="form-control" placeholder="Recomendação"></textarea>
+				</div>				
+			</form>
+	     </div>
+	     <div class="modal-footer">
+	        <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+	        <button id="btnClassificar" type="button" class="btn btn-primary" data-loading-text="Realizando Classificação...">Recomendação...</button>			
+	     </div>
+	</script>	
+	
 
 </body>
 </html>

@@ -80,10 +80,7 @@ App.Modulos.Notificacao = {
 	agendar : function() {		
 		console.log('agendar chamado');
 		var self = this;	
-		
-		var login = JSON.parse(localStorage.getItem('login'));
-		
-		var usuarioId = login.id;
+
 		var chamadoId = App.Modulos.Notificacao.NotificacaoSel.id;			
 		
 		var info = {	
@@ -93,7 +90,7 @@ App.Modulos.Notificacao = {
 		
 		 $.ajax({
 			type : 'POST',
-			url : $.ajaxSetup().urlBase + 'chamado/agendar?chamadoId='+usuarioId,
+			url : $.ajaxSetup().urlBase + 'chamado/agendar?chamadoId='+chamadoId,
 			data : JSON.stringify(info)	
 		}).done(function(result){
 			bootbox.alert('Sucesso ao agendar chamado.\nAguarde contato.', function(){

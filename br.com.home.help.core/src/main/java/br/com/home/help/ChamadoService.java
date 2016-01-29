@@ -23,7 +23,7 @@ public interface ChamadoService {
 
 	void abrir(String descricao, Long usuarioId, Long prestadorId, Long especialidadeId);
 
-	void classificar(TipoNota nota, String recomendacao, Long chamadoId);
+	void classificar(int nota, String recomendacao, Long chamadoId);
 
 	void alterar(Long chamadoId, String descricao);
 

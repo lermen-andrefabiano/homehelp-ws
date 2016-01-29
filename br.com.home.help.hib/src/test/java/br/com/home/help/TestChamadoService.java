@@ -7,7 +7,6 @@ import javax.inject.Inject;
 import org.junit.Test;
 
 import br.com.home.help.core.entidades.Chamado;
-import br.com.home.help.core.enuns.TipoNota;
 import br.com.home.help.test.spring.AbstractSpringTest;
 
 public class TestChamadoService extends AbstractSpringTest {
@@ -35,7 +34,7 @@ public class TestChamadoService extends AbstractSpringTest {
 
 	@Test
 	public void classificar() {
-		this.chamadoService.classificar(TipoNota.DEZ, "recomendo", chamadoId);
+		this.chamadoService.classificar(10, "recomendo", chamadoId);
 	}
 
 	@Test

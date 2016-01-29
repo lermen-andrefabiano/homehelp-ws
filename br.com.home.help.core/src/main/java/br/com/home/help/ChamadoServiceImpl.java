@@ -109,7 +109,7 @@ public class ChamadoServiceImpl implements ChamadoService {
 	}
 
 	@Override
-	public void classificar(TipoNota nota, String recomendacao, Long chamadoId) {		
+	public void classificar(int nota, String recomendacao, Long chamadoId) {		
 		Chamado chamado = chamadoRep.obterPorId(chamadoId);
 
 		Classificacao c = new Classificacao(nota, recomendacao, chamado.getUsuario(), chamado.getPrestador(), chamado);

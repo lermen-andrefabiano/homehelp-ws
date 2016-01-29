@@ -1,17 +1,27 @@
 package br.com.home.help.core.enuns;
 
-public enum TipoNota { 
+public enum TipoNota {
 
-    CINCO,
+	CINCO(5),
 
-    SEIS,
+	SEIS(6),
 
-    SETE,
+	SETE(7),
 
-    OITO,
+	OITO(8),
 
-    NOVE,
+	NOVE(9),
 
-    DEZ;
+	DEZ(10);
+
+	private int value;
+
+	TipoNota(int value) {
+		this.value = value;
+	}
+
+	public int getValue() {
+		return value;
+	}
 
 }

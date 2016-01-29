@@ -32,9 +32,8 @@ public class Classificacao implements Serializable {
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq")
 	private Long id;
 
-	@Enumerated(EnumType.STRING)
-	@Column(nullable = false, length = 10)
-	private TipoNota nota;
+	@Column(nullable = false)
+	private int nota;
 	
 	@Column(nullable = false, length = 2000)
 	private String recomendacao;
@@ -53,7 +52,7 @@ public class Classificacao implements Serializable {
 	public Classificacao() {
 	}
 
-	public Classificacao(TipoNota nota, String recomendacao, Usuario usuario,
+	public Classificacao(int nota, String recomendacao, Usuario usuario,
 			Usuario prestador, Chamado chamado) {
 		this.nota = nota;
 		this.recomendacao = recomendacao;
@@ -70,11 +69,11 @@ public class Classificacao implements Serializable {
 		this.id = id;
 	}
 
-	public TipoNota getNota() {
+	public int getNota() {
 		return nota;
 	}
 
-	public void setNota(TipoNota nota) {
+	public void setNota(int nota) {
 		this.nota = nota;
 	}
 

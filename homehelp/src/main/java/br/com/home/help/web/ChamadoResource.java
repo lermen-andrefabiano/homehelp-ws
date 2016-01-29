@@ -44,14 +44,14 @@ public class ChamadoResource extends AbstractResource {
 	}
 
 	@POST
-	@Path("abrir") // abrir um chamdo
+	@Path("abrir") // abrir chamdo
 	public void abrir(@QueryParam("usuarioId") Long usuarioId, @QueryParam("prestadorId") Long prestadorId,
 			@QueryParam("especialidadeId") Long especialidadeId, InformacaoAbrirDTO info) {
 		this.chamadoService.abrir(info.getDescricao(), usuarioId, prestadorId, especialidadeId);
 	}
 
 	@GET
-	@Path("notificacoes") // tela de notificação
+	@Path("notificacoes") // tela de notificacao
 	public List<ChamadoDTO> notificacoes(@QueryParam("usuarioId") Long usuarioId) {
 		List<Chamado> lst = this.chamadoService.listarChamadosAbertos(usuarioId);		
 		List<ChamadoDTO> retorno = super.mapList(lst, ChamadoDTO.class);
@@ -59,7 +59,7 @@ public class ChamadoResource extends AbstractResource {
 	}
 
 	@GET
-	@Path("classificacoes") // tela de classificação
+	@Path("classificacoes") // tela de classificacao
 	public List<ClassificacaoDTO> classificacoes(@QueryParam("usuarioId") Long usuarioId) {
 		List<Chamado> lst = this.chamadoService.listarPorUsuario(usuarioId);
 		List<ClassificacaoDTO> retorno = super.mapList(lst, ClassificacaoDTO.class);
@@ -89,9 +89,9 @@ public class ChamadoResource extends AbstractResource {
 	}
 
 	@POST
-	@Path("classificar") // classificação
-	public void classificar(@QueryParam("nota") String nota, @QueryParam("chamadoId") Long chamadoId, InformacaoClassificarDTO info) {
-		this.chamadoService.classificar(TipoNota.valueOf(nota),	info.getRecomendacao(), chamadoId);
+	@Path("classificar") // classificar
+	public void classificar(@QueryParam("chamadoId") Long chamadoId, InformacaoClassificarDTO info) {
+		this.chamadoService.classificar(info.getNota(), info.getRecomendacao(), chamadoId);
 	}
 
 }
