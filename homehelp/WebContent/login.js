@@ -11,6 +11,14 @@ App.Modulos.Login = {
 		$('#btnPrimeiroAcesso').on('click', function(){
 			App.Modulos.Login.primeiroAcesso();
 		});
+		App.Modulos.Login.autoLogin();
+	},
+	autoLogin : function(){
+		var login = JSON.parse(localStorage.getItem('login'));	
+		if(login!=null){
+			console.log('auto login ativo...')
+			location.href='home.html';
+		}
 	},
 	login : function(){
 		var self = this;
