@@ -1,0 +1,77 @@
+<html lang="pt-BR">
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Busca de Serviços</title>
+	
+	<!-- js / Scritps -->
+	<script type="text/javascript" src="js/lib/handlebars.js"></script>
+	<script type="text/javascript" src="js/lib/jquery-1.11.3.min.js"></script>
+	<script type="text/javascript" src="fwk.js"></script>
+	<script type="text/javascript" src="especialidade.js"></script>
+	
+	<!-- Bootstrap -->
+	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css"/>	
+	<script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+	
+	<!-- Bootbox.min -->
+	<script type="text/javascript" src="js/lib/bootbox.min.js"></script>
+</head>
+<body> 
+	<div class="container">	
+		<div>
+			<div class="pull-right">
+				<a class="btn btn-link pull-right" href="perfil.html">
+					<span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+				</a>
+			</div>
+			<div class="page-header">
+				<h2><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span> Especialidades</h2>
+			</div>				
+			<div class="page-header">
+				<p class="text-primary">Confira abaixo suas especialidades cadastradas..</p>
+			</div>			
+			<div class="list-group"></div>			
+		</div>	
+	</div>	
+	
+	<div id="modalServico" class="modal fade" tabindex="-1" role="dialog">
+	  <div class="modal-dialog">
+	    <div class="modal-content">	      
+	    </div>
+	  </div>
+	</div>
+	
+	<script id="servicos-template" type="text/x-handlebars-template">
+		{{#each this}}
+		  <a href="#" class="list-group-item " data-toggle="modal" data-target="#modalServico" data-id="{{id}}">
+	      	<h4 class="list-group-item-heading">{{especialidade.descricao}}</h4>
+		    <p class="list-group-item-text">{{usuario.nome}}</p>
+		    <p class="list-group-item-text">{{valorCobrado}}</p>			   
+		  </a>
+		{{/each}}
+	</script>
+	
+	<script id="modal-servicos-template" type="text/x-handlebars-template">
+	 	<div class="modal-header">
+	       <button type="button" class="close" data-dismiss="modal" aria-label="Fechar"><span aria-hidden="true">&times;</span></button>
+	       <h4 class="modal-title">{{title}}</h4>
+	     </div>
+	     <div class="modal-body">
+	     	<p>{{usuario}}</p>
+	        <p>{{valorCobrado}}</p>
+	        <form>			
+				<div class="form-group">
+					<label>Descrição:</labeL> 
+					<textarea id="txtDescricao" type="text" class="form-control" placeholder="Descrição"></textarea>
+				</div>				
+			</form>
+	     </div>
+	     <div class="modal-footer">
+	       <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+	       <button id="btnAbrir" type="button" class="btn btn-primary" data-loading-text="Carregando...">Entrar em Contato...</button>
+	     </div>
+	</script>	
+
+</body>
+</html>
