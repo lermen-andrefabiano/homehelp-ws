@@ -75,6 +75,10 @@ App.Modulos.Notificacao = {
 				$(this).button('loading');	
 				App.Modulos.Notificacao.rejeitar();
 			});		
+			
+			$('#dateTimeAgenda').datetimepicker({
+				format: "DD/MM/YYYY HH:mm"
+			});
 		}
 	},
 	agendar : function() {		
@@ -85,7 +89,7 @@ App.Modulos.Notificacao = {
 		
 		var info = {	
 			'observacao' : $('#txtDescricao').val(),
-			'agendamento' : self.getAgenda()
+			'agendamento' : $('#dateTimeAgenda').data("DateTimePicker").date()._d
 		};
 		
 		 $.ajax({
@@ -105,16 +109,7 @@ App.Modulos.Notificacao = {
 			console.log('always');
 		});
 		
-	},
-	getAgenda : function(){		
-		var dia = $('#txtDia').val().split('-')		
-		var hora = $('#txtHora').val().replace(':', '_');
-		
-		var diaHora = dia[2]+'_'+dia[1]+'_'+dia[0]+'_'+hora;
-		
-		console.log('diaHora', diaHora);
-		return diaHora;
-	},
+	},	
 	rejeitar : function() {		
 		console.log('rejeitar chamado');
 		var self = this;		

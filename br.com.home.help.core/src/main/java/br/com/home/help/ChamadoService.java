@@ -1,9 +1,9 @@
 package br.com.home.help;
 
+import java.util.Date;
 import java.util.List;
 
 import br.com.home.help.core.entidades.Chamado;
-import br.com.home.help.core.enuns.TipoNota;
 
 /**
  * 
@@ -27,7 +27,7 @@ public interface ChamadoService {
 
 	void alterar(Long chamadoId, String descricao);
 
-	void agendar(Long chamadoId, String agendamento, String observacao);
+	void agendar(Long chamadoId, Date agendamento, String observacao);
 
 	List<Chamado> listarPorUsuario(Long usuarioId);
 

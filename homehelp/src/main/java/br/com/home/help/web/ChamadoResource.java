@@ -19,7 +19,6 @@ import br.com.home.help.AgendaService;
 import br.com.home.help.ChamadoService;
 import br.com.home.help.core.entidades.Agenda;
 import br.com.home.help.core.entidades.Chamado;
-import br.com.home.help.core.enuns.TipoNota;
 import br.com.home.help.dto.ChamadoDTO;
 import br.com.home.help.dto.ClassificacaoDTO;
 import br.com.home.help.dto.InformacaoAbrirDTO;
@@ -79,7 +78,7 @@ public class ChamadoResource extends AbstractResource {
 	@POST
 	@Path("agendar") // agendar
 	public void agendar(@QueryParam("chamadoId") Long chamadoId, InformacaoNotificarDTO info) {
-		this.chamadoService.agendar(chamadoId, info.getAgendamento(),info.getObservacao());
+		this.chamadoService.agendar(chamadoId, info.getAgendamento(), info.getObservacao());
 	}
 	
 	@POST

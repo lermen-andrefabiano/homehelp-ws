@@ -7,8 +7,12 @@
 	<!-- js / Scritps -->
 	<script type="text/javascript" src="js/lib/handlebars.js"></script>
 	<script type="text/javascript" src="js/lib/jquery-1.11.3.min.js"></script>	
+	<script type="text/javascript" src="js/lib/moment-locales.js"></script>
+	<script type="text/javascript" src="js/lib/bootstrap-datetimepicker.js"></script>
 	<script type="text/javascript" src="fwk.js"></script>
 	<script type="text/javascript" src="notificacoes.js"></script>
+	
+	<link rel="stylesheet" type="text/css" href="css/bootstrap-datetimepicker.min.css"/>	
 
 	<!-- Bootstrap -->
 	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css"/>	
@@ -16,6 +20,8 @@
 	
 	<!-- Bootbox.min -->
 	<script type="text/javascript" src="js/lib/bootbox.min.js"></script>
+	
+	
 </head>
 <body>
 	
@@ -27,7 +33,7 @@
 				</a>
 			</div>
 			<div class="page-header">
-				<h2><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span> Notificações</h2>
+				<h3><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span> Notificações</h3>
 			</div>
 			<p class="text-primary">Confira abaixo as notificações recebidas.</p>
 						
@@ -63,13 +69,17 @@
 	        <p>{{endereco}}</p>
 	        <form>	
 				<div class="form-group">
-					<label>Qual melhor dia para agendar?</labeL> 
-					<input id="txtDia" type="date"></input>
-					<input id="txtHora" type="time"></input>
+					<label>Qual melhor dia para agendar?</labeL>					
+ 					<div class='input-group date' id='dateTimeAgenda'>
+                    	<input type='text' class="form-control" />
+                    	<span class="input-group-addon">
+                        	<span class="glyphicon glyphicon-calendar"></span>
+                    	</span>
+                	</div>
 				</div>
 				<div class="form-group">
-					<label>Descrição:</labeL> 
-					<textarea id="txtDescricao" type="text" class="form-control" placeholder="Descrição"></textarea>
+					<label>Observação:</labeL> 
+					<textarea id="txtDescricao" type="text" class="form-control" placeholder="Observação"></textarea>
 				</div>				
 			</form>
 	     </div>

@@ -1,7 +1,6 @@
 package br.com.home.help;
 
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -15,7 +14,6 @@ import br.com.home.help.core.entidades.Classificacao;
 import br.com.home.help.core.entidades.Especialidade;
 import br.com.home.help.core.entidades.Usuario;
 import br.com.home.help.core.enuns.TipoAgenda;
-import br.com.home.help.core.enuns.TipoNota;
 import br.com.home.help.core.enuns.TipoStatus;
 
 /**
@@ -72,7 +70,8 @@ public class ChamadoServiceImpl implements ChamadoService {
 
 	}
 
-	private void agendar(Long chamadoId, Date agendamento, String observacao) {
+	@Override
+	public void agendar(Long chamadoId, Date agendamento, String observacao) {
 		Chamado c = this.chamadoRep.obterPorId(chamadoId);
 		c.setStatus(TipoStatus.E);
 		c.getHistoricos().add(new ChamadoHistorico(new Date(), c.getStatus(), c));
@@ -92,21 +91,21 @@ public class ChamadoServiceImpl implements ChamadoService {
 		this.chamadoRep.salvar(c);
 	}
 	
-	@Override
-	public void agendar(Long chamadoId, String agendamento, String observacao) {		
-		if(agendamento!=null && !agendamento.isEmpty()){			
-			String[] agenda = agendamento.split("_");
-			
-			Calendar calendar = Calendar.getInstance();
-			calendar.set(Calendar.DAY_OF_MONTH, Integer.valueOf(agenda[0]));
-			calendar.set(Calendar.MONTH, Integer.valueOf(agenda[1]+1));
-			calendar.set(Calendar.YEAR, Integer.valueOf(agenda[2]));
-			calendar.set(Calendar.HOUR_OF_DAY, Integer.valueOf(agenda[3]));
-			calendar.set(Calendar.MINUTE, Integer.valueOf(agenda[4]));
-			
-			this.agendar(chamadoId, calendar.getTime(), observacao);
-		}
-	}
+//	@Override
+//	public void agendar(Long chamadoId, Date agendamento, String observacao) {		
+//		if(agendamento!=null && !agendamento.isEmpty()){			
+//			String[] agenda = agendamento.split("_");
+//			
+//			Calendar calendar = Calendar.getInstance();
+//			calendar.set(Calendar.DAY_OF_MONTH, Integer.valueOf(agenda[0]));
+//			calendar.set(Calendar.MONTH, Integer.valueOf(agenda[1]+1));
+//			calendar.set(Calendar.YEAR, Integer.valueOf(agenda[2]));
+//			calendar.set(Calendar.HOUR_OF_DAY, Integer.valueOf(agenda[3]));
+//			calendar.set(Calendar.MINUTE, Integer.valueOf(agenda[4]));
+//			
+//			this.agendar(chamadoId, calendar.getTime(), observacao);
+//		}
+//	}
 
 	@Override
 	public void classificar(int nota, String recomendacao, Long chamadoId) {		
