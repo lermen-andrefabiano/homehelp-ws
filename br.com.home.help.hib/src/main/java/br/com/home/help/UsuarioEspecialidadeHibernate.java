@@ -24,7 +24,8 @@ class UsuarioEspecialidadeHibernate extends
 					.getSessionFactory().getCurrentSession()
 					.createCriteria(UsuarioEspecialidade.class)
 					.createAlias("especialidade", "e")
-					.createAlias("usuario", "u").setMaxResults(MAX_RESULTS_LST)
+					.createAlias("usuario", "u")
+					.setMaxResults(MAX_RESULTS_LST)
 					.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY)
 					.add(Restrictions.ilike("e.descricao", "%" + str + "%"))
 					.list();
@@ -56,6 +57,7 @@ class UsuarioEspecialidadeHibernate extends
 					.getSessionFactory().getCurrentSession()
 					.createCriteria(Especialidade.class)				
 					.add(Restrictions.ilike("descricao", "%" + especialidade + "%"))
+					.setMaxResults(MAX_RESULTS_LST)		
 					.list();
 			return lst;
 		} catch (Exception e) {
