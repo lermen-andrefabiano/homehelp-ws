@@ -1,11 +1,13 @@
 package br.com.home.help;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
 import javax.inject.Named;
 
 import br.com.home.help.core.entidades.Especialidade;
+import br.com.home.help.core.entidades.Usuario;
 import br.com.home.help.core.entidades.UsuarioEspecialidade;
 
 /**
@@ -19,6 +21,12 @@ public class UsuarioEspecialidadeServiceImpl implements
 
 	@Inject
 	private UsuarioEspecialidadeRepository usuarioEspecialidadeRep;
+	
+	@Inject
+	private UsuarioService usuarioService;
+	
+	@Inject
+	private EspecialidadeService especialidadeService;
 
 	@Override
 	public List<UsuarioEspecialidade> getUsuarioEspecialidades(String str) {
@@ -40,6 +48,22 @@ public class UsuarioEspecialidadeServiceImpl implements
 	public List<Especialidade> getEspecialidades(String especialidade) {
 		List<Especialidade> lst = this.usuarioEspecialidadeRep.getEspecialidades(especialidade);
 		return lst;		
+	}
+
+	@Override
+	public void incluir(Long usuarioId, Long especialidadeId, Long valorCobrado) {
+		Usuario u = this.usuarioService.obterPorId(usuarioId);
+		if(u!=null){
+			if(u.getEspecialidades()==null){				
+				u.setEspecialidades(new ArrayList<UsuarioEspecialidade>());
+			}
+			
+			Especialidade e = this.especialidadeService.obterPorId(especialidadeId); 
+			
+			u.getEspecialidades().add(new UsuarioEspecialidade(valorCobrado, e, u));
+			
+			this.usuarioService.salvar(u);
+		}
 	}
 
 }

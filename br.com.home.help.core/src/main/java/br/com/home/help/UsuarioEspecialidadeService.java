@@ -15,4 +15,6 @@ public interface UsuarioEspecialidadeService {
 
 	List<Especialidade> getEspecialidades(String especialidade);
 
+	void incluir(Long usuarioId, Long especialidadeId, Long valorCobrado);
+
 }

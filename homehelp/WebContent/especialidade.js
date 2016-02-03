@@ -52,8 +52,10 @@ App.Modulos.Especialidade = {
 		 $.ajax({
 			type : 'GET',			
 			url : $.ajaxSetup().urlBase + 'especialidade/excluir?usuarioEspecialidadeId='+id	
-		}).done(function(result){
-			//App.Modulos.Especialidade.listar();
+		}).done(function(result){			
+			bootbox.alert('Especialidade excluída.', function(){
+				App.Modulos.Especialidade.listar();
+			});		
 		}).fail(function(xhr, type){			
 			bootbox.alert('Sistema indisponível.\nPor favor, tente novamente mais tarde.');			
 		}).always(function() {

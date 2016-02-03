@@ -82,4 +82,9 @@ public class UsuarioServiceImpl implements UsuarioService {
 		this.usuarioRep.salvar(u);		
 	}
 
+	@Override
+	public Usuario salvar(Usuario obj) {		
+		return this.usuarioRep.salvar(obj);
+	}
+
 }

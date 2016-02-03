@@ -34,6 +34,7 @@ public interface UsuarioService {
 	Usuario obterPorId(Long id);
 	
 	void trocarSenha(Long usuarioId, String senha);
-    
+	
+	Usuario salvar(Usuario obj);    
 
 }

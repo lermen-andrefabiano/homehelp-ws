@@ -6,6 +6,8 @@ import javax.inject.Inject;
 import javax.inject.Named;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
+import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
@@ -69,6 +71,14 @@ public class EspecialidadeResource extends AbstractResource {
 	@Path("excluir")
 	public Response excluir(@QueryParam("usuarioEspecialidadeId") Long usuarioEspecialidadeId) {		
 		this.usuarioEspecialidadeService.excluir(usuarioEspecialidadeId);
+		return Response.ok(true).build();
+	}
+	
+	@POST
+	@Path("incluir")
+	public Response incluir(@QueryParam("usuarioId") Long usuarioId, @QueryParam("especialidadeId") Long especialidadeId, 
+			@QueryParam("valorCobrado") Long valorCobrado) {		
+		this.usuarioEspecialidadeService.incluir(usuarioId, especialidadeId, valorCobrado);
 		return Response.ok(true).build();
 	}
 
