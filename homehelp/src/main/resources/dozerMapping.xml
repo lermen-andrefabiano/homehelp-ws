@@ -83,5 +83,18 @@
 			<b>prestador</b>
 		</field>		
 	</mapping>
+	
+	<mapping>
+		<class-a>br.com.home.help.core.entidades.Especialidade</class-a>
+		<class-b>br.com.home.help.dto.EspecialidadeDTO</class-b>
+		<field>
+			<a>id</a>
+			<b>id</b>
+		</field>		
+		<field>
+			<a>descricao</a>
+			<b>descricao</b>
+		</field>				
+	</mapping>
 
 </mappings> 

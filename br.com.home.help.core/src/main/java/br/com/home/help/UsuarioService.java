@@ -32,6 +32,8 @@ public interface UsuarioService {
     void addEspecialidade(Long valorCobrado, Long especialidadeId, Long usuarioId);
 
 	Usuario obterPorId(Long id);
+	
+	void trocarSenha(Long usuarioId, String senha);
     
 
 }

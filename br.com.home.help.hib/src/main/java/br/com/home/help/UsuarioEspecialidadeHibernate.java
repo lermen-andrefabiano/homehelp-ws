@@ -7,6 +7,7 @@ import javax.inject.Named;
 import org.hibernate.Criteria;
 import org.hibernate.criterion.Restrictions;
 
+import br.com.home.help.core.entidades.Especialidade;
 import br.com.home.help.core.entidades.UsuarioEspecialidade;
 import br.com.home.help.crud.AbstractCrudHibernate;
 
@@ -16,7 +17,7 @@ class UsuarioEspecialidadeHibernate extends
 		UsuarioEspecialidadeRepository {
 
 	@Override
-	public List<UsuarioEspecialidade> listar(String str) {
+	public List<UsuarioEspecialidade> getUsuarioEspecialidades(String str) {
 		try {
 			@SuppressWarnings("unchecked")
 			List<UsuarioEspecialidade> lst = getHibernateTemplate()
@@ -35,7 +36,7 @@ class UsuarioEspecialidadeHibernate extends
 	}
 
 	@Override
-	public List<UsuarioEspecialidade> listarPorPrestador(Long prestadorId) {
+	public List<UsuarioEspecialidade> getEspecialidaPrestador(Long prestadorId) {
 		@SuppressWarnings("unchecked")
 		List<UsuarioEspecialidade> lst = getHibernateTemplate()
 				.getSessionFactory().getCurrentSession()
@@ -45,6 +46,21 @@ class UsuarioEspecialidadeHibernate extends
 				.setMaxResults(MAX_RESULTS_LST)							
 				.list();
 		return lst;
+	}
+
+	@Override
+	public List<Especialidade> getEspecialidades(String especialidade) {
+		try {
+			@SuppressWarnings("unchecked")
+			List<Especialidade> lst = getHibernateTemplate()
+					.getSessionFactory().getCurrentSession()
+					.createCriteria(Especialidade.class)				
+					.add(Restrictions.ilike("descricao", "%" + especialidade + "%"))
+					.list();
+			return lst;
+		} catch (Exception e) {
+			throw e;
+		}
 	}
 
 }

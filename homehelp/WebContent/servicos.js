@@ -16,7 +16,7 @@ App.Modulos.Servicos = {
 		
 		 $.ajax({
 			type : 'GET',			
-			url : $.ajaxSetup().urlBase + 'especialidade/get?especialidade='+pesquisa	
+			url : $.ajaxSetup().urlBase + 'especialidade/getUsuarioEspecialidades?especialidade='+pesquisa	
 		}).done(function(result){
 			self.render(result);
 		}).fail(function(xhr, type){	

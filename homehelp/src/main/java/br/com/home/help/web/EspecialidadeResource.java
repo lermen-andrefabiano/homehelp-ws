@@ -16,7 +16,9 @@ import javax.ws.rs.core.Response.ResponseBuilder;
 import org.dozer.Mapper;
 
 import br.com.home.help.UsuarioEspecialidadeService;
+import br.com.home.help.core.entidades.Especialidade;
 import br.com.home.help.core.entidades.UsuarioEspecialidade;
+import br.com.home.help.dto.EspecialidadeDTO;
 import br.com.home.help.dto.UsuarioEspecialidadeDTO;
 
 @Named
@@ -32,13 +34,11 @@ public class EspecialidadeResource extends AbstractResource {
 	public EspecialidadeResource(Mapper mapper) {
 		super.mapper = mapper;
 	}
-
-	//http://localhost:8080/homehelp/rest/especialidade?especialidade=a
-	//http://www.portalandroid.org/comunidade/viewtopic.php?f=7&t=17465
+	
 	@GET	
-	@Path("get")
-	public List<UsuarioEspecialidadeDTO> especialidades(@QueryParam("especialidade") String especialidade) {		
-		List<UsuarioEspecialidade> lst = usuarioEspecialidadeService.listar(especialidade);		
+	@Path("getUsuarioEspecialidades")
+	public List<UsuarioEspecialidadeDTO> getUsuarioEspecialidades(@QueryParam("especialidade") String especialidade) {		
+		List<UsuarioEspecialidade> lst = usuarioEspecialidadeService.getUsuarioEspecialidades(especialidade);		
 
 		List<UsuarioEspecialidadeDTO> retorno = super.mapList(lst, UsuarioEspecialidadeDTO.class);
 
@@ -46,11 +46,21 @@ public class EspecialidadeResource extends AbstractResource {
 	}
 	
 	@GET
-	@Path("listarPorPrestador")
-	public List<UsuarioEspecialidadeDTO> listarPorPrestador(@QueryParam("prestadorId") Long prestadorId) {		
-		List<UsuarioEspecialidade> lst = usuarioEspecialidadeService.listarPorPrestador(prestadorId);	
+	@Path("getEspecialidaPrestador")
+	public List<UsuarioEspecialidadeDTO> getEspecialidaPrestador(@QueryParam("prestadorId") Long prestadorId) {		
+		List<UsuarioEspecialidade> lst = usuarioEspecialidadeService.getEspecialidaPrestador(prestadorId);	
 
 		List<UsuarioEspecialidadeDTO> retorno = super.mapList(lst, UsuarioEspecialidadeDTO.class);
+
+		return retorno;
+	}
+	
+	@GET	
+	@Path("getEspecialidades")
+	public List<EspecialidadeDTO> getEspecialidades(@QueryParam("especialidade") String especialidade) {		
+		List<Especialidade> lst = usuarioEspecialidadeService.getEspecialidades(especialidade);		
+
+		List<EspecialidadeDTO> retorno = super.mapList(lst, EspecialidadeDTO.class);
 
 		return retorno;
 	}

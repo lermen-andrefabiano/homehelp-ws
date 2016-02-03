@@ -4,35 +4,36 @@ $(document).ready(function(){
 
 App.Modulos.Senha = {
 	init : function() {
-		$('#btnPrimeiroAcesso').on('click', function(){
+		$('#btnTrocaSenha').on('click', function(){
 			$(this).button('loading');				
 			App.Modulos.Senha.trocarSenha();
 		});		
 	},
 	trocarSenha : function(){
-		console.log('login');
+		console.log('trocarSenha');
 		
-		var login = {
-			senha : $('#txtNovaSenha').val()
-		};		
-
+		var self = this;
+		var login = JSON.parse(localStorage.getItem('login'));		
+		var usuarioId = login.id;
+		
 		$.ajax({
 			type : 'POST',
-			url : $.ajaxSetup().urlBase + 'usuario/senha',
-			data : login,
-		}).done(function(result) {
-			self.home(result);
+			url : $.ajaxSetup().urlBase + 'usuario/senha?usuarioId='+usuarioId,
+			data : $('#txtNovaSenha').val(),
+		}).done(function() {
+			bootbox.alert('Senha alterada com sucesso.', function(){
+				self.perfil();
+			});			
 		}).fail(function(xhr, type) {
 			bootbox.alert('Sistema indisponível.\nPor favor, tente novamente mais tarde.', function(){
-				$('#btnPrimeiroAcesso').button('reset');
+				$('#btnTrocaSenha').button('reset');
 			});				
 		}).always(function() {
 		});
 		
 	},
-	home : function(result){
-		$('#btnPrimeiroAcesso').button('reset');
-		console.log('home', result);
-		location.href='home.html';
+	perfil : function(){
+		$('#btnTrocaSenha').button('reset');		
+		location.href='perfil.html';
 	}
 } || App.Modulos.Senha;

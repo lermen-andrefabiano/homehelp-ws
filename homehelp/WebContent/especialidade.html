@@ -33,44 +33,14 @@
 			</div>			
 			<div class="list-group"></div>			
 		</div>	
-	</div>	
-	
-	<div id="modalServico" class="modal fade" tabindex="-1" role="dialog">
-	  <div class="modal-dialog">
-	    <div class="modal-content">	      
-	    </div>
-	  </div>
 	</div>
 	
-	<script id="servicos-template" type="text/x-handlebars-template">
+	<script id="especialidades-template" type="text/x-handlebars-template">
 		{{#each this}}
-		  <a href="#" class="list-group-item " data-toggle="modal" data-target="#modalServico" data-id="{{id}}">
-	      	<h4 class="list-group-item-heading">{{especialidade.descricao}}</h4>
-		    <p class="list-group-item-text">{{usuario.nome}}</p>
-		    <p class="list-group-item-text">{{valorCobrado}}</p>			   
+		  <a href="#" class="list-group-item" data-id="{{especialidade.id}}">
+	      	<h4 class="list-group-item-heading">{{especialidade.descricao}}</h4>		   			   
 		  </a>
 		{{/each}}
-	</script>
-	
-	<script id="modal-servicos-template" type="text/x-handlebars-template">
-	 	<div class="modal-header">
-	       <button type="button" class="close" data-dismiss="modal" aria-label="Fechar"><span aria-hidden="true">&times;</span></button>
-	       <h4 class="modal-title">{{title}}</h4>
-	     </div>
-	     <div class="modal-body">
-	     	<p>{{usuario}}</p>
-	        <p>{{valorCobrado}}</p>
-	        <form>			
-				<div class="form-group">
-					<label>Descrição:</labeL> 
-					<textarea id="txtDescricao" type="text" class="form-control" placeholder="Descrição"></textarea>
-				</div>				
-			</form>
-	     </div>
-	     <div class="modal-footer">
-	       <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
-	       <button id="btnAbrir" type="button" class="btn btn-primary" data-loading-text="Carregando...">Entrar em Contato...</button>
-	     </div>
 	</script>	
 
 </body>

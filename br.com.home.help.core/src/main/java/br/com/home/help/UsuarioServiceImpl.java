@@ -74,4 +74,12 @@ public class UsuarioServiceImpl implements UsuarioService {
 						usuarioId)));
 	}
 
+	@Override
+	public void trocarSenha(Long usuarioId, String senha) {
+		Usuario u = this.obterPorId(usuarioId);
+		u.setSenha(senha);
+		
+		this.usuarioRep.salvar(u);		
+	}
+
 }

@@ -2,6 +2,7 @@ package br.com.home.help;
 
 import java.util.List;
 
+import br.com.home.help.core.entidades.Especialidade;
 import br.com.home.help.core.entidades.UsuarioEspecialidade;
 
 interface UsuarioEspecialidadeRepository {
@@ -14,8 +15,10 @@ interface UsuarioEspecialidadeRepository {
 
     void excluir(UsuarioEspecialidade obj);
     
-    List<UsuarioEspecialidade> listar(String str);
+    List<UsuarioEspecialidade> getUsuarioEspecialidades(String str);
 
-	List<UsuarioEspecialidade> listarPorPrestador(Long prestadorId);
+	List<UsuarioEspecialidade> getEspecialidaPrestador(Long prestadorId);
+	
+	List<Especialidade> getEspecialidades(String especialidade);
 
 }
