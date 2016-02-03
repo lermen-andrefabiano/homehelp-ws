@@ -26,10 +26,10 @@ public class TestUsuarioHibernate extends AbstractSpringTest {
 	public void salvarPrestador() {
 		Usuario p = new Usuario();
 		p.setNome("pedro da silva");
-		p.setEmail("lermen.andre@bol.com.br");
+		p.setEmail("pedro@bol.com.br");
 		p.setEndereco("av brasil");
-		p.setLogin("lermen");
-		p.setSenha("123456");
+		p.setLogin("pedro");
+		p.setSenha("1234");
 		p.setPrestaServico(Boolean.TRUE);
 
 		List<UsuarioEspecialidade> especialidades = new ArrayList<UsuarioEspecialidade>();
@@ -52,8 +52,8 @@ public class TestUsuarioHibernate extends AbstractSpringTest {
 		c.setNome("andre fabiano lermen");
 		c.setEmail("lermen.andre@bol.com.br");
 		c.setEndereco("av brasil");
-		c.setLogin("pedro");
-		c.setSenha("123456");
+		c.setLogin("lermen");
+		c.setSenha("1234");
 		c.setPrestaServico(Boolean.FALSE);
 
 		this.usuarioRep.persist(c);
