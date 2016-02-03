@@ -69,10 +69,7 @@ public class EspecialidadeResource extends AbstractResource {
 	@Path("excluir")
 	public Response excluir(@QueryParam("usuarioEspecialidadeId") Long usuarioEspecialidadeId) {		
 		this.usuarioEspecialidadeService.excluir(usuarioEspecialidadeId);
-		
-		ResponseBuilder response = Response.ok();
-
-		return response.build();
+		return Response.ok(true).build();
 	}
 
 }

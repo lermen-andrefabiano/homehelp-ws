@@ -37,8 +37,8 @@
 	
 	<script id="especialidades-template" type="text/x-handlebars-template">
 		{{#each this}}
-		  <a href="#" class="list-group-item" data-id="{{especialidade.id}}">
-	      	<h4 class="list-group-item-heading">{{especialidade.descricao}}</h4>		   			   
+		  <a href="#" class="list-group-item" data-loading-text="Realizando Agendamento..." data-id="{{id}}">		
+	      	<h4 class="list-group-item-heading"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span>	{{especialidade.descricao}}</h4>		   			   
 		  </a>
 		{{/each}}
 	</script>	

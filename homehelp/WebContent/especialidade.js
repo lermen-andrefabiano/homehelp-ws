@@ -28,6 +28,8 @@ App.Modulos.Especialidade = {
 	render : function(result) {		
 		console.log('especialidades', result);
 		
+		var self = this;
+		
 		if(result!=undefined){			
 			var template = Handlebars.compile($("#especialidades-template").html());
 			
@@ -35,11 +37,27 @@ App.Modulos.Especialidade = {
 			
 			$('.list-group a').each(function(index){
 				$(this).on('click', function(){
-					console.log('.list-group a', this);					
+					console.log('.list-group a', this);		
+					var id = $(this).data('id');
+					self.excluir(id);			
 				});					
 			});				
 		}else{
 			bootbox.alert('Não foram encontradas especialidades.\nPor favor, refaça sua pesquisa.');
 		}		
-	}	
+	},	
+	excluir : function(id) {
+		var self = this;	
+		
+		 $.ajax({
+			type : 'GET',			
+			url : $.ajaxSetup().urlBase + 'especialidade/excluir?usuarioEspecialidadeId='+id	
+		}).done(function(result){
+			//App.Modulos.Especialidade.listar();
+		}).fail(function(xhr, type){			
+			bootbox.alert('Sistema indisponível.\nPor favor, tente novamente mais tarde.');			
+		}).always(function() {
+			console.log('always');
+		});				
+	}
 };

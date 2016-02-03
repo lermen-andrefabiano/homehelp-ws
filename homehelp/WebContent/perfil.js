@@ -15,6 +15,10 @@ App.Modulos.Perfil = {
 	getPerfil : function(){		
 		var login = JSON.parse(localStorage.getItem('login'));		
 		$('#lbPerfil').text(login.nome);
+		
+		if(login.prestaServico == false){
+			$('#linkEspecialidade').hide();
+		}		
 	},
 	sair : function(){
 		console.log('sair...');
