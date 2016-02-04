@@ -35,6 +35,8 @@ public interface UsuarioService {
 	
 	void trocarSenha(Long usuarioId, String senha);
 	
-	Usuario salvar(Usuario obj);    
+	Usuario salvar(Usuario obj);
+
+	boolean esqueceuSenha(String email);
 
 }

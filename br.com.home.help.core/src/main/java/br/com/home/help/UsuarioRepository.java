@@ -14,4 +14,6 @@ interface UsuarioRepository {
 
 	void excluir(Usuario obj);
 
+	Usuario obterPorEmail(String email);
+
 }

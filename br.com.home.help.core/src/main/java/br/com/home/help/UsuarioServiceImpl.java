@@ -85,6 +85,23 @@ public class UsuarioServiceImpl implements UsuarioService {
 	@Override
 	public Usuario salvar(Usuario obj) {		
 		return this.usuarioRep.salvar(obj);
+	}	
+	
+	@Override
+	public boolean esqueceuSenha(String email) {
+		
+		if(isEmail(email)){
+			
+		}
+		
+		return Boolean.FALSE;
+		
 	}
+	
+	private boolean isEmail(String email) {
+		Usuario u = this.usuarioRep.obterPorEmail(email);		
+		return u!=null;
+	}
+
 
 }

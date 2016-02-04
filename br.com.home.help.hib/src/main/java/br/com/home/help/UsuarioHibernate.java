@@ -22,5 +22,17 @@ class UsuarioHibernate extends AbstractCrudHibernate<Usuario, Long> implements U
 		}
 		
 	}
+	
+	@Override
+	public Usuario obterPorEmail(String email) {
+		try {
+			Criteria c = getHibernateTemplate().getSessionFactory().getCurrentSession().createCriteria(Usuario.class);
+			c.add(Restrictions.eq("email", email));
+			return (Usuario) c.uniqueResult();
+		} catch (Exception e) {
+			throw e;
+		}
+		
+	}
 
 }

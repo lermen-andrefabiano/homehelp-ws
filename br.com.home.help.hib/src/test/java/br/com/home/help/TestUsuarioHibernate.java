@@ -83,4 +83,14 @@ public class TestUsuarioHibernate extends AbstractSpringTest {
 		}
 
 	}
+	
+	@Test
+	public void obterPorEmail() {
+		Usuario u = this.usuarioRep.obterPorEmail("home@home.com.br");
+
+		if (isResult(u, "obterPorEmail")) {
+			log.debug(u.getNome());
+		}
+
+	}
 }
